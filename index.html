@@ -276,6 +276,53 @@ ol.mistakes li b{color:var(--rose-700)}
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
   智能出题
 </button>
+<div id="quizModal" class="quiz-modal">
+  <div class="quiz-panel">
+    <div class="quiz-header">
+      <div><h3>智能出题</h3><div class="sub">输入知识点关键词，自动匹配相关考题 · 内置题库 · 答案解析可展开</div></div>
+      <button id="quizClose" aria-label="关闭">×</button>
+    </div>
+    <div class="quiz-controls">
+      <input id="quizInput" type="text" placeholder="输入知识点，如：光合作用 / 基因分离定律 / 生长素 / 伴性遗传…">
+      <select id="quizType">
+        <option value="all">全部题型</option>
+        <option value="选择题">选择题</option>
+        <option value="填空题">填空题</option>
+        <option value="简答题">简答题</option>
+        <option value="计算题">计算题</option>
+        <option value="实验题">实验题</option>
+      </select>
+      <select id="quizCount">
+        <option value="5">5 题</option>
+        <option value="10" selected>10 题</option>
+        <option value="20">20 题</option>
+      </select>
+      <button id="quizGen">出题</button>
+      <button id="quizShuffle">换一批</button>
+    </div>
+    <div id="quizResults" class="quiz-body">
+      <div class="quiz-empty">
+        在上方输入知识点关键词，点击「出题」即可生成相关考题。<br>
+        <div class="suggest">热门知识点：
+          <span data-kw="光合作用">光合作用</span>
+          <span data-kw="细胞呼吸">细胞呼吸</span>
+          <span data-kw="分离定律">分离定律</span>
+          <span data-kw="自由组合">自由组合</span>
+          <span data-kw="减数分裂">减数分裂</span>
+          <span data-kw="伴性遗传">伴性遗传</span>
+          <span data-kw="基因突变">基因突变</span>
+          <span data-kw="神经调节">神经调节</span>
+          <span data-kw="血糖调节">血糖调节</span>
+          <span data-kw="免疫">免疫</span>
+          <span data-kw="生长素">生长素</span>
+          <span data-kw="种群">种群</span>
+          <span data-kw="生态系统">生态系统</span>
+          <span data-kw="基因工程">基因工程</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <header class="top">
   <button id="menuBtn" aria-label="目录"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
@@ -2303,52 +2350,5 @@ var QUIZ_BANK = [
   sync();
 })();
 </script>
-<div id="quizModal" class="quiz-modal">
-  <div class="quiz-panel">
-    <div class="quiz-header">
-      <div><h3>智能出题</h3><div class="sub">输入知识点关键词，自动匹配相关考题 · 内置题库 · 答案解析可展开</div></div>
-      <button id="quizClose" aria-label="关闭">×</button>
-    </div>
-    <div class="quiz-controls">
-      <input id="quizInput" type="text" placeholder="输入知识点，如：光合作用 / 基因分离定律 / 生长素 / 伴性遗传…">
-      <select id="quizType">
-        <option value="all">全部题型</option>
-        <option value="选择题">选择题</option>
-        <option value="填空题">填空题</option>
-        <option value="简答题">简答题</option>
-        <option value="计算题">计算题</option>
-        <option value="实验题">实验题</option>
-      </select>
-      <select id="quizCount">
-        <option value="5">5 题</option>
-        <option value="10" selected>10 题</option>
-        <option value="20">20 题</option>
-      </select>
-      <button id="quizGen">出题</button>
-      <button id="quizShuffle">换一批</button>
-    </div>
-    <div id="quizResults" class="quiz-body">
-      <div class="quiz-empty">
-        在上方输入知识点关键词，点击「出题」即可生成相关考题。<br>
-        <div class="suggest">热门知识点：
-          <span data-kw="光合作用">光合作用</span>
-          <span data-kw="细胞呼吸">细胞呼吸</span>
-          <span data-kw="分离定律">分离定律</span>
-          <span data-kw="自由组合">自由组合</span>
-          <span data-kw="减数分裂">减数分裂</span>
-          <span data-kw="伴性遗传">伴性遗传</span>
-          <span data-kw="基因突变">基因突变</span>
-          <span data-kw="神经调节">神经调节</span>
-          <span data-kw="血糖调节">血糖调节</span>
-          <span data-kw="免疫">免疫</span>
-          <span data-kw="生长素">生长素</span>
-          <span data-kw="种群">种群</span>
-          <span data-kw="生态系统">生态系统</span>
-          <span data-kw="基因工程">基因工程</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
