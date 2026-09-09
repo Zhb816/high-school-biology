@@ -45,6 +45,8 @@ header.top .logo small{display:block;font-size:11px;font-weight:500;color:var(--
 #searchWrap input:focus{border-color:var(--green-500);background:#fff;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
 #searchWrap .icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--slate-400)}
 #searchCount{font-size:12px;color:var(--slate-500);white-space:nowrap}
+.visit-count{font-size:12.5px;color:var(--slate-500);white-space:nowrap;display:flex;align-items:center;gap:5px}
+.visit-count b{color:var(--green-700);font-weight:700;min-width:14px;text-align:center}
 #menuBtn{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--slate-700)}
 /* ===== 布局 ===== */
 .wrap{display:flex;align-items:flex-start;max-width:1440px;margin:0 auto}
@@ -240,6 +242,10 @@ ol.mistakes li b{color:var(--rose-700)}
     <input id="searchInput" type="text" placeholder="搜索知识点，如：光合作用 / 基因频率 / 生长素…">
   </div>
   <div id="searchCount"></div>
+  <div class="visit-count" title="本站访问统计（不蒜子）">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    总访问 <b id="busuanzi_value_site_pv">…</b> · 访客 <b id="busuanzi_value_site_uv">…</b>
+  </div>
 </header>
 
 <div class="wrap">
@@ -1956,6 +1962,7 @@ ol.mistakes li b{color:var(--rose-700)}
   <p style="font-weight:700;color:var(--green-900);font-size:13.5px">© 2026 赵海斌 版权所有 · 保留所有权利</p>
   <p style="margin-top:4px">本作品采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">知识共享 署名-非商业性使用 4.0 国际许可协议（CC BY-NC 4.0）</a>进行许可</p>
   <p style="margin-top:4px;color:var(--rose-700);font-weight:700">禁止任何形式的商业用途 · 转载、改编请注明作者"赵海斌"及出处</p>
+  <p style="margin-top:6px;font-size:12.5px">本站总访问量 <b id="footerPv" style="color:var(--green-700)">…</b> 次 · 独立访客 <b id="footerUv" style="color:var(--green-700)">…</b> 人（统计由不蒜子提供）</p>
   <p style="margin-top:6px;font-size:12px">高中生物三年知识大全 · 依据新课标人教版教材整理 · 仅供学习复习使用</p>
   <p style="margin-top:2px;font-size:12px">建议：先通读框架，再逐章精读，考前对照"易错易混100条"自查</p>
 </footer>
@@ -2048,5 +2055,28 @@ ol.mistakes li b{color:var(--rose-700)}
 
 </main>
 </div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+(function(){
+  var pv=document.getElementById('busuanzi_value_site_pv');
+  var uv=document.getElementById('busuanzi_value_site_uv');
+  var fpv=document.getElementById('footerPv');
+  var fuv=document.getElementById('footerUv');
+  function sync(){
+    if(!pv) return;
+    var v=(pv.textContent||'').trim(), u=(uv.textContent||'').trim();
+    if(v && v!=='…'){ if(fpv) fpv.textContent=v; if(fuv) fuv.textContent=u||v; }
+  }
+  var n=0;
+  var t=setInterval(function(){
+    sync(); n++;
+    if(n>=15){
+      clearInterval(t);
+      if((!pv.textContent || pv.textContent.trim()==='…') && fpv){ fpv.textContent='—'; fuv.textContent='—'; }
+    }
+  },1000);
+  sync();
+})();
+</script>
 </body>
 </html>
