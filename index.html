@@ -265,6 +265,39 @@ ol.mistakes li b{color:var(--rose-700)}
 .q-card .q-answer.show{display:block}
 .q-card .q-answer b{color:var(--green-900)}
 .q-card .q-answer .explain{color:var(--slate-600);margin-top:4px;font-size:12.5px}
+/* ===== 交互答题样式 ===== */
+.quiz-scorebar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:linear-gradient(135deg,var(--green-50),var(--green-100));border-radius:10px;margin-bottom:14px;font-size:13px;flex-wrap:wrap}
+.quiz-scorebar .score-num{font-size:20px;font-weight:900;color:var(--green-800)}
+.quiz-scorebar .score-label{color:var(--slate-500)}
+.quiz-scorebar .btn-submit{margin-left:auto;background:var(--green-700);color:#fff;border:none;border-radius:8px;padding:7px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.quiz-scorebar .btn-submit:hover{background:var(--green-600)}
+.quiz-scorebar .btn-reset{background:#fff;color:var(--slate-600);border:1.5px solid var(--border);border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+.quiz-scorebar .btn-reset:hover{background:var(--slate-50)}
+.q-card{transition:border-color .2s,box-shadow .2s}
+.q-card.correct{border-color:#22c55e;background:#f0fdf4}
+.q-card.wrong{border-color:#ef4444;background:#fef2f2}
+.q-card.unanswered{border-color:#f59e0b;background:#fffbeb}
+.q-card .q-result-icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:13px;font-weight:900;margin-left:6px}
+.q-card.correct .q-result-icon{background:#22c55e;color:#fff}
+.q-card.wrong .q-result-icon{background:#ef4444;color:#fff}
+.q-card.unanswered .q-result-icon{background:#f59e0b;color:#fff}
+.q-opts.interactive li{cursor:pointer;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;margin-bottom:6px;transition:all .15s;font-size:13.5px;user-select:none}
+.q-opts.interactive li:hover{border-color:var(--green-400);background:var(--green-50)}
+.q-opts.interactive li.selected{border-color:var(--green-600);background:var(--green-100);font-weight:700}
+.q-opts.interactive li.opt-correct{border-color:#22c55e;background:#dcfce7;font-weight:700}
+.q-opts.interactive li.opt-wrong{border-color:#ef4444;background:#fee2e2}
+.q-opts.interactive li.disabled{cursor:default;pointer-events:none}
+.q-fill-input{display:inline-block;width:120px;min-width:80px;border:none;border-bottom:2px solid var(--green-400);background:transparent;font-size:14px;font-family:inherit;padding:2px 6px;text-align:center;color:var(--slate-900);outline:none;margin:0 2px}
+.q-fill-input:focus{border-bottom-color:var(--green-600);background:var(--green-50)}
+.q-fill-input.fill-correct{border-bottom-color:#22c55e;color:#15803d;font-weight:700}
+.q-fill-input.fill-wrong{border-bottom-color:#ef4444;color:#b91c1c;background:#fef2f2}
+.q-textarea{width:100%;min-height:60px;border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13.5px;font-family:inherit;resize:vertical;margin-top:6px;outline:none}
+.q-textarea:focus{border-color:var(--green-500)}
+.q-card .q-selfcheck{margin-top:8px;font-size:12px;color:var(--slate-400);font-style:italic}
+.quiz-final{text-align:center;padding:20px;background:linear-gradient(135deg,var(--green-50),#fff);border-radius:12px;margin-bottom:14px}
+.quiz-final .final-score{font-size:36px;font-weight:900;color:var(--green-800)}
+.quiz-final .final-label{font-size:14px;color:var(--slate-500);margin-top:4px}
+.quiz-final .final-detail{font-size:13px;color:var(--slate-600);margin-top:8px}
 @media (max-width:860px){#quizBtn{left:14px;bottom:80px;padding:8px 14px;font-size:13px}.quiz-controls{flex-direction:column}.quiz-controls input{min-width:0;width:100%}}
 </style>
 </head>
@@ -12181,7 +12214,7 @@ var QUIZ_BANK = [
 {q:"在\"检测生物组织中的蛋白质\"实验中，使用的试剂是______，使用时应先加______再加______，现象是产生______反应。",type:"实验题",tags:["蛋白质检测","双缩脲试剂","实验","必修一"],ans:"双缩脲试剂；A液（NaOH溶液）；B液（CuSO₄溶液）；紫色",exp:"根据实验原理、步骤和注意事项填写。"},
 ];
 
-/* ===== 智能出题：匹配与渲染 ===== */
+/* ===== 智能出题：交互答题模式 ===== */
 (function(){
   var modal=document.getElementById('quizModal');
   var btn=document.getElementById('quizBtn');
@@ -12193,6 +12226,10 @@ var QUIZ_BANK = [
   var shuffleBtn=document.getElementById('quizShuffle');
   var results=document.getElementById('quizResults');
 
+  var currentQs=[];
+  var userAns=[];
+  var graded=false;
+
   function open(){ modal.classList.add('open'); }
   function close(){ modal.classList.remove('open'); }
   btn.addEventListener('click', open);
@@ -12201,6 +12238,7 @@ var QUIZ_BANK = [
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
 
   function normalize(s){ return (s||'').toLowerCase().replace(/\s+/g,''); }
+  function normAns(s){ return (s||'').replace(/[\s（）()【】\[\]]/g,'').toLowerCase(); }
 
   function matchQuestions(kw){
     var kws = kw.split(/[\s,，、；;]+/).filter(Boolean).map(normalize);
@@ -12226,35 +12264,200 @@ var QUIZ_BANK = [
 
   var SUGGEST_HTML = '<div class="suggest">热门知识点：<span data-kw="光合作用">光合作用</span><span data-kw="细胞呼吸">细胞呼吸</span><span data-kw="分离定律">分离定律</span><span data-kw="自由组合">自由组合</span><span data-kw="减数分裂">减数分裂</span><span data-kw="伴性遗传">伴性遗传</span><span data-kw="基因突变">基因突变</span><span data-kw="神经调节">神经调节</span><span data-kw="血糖调节">血糖调节</span><span data-kw="免疫">免疫</span><span data-kw="生长素">生长素</span><span data-kw="种群">种群</span><span data-kw="生态系统">生态系统</span><span data-kw="基因工程">基因工程</span></div>';
 
-  function render(questions){
-    if(!questions.length){
+  function escapeHtml(s){
+    var d=document.createElement('div'); d.textContent=s; return d.innerHTML;
+  }
+
+  function renderScorebar(){
+    var answered=0;
+    for(var i=0;i<userAns.length;i++){
+      if(userAns[i]!==null && userAns[i]!==undefined && userAns[i]!=='') answered++;
+    }
+    var html='<div class="quiz-scorebar">';
+    html+='<span class="score-label">已答</span><span class="score-num">'+answered+'</span><span class="score-label">/ '+currentQs.length+' 题</span>';
+    if(graded){
+      var correct=0,wrong=0,unans=0;
+      for(var j=0;j<currentQs.length;j++){
+        var r=gradeOne(j);
+        if(r==='correct') correct++;
+        else if(r==='wrong') wrong++;
+        else unans++;
+      }
+      var pct=currentQs.length?Math.round(correct/currentQs.length*100):0;
+      html+='<span style="color:#22c55e;font-weight:700">✓ '+correct+'</span>';
+      html+='<span style="color:#ef4444;font-weight:700">✗ '+wrong+'</span>';
+      if(unans>0) html+='<span style="color:#f59e0b;font-weight:700">− '+unans+'</span>';
+      html+='<span class="score-num" style="margin-left:8px">'+pct+'分</span>';
+    }
+    html+='<button class="btn-reset" id="btnReset">清空重答</button>';
+    html+='<button class="btn-submit" id="btnSubmit">'+(graded?'重新批改':'提交批改')+'</button>';
+    html+='</div>';
+    return html;
+  }
+
+  function gradeOne(idx){
+    var q=currentQs[idx];
+    var ua=userAns[idx];
+    if(ua===null||ua===undefined||ua==='') return 'unanswered';
+    if(q.type==='选择题'){
+      return normAns(ua)===normAns(q.ans)?'correct':'wrong';
+    }
+    if(q.type==='填空题'){
+      var correctAns=(q.ans||'').split(/[；;]/).map(function(s){return s.trim();}).filter(Boolean);
+      var userParts=(ua||'').split('|').map(function(s){return s.trim();});
+      if(userParts.length<correctAns.length) return 'wrong';
+      for(var i=0;i<correctAns.length;i++){
+        if(normAns(userParts[i])!==normAns(correctAns[i])) return 'wrong';
+      }
+      return 'correct';
+    }
+    return 'unanswered';
+  }
+
+  function render(){
+    if(!currentQs.length){
       results.innerHTML = '<div class="quiz-empty">未找到与该知识点匹配的题目，试试其他关键词？'+SUGGEST_HTML+'</div>';
       bindSuggest(); return;
     }
-    var html = '';
-    questions.forEach(function(q, i){
+    var html=renderScorebar();
+    currentQs.forEach(function(q, i){
       var typeCls = q.type==='计算题'?'calc':(q.type==='实验题'?'exp':'');
-      html += '<div class="q-card">';
-      html += '<div class="q-head"><span class="q-no">第'+(i+1)+'题</span><span class="q-type '+typeCls+'">'+q.type+'</span></div>';
-      html += '<div class="q-text">'+q.q+'</div>';
-      if(q.opts){
-        html += '<ul class="q-opts">';
-        q.opts.forEach(function(o){ html += '<li>'+o+'</li>'; });
-        html += '</ul>';
+      var resultCls='', resultIcon='';
+      if(graded){
+        var r=gradeOne(i);
+        resultCls=r;
+        if(r==='correct') resultIcon='<span class="q-result-icon">✓</span>';
+        else if(r==='wrong') resultIcon='<span class="q-result-icon">✗</span>';
+        else resultIcon='<span class="q-result-icon">−</span>';
       }
-      html += '<button class="q-toggle">显示答案</button>';
-      html += '<div class="q-answer"><b>答案：</b>'+q.ans;
-      if(q.exp) html += '<div class="explain"><b>解析：</b>'+q.exp+'</div>';
-      html += '</div></div>';
+      html+='<div class="q-card '+resultCls+'" data-idx="'+i+'">';
+      html+='<div class="q-head"><span class="q-no">第'+(i+1)+'题</span><span class="q-type '+typeCls+'">'+q.type+'</span>'+resultIcon+'</div>';
+
+      if(q.type==='选择题' && q.opts){
+        html+='<div class="q-text">'+escapeHtml(q.q)+'</div>';
+        html+='<ul class="q-opts interactive'+(graded?' disabled':'')+'">';
+        q.opts.forEach(function(o){
+          var letter=o.charAt(0);
+          var cls='';
+          if(graded){
+            if(letter===q.ans) cls='opt-correct';
+            else if(userAns[i]===letter) cls='opt-wrong';
+          } else if(userAns[i]===letter){
+            cls='selected';
+          }
+          html+='<li class="'+cls+'" data-letter="'+letter+'">'+escapeHtml(o)+'</li>';
+        });
+        html+='</ul>';
+      } else if(q.type==='填空题'){
+        var qtext=escapeHtml(q.q);
+        var fillIdx=0;
+        qtext=qtext.replace(/_{3,}/g, function(){
+          var val=userAns[i]?(userAns[i].split('|')[fillIdx]||''):'';
+          var cls='q-fill-input';
+          if(graded){
+            var correctAns=(q.ans||'').split(/[；;]/).map(function(s){return s.trim();});
+            if(normAns(val)===normAns(correctAns[fillIdx])) cls+=' fill-correct';
+            else cls+=' fill-wrong';
+          }
+          var fi=fillIdx;
+          var inp='<input type="text" class="'+cls+'" data-fill="'+fi+'" value="'+escapeHtml(val)+'"'+(graded?' readonly':'')+'>';
+          fillIdx++;
+          return inp;
+        });
+        html+='<div class="q-text">'+qtext+'</div>';
+      } else {
+        html+='<div class="q-text">'+escapeHtml(q.q)+'</div>';
+        var taVal=userAns[i]||'';
+        html+='<textarea class="q-textarea" placeholder="在此作答，提交后对照参考答案…"'+(graded?'readonly':'')+'>'+escapeHtml(taVal)+'</textarea>';
+        html+='<div class="q-selfcheck">主观题请自行对照参考答案评分</div>';
+      }
+
+      if(graded){
+        var r2=gradeOne(i);
+        if(r2!=='correct' || q.type!=='选择题'){
+          html+='<div class="q-answer show"><b>参考答案：</b>'+escapeHtml(q.ans);
+          if(q.exp) html+='<div class="explain"><b>解析：</b>'+escapeHtml(q.exp)+'</div>';
+          html+='</div>';
+        }
+      } else {
+        html+='<button class="q-toggle">查看答案</button>';
+        html+='<div class="q-answer"><b>答案：</b>'+escapeHtml(q.ans);
+        if(q.exp) html+='<div class="explain"><b>解析：</b>'+escapeHtml(q.exp)+'</div>';
+        html+='</div>';
+      }
+      html+='</div>';
     });
-    results.innerHTML = html;
+
+    if(graded){
+      var correct=0;
+      for(var k=0;k<currentQs.length;k++){ if(gradeOne(k)==='correct') correct++; }
+      var pct2=currentQs.length?Math.round(correct/currentQs.length*100):0;
+      var msg=pct2>=90?'太棒了！继续保持！':pct2>=70?'不错，还有提升空间！':pct2>=60?'及格了，再接再厉！':'别灰心，错题多看看解析！';
+      html='<div class="quiz-final"><div class="final-score">'+pct2+'分</div><div class="final-label">'+correct+' / '+currentQs.length+' 题正确</div><div class="final-detail">'+msg+'</div></div>'+html;
+    }
+
+    results.innerHTML=html;
+    bindEvents();
+  }
+
+  function bindEvents(){
+    results.querySelectorAll('.q-opts.interactive li').forEach(function(li){
+      li.addEventListener('click', function(){
+        if(graded) return;
+        var card=this.closest('.q-card');
+        var idx=parseInt(card.getAttribute('data-idx'),10);
+        var letter=this.getAttribute('data-letter');
+        userAns[idx]=letter;
+        card.querySelectorAll('.q-opts li').forEach(function(l){l.classList.remove('selected');});
+        this.classList.add('selected');
+        updateScorebarOnly();
+      });
+    });
+    results.querySelectorAll('.q-fill-input').forEach(function(inp){
+      inp.addEventListener('input', function(){
+        if(graded) return;
+        var card=this.closest('.q-card');
+        var idx=parseInt(card.getAttribute('data-idx'),10);
+        var fills=card.querySelectorAll('.q-fill-input');
+        var vals=[];
+        fills.forEach(function(f){vals.push(f.value);});
+        userAns[idx]=vals.join('|');
+      });
+    });
+    results.querySelectorAll('.q-textarea').forEach(function(ta){
+      ta.addEventListener('input', function(){
+        if(graded) return;
+        var card=this.closest('.q-card');
+        var idx=parseInt(card.getAttribute('data-idx'),10);
+        userAns[idx]=this.value;
+      });
+    });
     results.querySelectorAll('.q-toggle').forEach(function(b){
       b.addEventListener('click', function(){
         var ans=this.nextElementSibling;
         ans.classList.toggle('show');
-        this.textContent = ans.classList.contains('show')?'隐藏答案':'显示答案';
+        this.textContent=ans.classList.contains('show')?'隐藏答案':'查看答案';
       });
     });
+    var sb=document.getElementById('btnSubmit');
+    if(sb) sb.addEventListener('click', function(){
+      graded=true; render();
+    });
+    var rs=document.getElementById('btnReset');
+    if(rs) rs.addEventListener('click', function(){
+      graded=false; userAns=[]; render();
+    });
+  }
+
+  function updateScorebarOnly(){
+    var bar=results.querySelector('.quiz-scorebar');
+    if(!bar||graded) return;
+    var answered=0;
+    for(var i=0;i<userAns.length;i++){
+      if(userAns[i]!==null&&userAns[i]!==undefined&&userAns[i]!=='') answered++;
+    }
+    var num=bar.querySelector('.score-num');
+    if(num) num.textContent=answered;
   }
 
   function generate(){
@@ -12265,7 +12468,11 @@ var QUIZ_BANK = [
     var matched = matchQuestions(kw);
     if(type!=='all') matched = matched.filter(function(q){return q.type===type;});
     matched = shuffle(matched).slice(0, count);
-    render(matched);
+    currentQs=matched;
+    userAns=[];
+    for(var i=0;i<matched.length;i++) userAns.push('');
+    graded=false;
+    render();
   }
 
   function bindSuggest(){
