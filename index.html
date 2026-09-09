@@ -227,12 +227,55 @@ ol.mistakes li{counter-increment:mist;position:relative;padding:4px 0 4px 30px;c
 ol.mistakes li::before{content:counter(mist);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--green-100);color:var(--green-800);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center}
 ol.mistakes li b{color:var(--rose-700)}
 @media (max-width:860px){ol.mistakes{columns:1}}
+/* ===== 智能出题 ===== */
+#quizBtn{position:fixed;left:calc(var(--sidebar-w) + 18px);bottom:26px;z-index:900;background:var(--green-800);color:#fff;border:none;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(20,83,45,.35);display:flex;align-items:center;gap:6px;font-family:inherit;transition:.2s}
+#quizBtn:hover{background:var(--green-600)}
+.quiz-modal{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:1100;display:none;align-items:center;justify-content:center;padding:16px}
+.quiz-modal.open{display:flex}
+.quiz-panel{background:#fff;border-radius:16px;width:min(820px,96vw);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.quiz-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--green-900);color:#fff}
+.quiz-header h3{font-size:17px;font-weight:900}
+.quiz-header .sub{font-size:11.5px;opacity:.8;font-weight:400;margin-top:1px}
+#quizClose{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;line-height:1;padding:0 4px}
+.quiz-controls{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--green-50)}
+.quiz-controls input{flex:1;min-width:180px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13.5px;font-family:inherit;outline:none}
+.quiz-controls input:focus{border-color:var(--green-500)}
+.quiz-controls select,.quiz-controls button{padding:8px 12px;border-radius:8px;font-size:13px;font-family:inherit;cursor:pointer}
+.quiz-controls select{border:1.5px solid var(--border);background:#fff}
+#quizGen{background:var(--green-700);color:#fff;border:none;font-weight:700}
+#quizGen:hover{background:var(--green-600)}
+#quizShuffle{background:#fff;color:var(--green-800);border:1.5px solid var(--green-500)}
+#quizShuffle:hover{background:var(--green-50)}
+.quiz-body{overflow-y:auto;padding:16px 20px 24px}
+.quiz-empty{text-align:center;color:var(--slate-500);padding:40px 20px;font-size:14px}
+.quiz-empty .suggest{margin-top:10px;font-size:12.5px}
+.quiz-empty .suggest span{display:inline-block;background:var(--green-100);color:var(--green-800);border-radius:99px;padding:2px 10px;margin:3px;cursor:pointer;font-size:12px}
+.q-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.q-card .q-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.q-card .q-type{font-size:11px;font-weight:700;background:var(--green-100);color:var(--green-800);border-radius:99px;padding:1px 9px}
+.q-card .q-type.calc{background:var(--violet-100);color:var(--violet-700)}
+.q-card .q-type.exp{background:var(--sky-100);color:var(--sky-700)}
+.q-card .q-no{font-size:12px;color:var(--slate-400);font-weight:700}
+.q-card .q-text{font-size:14px;color:var(--slate-900);line-height:1.7;margin-bottom:8px}
+.q-card .q-opts{list-style:none;padding:0}
+.q-card .q-opts li{padding:3px 0;font-size:13.5px;color:var(--slate-700)}
+.q-card .q-toggle{margin-top:8px;background:none;border:1.5px solid var(--green-500);color:var(--green-800);border-radius:8px;padding:4px 14px;font-size:12.5px;cursor:pointer;font-family:inherit;font-weight:700}
+.q-card .q-toggle:hover{background:var(--green-50)}
+.q-card .q-answer{display:none;margin-top:10px;padding:10px 14px;background:var(--green-50);border-left:3px solid var(--green-600);border-radius:0 8px 8px 0;font-size:13px}
+.q-card .q-answer.show{display:block}
+.q-card .q-answer b{color:var(--green-900)}
+.q-card .q-answer .explain{color:var(--slate-600);margin-top:4px;font-size:12.5px}
+@media (max-width:860px){#quizBtn{left:14px;bottom:80px;padding:8px 14px;font-size:13px}.quiz-controls{flex-direction:column}.quiz-controls input{min-width:0;width:100%}}
 </style>
 </head>
 <body>
 <div id="progress"></div>
 <div id="mask"></div>
 <button id="toTop" title="返回顶部">↑</button>
+<button id="quizBtn" title="智能出题">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+  智能出题
+</button>
 
 <header class="top">
   <button id="menuBtn" aria-label="目录"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
@@ -2057,6 +2100,188 @@ ol.mistakes li b{color:var(--rose-700)}
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
+/* ===== 智能出题：内置题库 ===== */
+var QUIZ_BANK = [
+/* ---- 必修一 分子与细胞 ---- */
+{q:"下列关于原核细胞的叙述，正确的是",type:"选择题",tags:["原核细胞","原核生物","蓝细菌","细菌","细胞结构"],opts:["A. 原核细胞没有细胞核，也没有任何细胞器","B. 蓝细菌含有叶绿体，能进行光合作用","C. 原核细胞的遗传物质是裸露的环状 DNA","D. 细菌都有细胞壁，其主要成分是纤维素和果胶"],ans:"C",exp:"原核细胞有核糖体一种细胞器；蓝细菌无叶绿体，含叶绿素和藻蓝素；细菌细胞壁主要成分为肽聚糖，植物细胞壁才是纤维素和果胶。"},
+{q:"某蛋白质由 51 个氨基酸、2 条肽链构成，氨基酸平均相对分子质量为 128，则该蛋白质的相对分子质量约为",type:"计算题",tags:["蛋白质","脱水缩合","肽键","计算","分子与细胞"],ans:"5646",exp:"脱去水分子数=51−2=49；蛋白质相对分子质量=51×128−49×18=6528−882=5646。"},
+{q:"下列细胞器中，具有双层膜结构且是有氧呼吸主要场所的是",type:"选择题",tags:["细胞器","线粒体","有氧呼吸","细胞结构"],opts:["A. 叶绿体","B. 线粒体","C. 内质网","D. 高尔基体"],ans:"B",exp:"线粒体是双层膜细胞器，是有氧呼吸的主要场所（第二、三阶段在线粒体）。"},
+{q:"葡萄糖进入红细胞的方式是",type:"选择题",tags:["物质跨膜运输","协助扩散","葡萄糖","红细胞"],opts:["A. 自由扩散","B. 协助扩散","C. 主动运输","D. 胞吞"],ans:"B",exp:"葡萄糖进入红细胞是协助扩散（需载体、不耗能、顺浓度梯度）；进入小肠上皮细胞是主动运输。"},
+{q:"下列关于酶的叙述，错误的是",type:"选择题",tags:["酶","活化能","酶的特性","蛋白质"],opts:["A. 酶通过降低化学反应的活化能来提高反应速率","B. 酶的化学本质都是蛋白质","C. 高温会破坏酶的空间结构使其失活","D. 一种酶只能催化一种或一类化学反应"],ans:"B",exp:"绝大多数酶是蛋白质，少数酶是 RNA（核酶）。"},
+{q:"下列关于 ATP 的叙述，正确的是",type:"选择题",tags:["ATP","直接能源","ADP","能量"],opts:["A. ATP 是细胞内主要的储能物质","B. ATP 分子中含有三个高能磷酸键","C. ATP 与 ADP 的相互转化是可逆反应","D. ATP 是细胞生命活动的直接能源物质"],ans:"D",exp:"ATP 结构简式 A-P~P~P，含 2 个高能磷酸键；脂肪是主要储能物质；ATP 与 ADP 转化物质可逆但条件、场所、能量来源不同，不是可逆反应。"},
+{q:"有氧呼吸过程中，产生大量 ATP 的阶段是",type:"选择题",tags:["有氧呼吸","细胞呼吸","ATP","线粒体"],opts:["A. 第一阶段（细胞质基质）","B. 第二阶段（线粒体基质）","C. 第三阶段（线粒体内膜）","D. 三个阶段产生量相同"],ans:"C",exp:"有氧呼吸第三阶段 [H] 与 O₂ 结合生成水，释放大量能量，产生大量 ATP。"},
+{q:"人体细胞进行无氧呼吸的产物是",type:"选择题",tags:["无氧呼吸","乳酸","细胞呼吸"],opts:["A. 酒精和 CO₂","B. 乳酸","C. 酒精和乳酸","D. CO₂ 和 H₂O"],ans:"B",exp:"人体（动物）无氧呼吸产生乳酸，不产生 CO₂；酵母菌和大多数植物无氧呼吸产生酒精和 CO₂。"},
+{q:"在\"绿叶中色素的提取和分离\"实验中，滤纸条上色素带最宽的是",type:"实验题",tags:["光合色素","色素提取","纸层析","实验","叶绿素"],opts:["A. 胡萝卜素","B. 叶黄素","C. 叶绿素 a","D. 叶绿素 b"],ans:"C",exp:"叶绿素 a 含量最多，色素带最宽；自上而下依次为胡萝卜素、叶黄素、叶绿素 a、叶绿素 b。"},
+{q:"简述影响光合作用强度的主要环境因素及其原理。",type:"简答题",tags:["光合作用","影响因素","光照","CO2","温度"],ans:"①光照强度：影响光反应，低于光补偿点净光合为负，达到光饱和点后不再增强；②CO₂浓度：影响暗反应 CO₂ 固定，在一定范围内正相关；③温度：影响酶活性，存在最适温度；④矿质元素：如 Mg 参与叶绿素合成，N 参与酶和 ATP 合成。",exp:"答题时需分别说明各因素通过影响光反应或暗反应来影响光合速率。"},
+{q:"将一株植物突然停止光照，短时间内叶绿体中 C₃ 和 C₅ 的含量变化是",type:"选择题",tags:["光合作用","暗反应","C3","C5","光反应"],opts:["A. C₃ 增多，C₅ 减少","B. C₃ 减少，C₅ 增多","C. 两者都增多","D. 两者都减少"],ans:"A",exp:"停止光照→光反应产生的 ATP 和 [H] 减少→C₃ 还原受阻（C₃ 积累），而 CO₂ 固定仍在消耗 C₅（C₅ 减少）。"},
+{q:"体细胞含 2n 条染色体的生物，在有丝分裂后期细胞中染色体、染色单体、DNA 数依次为",type:"选择题",tags:["有丝分裂","染色体","染色单体","DNA","细胞增殖"],opts:["A. 2n、4n、4n","B. 4n、0、4n","C. 2n、0、2n","D. 4n、4n、4n"],ans:"B",exp:"有丝分裂后期着丝粒分裂，染色体数加倍为 4n，染色单体消失为 0，DNA 仍为 4n。"},
+{q:"细胞分化的实质是",type:"选择题",tags:["细胞分化","基因选择性表达","全能性"],opts:["A. 遗传物质发生改变","B. 基因的选择性表达","C. 染色体数目变异","D. 细胞形态结构的偶然变化"],ans:"B",exp:"细胞分化过程中遗传物质不变，实质是不同细胞中基因选择性表达，导致形态结构功能差异。"},
+{q:"下列不属于癌细胞特征的是",type:"选择题",tags:["癌细胞","癌变","原癌基因","抑癌基因"],opts:["A. 在适宜条件下能无限增殖","B. 细胞形态结构发生显著变化","C. 细胞膜上糖蛋白减少，易分散转移","D. 细胞代谢减慢，细胞核体积增大"],ans:"D",exp:"D 是细胞衰老的特征。癌细胞代谢旺盛，原癌基因和抑癌基因突变导致癌变。"},
+{q:"观察植物细胞质壁分离与复原实验中，最适合的实验材料是",type:"实验题",tags:["质壁分离","实验","洋葱","紫色鳞片叶"],opts:["A. 洋葱根尖分生区细胞","B. 紫色洋葱鳞片叶外表皮细胞","C. 人的口腔上皮细胞","D. 菠菜叶肉细胞"],ans:"B",exp:"紫色洋葱鳞片叶外表皮有大液泡且呈紫色，便于观察；根尖分生区无大液泡，动物细胞无细胞壁不能质壁分离。"},
+/* ---- 必修二 遗传与进化 ---- */
+{q:"基因型为 Aa 的豌豆自交，后代中表现型为显性性状的个体所占比例是",type:"选择题",tags:["分离定律","Aa自交","显性","遗传"],opts:["A. 1/4","B. 1/2","C. 3/4","D. 1"],ans:"C",exp:"Aa×Aa→AA:Aa:aa=1:2:1，显性（AA+Aa）占 3/4。"},
+{q:"基因型为 Aa 的个体连续自交 3 代，后代中纯合子所占比例为",type:"计算题",tags:["分离定律","连续自交","纯合子","计算","遗传"],ans:"7/8",exp:"杂合子比例=1/2ⁿ=1/8，纯合子=1−1/8=7/8。"},
+{q:"基因型为 YyRr 的个体自交（两对基因独立遗传），后代表现型比例为",type:"选择题",tags:["自由组合","YyRr","9:3:3:1","遗传"],opts:["A. 3:1","B. 1:1:1:1","C. 9:3:3:1","D. 1:2:1"],ans:"C",exp:"两对独立遗传的杂合子自交，后代表现型比例为 9:3:3:1。"},
+{q:"人类多指（T）对正常（t）为显性，白化病（a）对正常（A）为隐性，两对基因独立遗传。一个家庭中父亲多指、母亲正常，他们有一个白化病但手指正常的孩子，则再生一个孩子只患一种病的概率是",type:"计算题",tags:["自由组合","两病概率","遗传计算","患病概率"],ans:"1/2",exp:"由孩子（ttaa）反推：父亲 TtAa，母亲 ttAa。多指概率=1/2，白化概率=1/4。只患一种=1/2×3/4+1/2×1/4=3/8+1/8=1/2。"},
+{q:"减数分裂过程中，染色体数目减半发生在",type:"选择题",tags:["减数分裂","染色体减半","同源染色体","遗传"],opts:["A. 减数第一次分裂","B. 减数第二次分裂","C. 间期","D. 受精作用"],ans:"A",exp:"减Ⅰ后期同源染色体分离，分别进入两个子细胞，导致染色体数目减半。"},
+{q:"减数分裂过程中，交叉互换发生在",type:"选择题",tags:["减数分裂","交叉互换","联会","四分体","基因重组"],opts:["A. 减Ⅰ前期同源染色体的非姐妹染色单体之间","B. 减Ⅰ后期同源染色体分离时","C. 减Ⅱ后期着丝粒分裂时","D. 间期 DNA 复制时"],ans:"A",exp:"交叉互换发生在减Ⅰ前期（四分体时期），同源染色体的非姐妹染色单体之间交换片段，属于基因重组。"},
+{q:"在噬菌体侵染细菌的实验中，用 ³²P 标记的是噬菌体的",type:"选择题",tags:["噬菌体侵染","DNA是遗传物质","同位素标记","赫尔希蔡斯"],opts:["A. 蛋白质外壳","B. DNA","C. 糖类","D. 脂质"],ans:"B",exp:"³²P 标记 DNA（DNA 含 P，蛋白质几乎不含 P）；³⁵S 标记蛋白质外壳。"},
+{q:"一个 DNA 分子含有 200 个腺嘌呤（A），该 DNA 连续复制 3 次，需要游离的腺嘌呤脱氧核苷酸数为",type:"计算题",tags:["DNA复制","半保留复制","计算","碱基"],ans:"1400",exp:"复制 n 次需游离碱基=一条链该碱基数×(2ⁿ−1)=200×(8−1)=1400。"},
+{q:"下列关于转录和翻译的叙述，正确的是",type:"选择题",tags:["转录","翻译","基因表达","中心法则"],opts:["A. 转录的场所是核糖体","B. 翻译的模板是 DNA 的一条链","C. 转录需要 RNA 聚合酶","D. 一种密码子可以决定多种氨基酸"],ans:"C",exp:"转录主要在细胞核，需 RNA 聚合酶；翻译在核糖体，模板是 mRNA；一种密码子只决定一种氨基酸（简并性是一种氨基酸对应多种密码子）。"},
+{q:"某基因编码区有 600 个碱基对，则其控制合成的蛋白质中氨基酸数最多约为",type:"计算题",tags:["翻译","基因表达","氨基酸","计算","6:3:1"],ans:"200",exp:"DNA 碱基数:mRNA 碱基数:氨基酸数=6:3:1，600 碱基对=1200 碱基→1200÷6=200（忽略终止密码子）。"},
+{q:"下列关于基因突变的叙述，错误的是",type:"选择题",tags:["基因突变","变异","新基因"],opts:["A. 基因突变能产生新基因","B. 基因突变具有不定向性","C. 基因突变只发生在分裂间期","D. 基因突变是生物变异的根本来源"],ans:"C",exp:"基因突变主要发生在 DNA 复制时（分裂间期），但其他时期也可能发生，并非只在间期。"},
+{q:"下列变异中，属于染色体结构变异的是",type:"选择题",tags:["染色体变异","结构变异","易位","缺失"],opts:["A. 减数分裂时非同源染色体自由组合","B. 同源染色体的非姐妹染色单体交叉互换","C. 染色体某一片段移接到非同源染色体上","D. DNA 分子中碱基对的替换"],ans:"C",exp:"C 为易位，属于染色体结构变异；A、B 属于基因重组；D 属于基因突变。"},
+{q:"单倍体育种的突出优点是",type:"选择题",tags:["单倍体育种","育种","染色体变异","纯合子"],opts:["A. 能产生新基因","B. 明显缩短育种年限","C. 操作最简单","D. 能提高突变频率"],ans:"B",exp:"单倍体育种经花药离体培养和秋水仙素处理，后代均为纯合子，能明显缩短育种年限。"},
+{q:"下列关于伴 X 染色体隐性遗传的叙述，正确的是",type:"选择题",tags:["伴性遗传","伴X隐性","红绿色盲","交叉遗传"],opts:["A. 女性患者多于男性患者","B. 男性患者的致病基因来自父亲","C. 女性患者的父亲和儿子一定患病","D. 男性患者的母亲一定患病"],ans:"C",exp:"伴 X 隐性遗传男性患者多于女性；男性致病基因来自母亲；女患者（XᵃXᵃ）的父亲和儿子必为 XᵃY（患病）。"},
+{q:"某系谱图中，双亲均正常但生了一个患病的女儿，则该病的遗传方式最可能是",type:"选择题",tags:["系谱图","遗传方式判断","常染色体隐性"],opts:["A. 常染色体显性遗传","B. 常染色体隐性遗传","C. 伴 X 染色体显性遗传","D. 伴 X 染色体隐性遗传"],ans:"B",exp:"无中生有为隐性；若为伴 X 隐性，女患者的父亲必患病，与题意矛盾，故为常染色体隐性。"},
+{q:"生物进化的实质是",type:"选择题",tags:["生物进化","基因频率","现代生物进化理论"],opts:["A. 生物个体发生变异","B. 种群基因频率的定向改变","C. 自然选择的作用","D. 产生生殖隔离"],ans:"B",exp:"现代生物进化理论认为，生物进化的实质是种群基因频率的定向改变；生殖隔离是新物种形成的标志。"},
+{q:"某植物种群中 AA 占 30%，Aa 占 60%，aa 占 10%，则 A 的基因频率为",type:"计算题",tags:["基因频率","计算","进化","种群"],ans:"60%",exp:"A 频率=AA+Aa/2=30%+30%=60%。"},
+{q:"新物种形成的标志是",type:"选择题",tags:["物种形成","生殖隔离","隔离","进化"],opts:["A. 地理隔离的形成","B. 种群基因频率的改变","C. 生殖隔离的形成","D. 生物形态发生显著变化"],ans:"C",exp:"生殖隔离是新物种形成的标志；地理隔离是常见条件但非必要条件（如多倍体形成可不经地理隔离）。"},
+/* ---- 选必一 稳态与调节 ---- */
+{q:"下列物质中，不属于内环境成分的是",type:"选择题",tags:["内环境","细胞外液","血红蛋白","稳态"],opts:["A. 血浆蛋白","B. 葡萄糖","C. 血红蛋白","D. 胰岛素"],ans:"C",exp:"血红蛋白在红细胞内，不属于内环境；血浆蛋白、葡萄糖、激素均存在于细胞外液中。"},
+{q:"神经纤维静息电位的形成主要是由于",type:"选择题",tags:["静息电位","K+外流","神经调节","动作电位"],opts:["A. Na⁺ 内流","B. K⁺ 外流","C. Na⁺ 外流","D. K⁺ 内流"],ans:"B",exp:"静息时 K⁺ 外流使膜外正、膜内负（外正内负）；动作电位由 Na⁺ 内流形成。"},
+{q:"兴奋在神经元之间传递的特点是",type:"选择题",tags:["突触","单向传递","神经递质","神经调节"],opts:["A. 双向传递","B. 单向传递","C. 不消耗能量","D. 以电信号形式直接传递"],ans:"B",exp:"突触处神经递质只能由突触前膜释放、作用于突触后膜，故单向传递；传递过程消耗能量，信号转变为电→化学→电。"},
+{q:"下列关于胰岛素的叙述，正确的是",type:"选择题",tags:["胰岛素","血糖调节","胰岛B细胞","体液调节"],opts:["A. 由胰岛 A 细胞分泌","B. 能促进肝糖原分解","C. 是唯一能降低血糖的激素","D. 化学本质是固醇"],ans:"C",exp:"胰岛素由胰岛 B 细胞分泌，促进血糖氧化分解、合成糖原、转化为非糖物质，是唯一降血糖激素，化学本质是蛋白质。"},
+{q:"甲状腺激素分泌的分级调节中，垂体分泌的是",type:"选择题",tags:["分级调节","甲状腺激素","垂体","下丘脑","反馈调节"],opts:["A. 促甲状腺激素释放激素","B. 促甲状腺激素","C. 甲状腺激素","D. 生长激素"],ans:"B",exp:"下丘脑分泌促甲状腺激素释放激素（TRH）→垂体分泌促甲状腺激素（TSH）→甲状腺分泌甲状腺激素；甲状腺激素负反馈抑制下丘脑和垂体。"},
+{q:"抗利尿激素的合成部位和释放部位分别是",type:"选择题",tags:["抗利尿激素","水盐调节","下丘脑","垂体"],opts:["A. 下丘脑合成、下丘脑释放","B. 垂体合成、垂体释放","C. 下丘脑合成、垂体释放","D. 垂体合成、下丘脑释放"],ans:"C",exp:"抗利尿激素由下丘脑神经分泌细胞合成，经垂体释放，促进肾小管和集合管重吸收水。"},
+{q:"在体液免疫中，能产生抗体的细胞是",type:"选择题",tags:["体液免疫","浆细胞","抗体","免疫调节"],opts:["A. 吞噬细胞","B. T 细胞","C. 浆细胞（效应 B 细胞）","D. 记忆细胞"],ans:"C",exp:"浆细胞由 B 细胞增殖分化而来，是唯一能产生抗体的细胞。"},
+{q:"过敏反应属于",type:"选择题",tags:["过敏反应","免疫异常","免疫防御"],opts:["A. 免疫防御功能过强","B. 免疫自稳功能异常","C. 免疫监视功能缺失","D. 免疫缺陷"],ans:"A",exp:"过敏反应是已免疫的机体再次接触相同过敏原时发生的免疫防御功能过强的反应，发作快、消退快，一般不破坏组织细胞。"},
+{q:"HIV 主要攻击人体的",type:"选择题",tags:["HIV","艾滋病","辅助性T细胞","免疫缺陷"],opts:["A. B 淋巴细胞","B. 辅助性 T 淋巴细胞","C. 吞噬细胞","D. 红细胞"],ans:"B",exp:"HIV 特异性攻击辅助性 T 细胞，导致特异性免疫功能严重受损。"},
+{q:"下列实例中，能体现生长素作用两重性的是",type:"选择题",tags:["生长素","两重性","顶端优势","根的向地性","植物激素"],opts:["A. 植物向光生长","B. 茎的背地生长","C. 顶端优势","D. 无子果实的培育"],ans:"C",exp:"两重性指低浓度促进、高浓度抑制。顶端优势中顶芽低浓度促进、侧芽高浓度抑制，体现两重性；向光性和茎背地性只体现促进作用。"},
+{q:"植物顶端优势现象的原因是",type:"选择题",tags:["顶端优势","生长素","极性运输","侧芽"],opts:["A. 顶芽生长素浓度高，促进生长","B. 侧芽生长素浓度高，抑制生长","C. 顶芽不能产生生长素","D. 侧芽缺乏生长素"],ans:"B",exp:"顶芽产生的生长素向下极性运输，在侧芽处积累，浓度过高抑制侧芽生长，顶芽优先生长。"},
+{q:"下列植物激素中，能促进果实成熟的是",type:"选择题",tags:["乙烯","植物激素","果实成熟"],opts:["A. 生长素","B. 赤霉素","C. 细胞分裂素","D. 乙烯"],ans:"D",exp:"乙烯促进果实成熟；生长素促进果实发育（无子果实）；赤霉素促进茎秆伸长和种子萌发；细胞分裂素促进细胞分裂。"},
+{q:"简述血糖平衡的调节过程。",type:"简答题",tags:["血糖调节","胰岛素","胰高血糖素","体液调节","神经调节"],ans:"血糖升高时，刺激胰岛 B 细胞分泌胰岛素，促进血糖氧化分解、合成糖原、转化为非糖物质，同时抑制肝糖原分解和非糖物质转化，使血糖降低；血糖降低时，刺激胰岛 A 细胞分泌胰高血糖素，促进肝糖原分解和非糖物质转化，使血糖升高。此外，下丘脑通过神经调节控制相关腺体分泌，肾上腺素也能升高血糖。",exp:"答题要点：胰岛素降血糖、胰高血糖素升血糖，二者拮抗；神经-体液共同调节。"},
+{q:"神经递质发挥作用后，一般会被",type:"选择题",tags:["神经递质","突触","酶解","回收"],opts:["A. 持续作用于突触后膜","B. 被酶降解或被突触前膜回收","C. 进入突触后神经元细胞核","D. 直接进入血液运输"],ans:"B",exp:"神经递质作用后迅速被酶降解（如乙酰胆碱酯酶）或被突触前膜回收，保证神经调节的灵敏准确。"},
+{q:"目前普遍认为，机体维持稳态的主要调节机制是",type:"选择题",tags:["稳态","神经-体液-免疫","调节机制"],opts:["A. 神经调节","B. 体液调节","C. 免疫调节","D. 神经—体液—免疫调节网络"],ans:"D",exp:"坎农提出稳态概念，目前认为神经—体液—免疫调节网络是维持稳态的主要机制。"},
+/* ---- 选必二 生物与环境 ---- */
+{q:"调查某草原上某种双子叶植物的种群密度，最常用的方法是",type:"选择题",tags:["种群密度","样方法","调查方法","种群"],opts:["A. 标志重捕法","B. 样方法","C. 目测估计法","D. 记名计算法"],ans:"B",exp:"植物和活动能力弱的动物用样方法；活动能力强、范围大的动物用标志重捕法。"},
+{q:"用标志重捕法调查某鼠种群密度，第一次捕获并标记 50 只，第二次捕获 40 只，其中有标记的 10 只，则该种群数量约为",type:"计算题",tags:["标志重捕法","种群密度","计算","种群"],ans:"200",exp:"N=M×n/m=50×40÷10=200 只。"},
+{q:"在理想条件下，种群数量增长的曲线呈",type:"选择题",tags:["J型增长","S型增长","种群数量","K值"],opts:["A. \"J\"型","B. \"S\"型","C. 直线型","D. 波动型"],ans:"A",exp:"理想条件（食物空间充足、无天敌、气候适宜）下种群呈 J 型增长；自然条件下呈 S 型增长。"},
+{q:"在渔业捕捞中，为了持续获得最大捕捞量，应使捕捞后种群数量维持在",type:"选择题",tags:["K值","K/2","种群增长","S型曲线"],opts:["A. K 值","B. K/2","C. K/4","D. 接近 0"],ans:"B",exp:"S 型曲线中 K/2 时种群增长速率最大，捕捞后维持在 K/2 可使种群快速恢复，实现可持续最大产量。"},
+{q:"稻田中水稻和杂草之间的关系属于",type:"选择题",tags:["种间关系","竞争","群落"],opts:["A. 捕食","B. 竞争","C. 寄生","D. 互利共生"],ans:"B",exp:"水稻和杂草争夺阳光、水分、矿质元素等资源，属于竞争关系。"},
+{q:"在裸岩上发生的群落演替属于",type:"选择题",tags:["初生演替","次生演替","群落演替","裸岩"],opts:["A. 初生演替","B. 次生演替","C. 快速演替","D. 人工演替"],ans:"A",exp:"裸岩上没有土壤条件和植物繁殖体，属于初生演替；弃耕农田、火烧地属于次生演替。"},
+{q:"生态系统的基石是",type:"选择题",tags:["生产者","生态系统成分","基石"],opts:["A. 非生物的物质和能量","B. 生产者","C. 消费者","D. 分解者"],ans:"B",exp:"生产者通过光合作用将无机物转化为有机物，是生态系统的主要成分和基石。"},
+{q:"生态系统能量流动的特点是",type:"选择题",tags:["能量流动","单向流动","逐级递减","生态系统"],opts:["A. 循环流动、逐级递减","B. 单向流动、逐级递减","C. 单向流动、循环利用","D. 循环流动、保持不变"],ans:"B",exp:"能量流动单向流动（沿食物链不可逆）、逐级递减（传递效率 10%–20%），不能循环利用。"},
+{q:"某生态系统中，第二营养级同化的能量为 1000 kJ，按 20% 传递效率计算，第四营养级获得的能量为",type:"计算题",tags:["能量流动","传递效率","计算","生态系统"],ans:"40 kJ",exp:"第三营养级=1000×20%=200 kJ；第四营养级=200×20%=40 kJ。"},
+{q:"碳在生物群落与无机环境之间循环的主要形式是",type:"选择题",tags:["碳循环","CO2","物质循环","生态系统"],opts:["A. 含碳有机物","B. CO₂","C. 碳酸盐","D. 碳单质"],ans:"B",exp:"碳在无机环境与生物群落之间以 CO₂ 形式循环（光合作用固定、呼吸作用释放）；在生物群落内部以含碳有机物形式传递。"},
+{q:"下列关于生态系统稳定性的叙述，正确的是",type:"选择题",tags:["生态系统稳定性","抵抗力稳定性","恢复力稳定性","负反馈"],opts:["A. 营养结构越复杂，恢复力稳定性越强","B. 负反馈调节是生态系统自我调节能力的基础","C. 抵抗力稳定性和恢复力稳定性一般呈正相关","D. 生态系统的自我调节能力是无限的"],ans:"B",exp:"负反馈调节是自我调节的基础；营养结构越复杂抵抗力稳定性越强、恢复力越弱（一般负相关）；自我调节能力有限度。"},
+{q:"生物多样性的间接价值是指",type:"选择题",tags:["生物多样性","间接价值","生态功能","人与环境"],opts:["A. 食用、药用价值","B. 科学研究价值","C. 生态功能（如调节气候、涵养水源）","D. 美学观赏价值"],ans:"C",exp:"间接价值指生态功能（调节气候、涵养水源、保持水土等），一般大于直接价值；A、B、D 属于直接价值。"},
+/* ---- 选必三 生物技术与工程 ---- */
+{q:"基因工程中，被称为\"分子手术刀\"的是",type:"选择题",tags:["基因工程","限制酶","工具","分子手术刀"],opts:["A. DNA 连接酶","B. 限制性核酸内切酶","C. 载体","D. DNA 聚合酶"],ans:"B",exp:"限制酶能识别特定核苷酸序列并在特定位点切割 DNA，被称为分子手术刀；DNA 连接酶是分子缝合针。"},
+{q:"限制酶切割的化学键是",type:"选择题",tags:["限制酶","磷酸二酯键","DNA","基因工程"],opts:["A. 氢键","B. 肽键","C. 磷酸二酯键","D. 高能磷酸键"],ans:"C",exp:"限制酶切割 DNA 分子中脱氧核苷酸之间的磷酸二酯键；氢键在解旋时断开。"},
+{q:"基因表达载体的组成不包括",type:"选择题",tags:["基因表达载体","启动子","终止子","标记基因","基因工程"],opts:["A. 目的基因","B. 启动子和终止子","C. 标记基因","D. 起始密码子"],ans:"D",exp:"表达载体含目的基因、启动子、终止子、标记基因、复制原点；起始密码子在 mRNA 上，不在载体 DNA 上。"},
+{q:"PCR 技术中，DNA 变性所需的温度约为",type:"选择题",tags:["PCR","变性","复性","延伸","基因工程"],opts:["A. 50℃左右","B. 72℃左右","C. 90℃以上","D. 37℃左右"],ans:"C",exp:"PCR 三步：变性（90℃以上解旋）→复性（55℃左右引物结合）→延伸（72℃左右 Taq 酶合成）。"},
+{q:"单克隆抗体制备中，将 B 淋巴细胞与骨髓瘤细胞融合的目的是",type:"选择题",tags:["单克隆抗体","杂交瘤细胞","细胞工程","B细胞","骨髓瘤细胞"],opts:["A. 使 B 细胞能无限增殖并产生特异性抗体","B. 使骨髓瘤细胞能产生抗体","C. 获得纯合的二倍体植株","D. 提高突变频率"],ans:"A",exp:"B 细胞能产生特异性抗体但不能无限增殖，骨髓瘤细胞能无限增殖但不产生抗体；融合后的杂交瘤细胞兼有两者优点。"},
+{q:"植物组织培养的原理是",type:"选择题",tags:["植物组织培养","细胞全能性","细胞工程","脱分化","再分化"],opts:["A. 细胞增殖","B. 细胞全能性","C. 细胞膜流动性","D. 基因重组"],ans:"B",exp:"植物组织培养依据植物细胞的全能性，经脱分化形成愈伤组织、再分化发育成完整植株。"},
+{q:"动物细胞培养时，将动物组织分散成单个细胞常用的酶是",type:"选择题",tags:["动物细胞培养","胰蛋白酶","细胞工程"],opts:["A. 纤维素酶","B. 果胶酶","C. 胰蛋白酶（或胶原蛋白酶）","D. 限制酶"],ans:"C",exp:"动物细胞间的蛋白质使细胞黏连，用胰蛋白酶或胶原蛋白酶处理可分散成单个细胞；纤维素酶和果胶酶用于去除植物细胞壁。"},
+{q:"制作果酒和果醋时，发酵条件的主要区别是",type:"选择题",tags:["果酒","果醋","发酵工程","酵母菌","醋酸菌"],opts:["A. 果酒需无氧，果醋需持续有氧","B. 果酒需有氧，果醋需无氧","C. 两者都需严格无氧","D. 两者都需持续有氧"],ans:"A",exp:"果酒由酵母菌无氧呼吸产生酒精；果醋由醋酸菌（好氧菌）在有氧条件下将酒精或糖类转化为醋酸。"},
+{q:"分离纯化微生物常用的接种方法是",type:"选择题",tags:["微生物培养","平板划线法","稀释涂布平板法","发酵工程"],opts:["A. 显微注射法","B. 农杆菌转化法","C. 平板划线法和稀释涂布平板法","D. 花粉管通道法"],ans:"C",exp:"平板划线法和稀释涂布平板法是微生物分离纯化的常用接种方法；A、B、D 是将目的基因导入受体细胞的方法。"},
+{q:"胚胎移植中，供体和受体母畜需要进行的处理是",type:"选择题",tags:["胚胎移植","同期发情","胚胎工程"],opts:["A. 同期发情处理","B. 超数排卵处理","C. 免疫抑制处理","D. 基因检测"],ans:"A",exp:"供体和受体需同期发情处理，使生理状态一致，为胚胎移入提供相同的生理环境；超数排卵只针对供体。"}
+];
+
+/* ===== 智能出题：匹配与渲染 ===== */
+(function(){
+  var modal=document.getElementById('quizModal');
+  var btn=document.getElementById('quizBtn');
+  var closeBtn=document.getElementById('quizClose');
+  var input=document.getElementById('quizInput');
+  var typeSel=document.getElementById('quizType');
+  var countSel=document.getElementById('quizCount');
+  var genBtn=document.getElementById('quizGen');
+  var shuffleBtn=document.getElementById('quizShuffle');
+  var results=document.getElementById('quizResults');
+
+  function open(){ modal.classList.add('open'); }
+  function close(){ modal.classList.remove('open'); }
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if(e.target===modal) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+
+  function normalize(s){ return (s||'').toLowerCase().replace(/\s+/g,''); }
+
+  function matchQuestions(kw){
+    var kws = kw.split(/[\s,，、；;]+/).filter(Boolean).map(normalize);
+    if(!kws.length) return [];
+    var scored = QUIZ_BANK.map(function(q){
+      var score = 0;
+      var text = normalize(q.q + ' ' + (q.tags||[]).join(' '));
+      kws.forEach(function(k){
+        (q.tags||[]).forEach(function(t){ if(normalize(t).indexOf(k)>-1 || k.indexOf(normalize(t))>-1) score+=2; });
+        if(text.indexOf(k)>-1) score+=1;
+      });
+      return {q:q, score:score};
+    }).filter(function(x){return x.score>0;});
+    scored.sort(function(a,b){ return b.score-a.score; });
+    return scored.map(function(x){return x.q;});
+  }
+
+  function shuffle(arr){
+    var a=arr.slice();
+    for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+    return a;
+  }
+
+  var SUGGEST_HTML = '<div class="suggest">热门知识点：<span data-kw="光合作用">光合作用</span><span data-kw="细胞呼吸">细胞呼吸</span><span data-kw="分离定律">分离定律</span><span data-kw="自由组合">自由组合</span><span data-kw="减数分裂">减数分裂</span><span data-kw="伴性遗传">伴性遗传</span><span data-kw="基因突变">基因突变</span><span data-kw="神经调节">神经调节</span><span data-kw="血糖调节">血糖调节</span><span data-kw="免疫">免疫</span><span data-kw="生长素">生长素</span><span data-kw="种群">种群</span><span data-kw="生态系统">生态系统</span><span data-kw="基因工程">基因工程</span></div>';
+
+  function render(questions){
+    if(!questions.length){
+      results.innerHTML = '<div class="quiz-empty">未找到与该知识点匹配的题目，试试其他关键词？'+SUGGEST_HTML+'</div>';
+      bindSuggest(); return;
+    }
+    var html = '';
+    questions.forEach(function(q, i){
+      var typeCls = q.type==='计算题'?'calc':(q.type==='实验题'?'exp':'');
+      html += '<div class="q-card">';
+      html += '<div class="q-head"><span class="q-no">第'+(i+1)+'题</span><span class="q-type '+typeCls+'">'+q.type+'</span></div>';
+      html += '<div class="q-text">'+q.q+'</div>';
+      if(q.opts){
+        html += '<ul class="q-opts">';
+        q.opts.forEach(function(o){ html += '<li>'+o+'</li>'; });
+        html += '</ul>';
+      }
+      html += '<button class="q-toggle">显示答案</button>';
+      html += '<div class="q-answer"><b>答案：</b>'+q.ans;
+      if(q.exp) html += '<div class="explain"><b>解析：</b>'+q.exp+'</div>';
+      html += '</div></div>';
+    });
+    results.innerHTML = html;
+    results.querySelectorAll('.q-toggle').forEach(function(b){
+      b.addEventListener('click', function(){
+        var ans=this.nextElementSibling;
+        ans.classList.toggle('show');
+        this.textContent = ans.classList.contains('show')?'隐藏答案':'显示答案';
+      });
+    });
+  }
+
+  function generate(){
+    var kw = input.value.trim();
+    if(!kw){ results.innerHTML='<div class="quiz-empty">请先输入知识点关键词。</div>'; return; }
+    var type = typeSel.value;
+    var count = parseInt(countSel.value,10);
+    var matched = matchQuestions(kw);
+    if(type!=='all') matched = matched.filter(function(q){return q.type===type;});
+    matched = shuffle(matched).slice(0, count);
+    render(matched);
+  }
+
+  function bindSuggest(){
+    results.querySelectorAll('[data-kw]').forEach(function(el){
+      el.addEventListener('click', function(){
+        input.value = this.getAttribute('data-kw');
+        generate();
+      });
+    });
+  }
+
+  genBtn.addEventListener('click', generate);
+  shuffleBtn.addEventListener('click', function(){ if(input.value.trim()) generate(); else results.innerHTML='<div class="quiz-empty">请先输入知识点关键词。</div>'; });
+  input.addEventListener('keydown', function(e){ if(e.key==='Enter') generate(); });
+  bindSuggest();
+})();
+</script>
+<script>
 (function(){
   var pv=document.getElementById('busuanzi_value_site_pv');
   var uv=document.getElementById('busuanzi_value_site_uv');
@@ -2078,5 +2303,52 @@ ol.mistakes li b{color:var(--rose-700)}
   sync();
 })();
 </script>
+<div id="quizModal" class="quiz-modal">
+  <div class="quiz-panel">
+    <div class="quiz-header">
+      <div><h3>智能出题</h3><div class="sub">输入知识点关键词，自动匹配相关考题 · 内置题库 · 答案解析可展开</div></div>
+      <button id="quizClose" aria-label="关闭">×</button>
+    </div>
+    <div class="quiz-controls">
+      <input id="quizInput" type="text" placeholder="输入知识点，如：光合作用 / 基因分离定律 / 生长素 / 伴性遗传…">
+      <select id="quizType">
+        <option value="all">全部题型</option>
+        <option value="选择题">选择题</option>
+        <option value="填空题">填空题</option>
+        <option value="简答题">简答题</option>
+        <option value="计算题">计算题</option>
+        <option value="实验题">实验题</option>
+      </select>
+      <select id="quizCount">
+        <option value="5">5 题</option>
+        <option value="10" selected>10 题</option>
+        <option value="20">20 题</option>
+      </select>
+      <button id="quizGen">出题</button>
+      <button id="quizShuffle">换一批</button>
+    </div>
+    <div id="quizResults" class="quiz-body">
+      <div class="quiz-empty">
+        在上方输入知识点关键词，点击「出题」即可生成相关考题。<br>
+        <div class="suggest">热门知识点：
+          <span data-kw="光合作用">光合作用</span>
+          <span data-kw="细胞呼吸">细胞呼吸</span>
+          <span data-kw="分离定律">分离定律</span>
+          <span data-kw="自由组合">自由组合</span>
+          <span data-kw="减数分裂">减数分裂</span>
+          <span data-kw="伴性遗传">伴性遗传</span>
+          <span data-kw="基因突变">基因突变</span>
+          <span data-kw="神经调节">神经调节</span>
+          <span data-kw="血糖调节">血糖调节</span>
+          <span data-kw="免疫">免疫</span>
+          <span data-kw="生长素">生长素</span>
+          <span data-kw="种群">种群</span>
+          <span data-kw="生态系统">生态系统</span>
+          <span data-kw="基因工程">基因工程</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
