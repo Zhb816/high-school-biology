@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高中生物三年知识大全 · 新课标人教版</title>
+<meta name="description" content="高中生物必修一、必修二、选择性必修一/二/三全册知识体系、核心概念、公式计算、易错提醒与高频考点速查大全">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root{
+  --green-950:#0c2e1c; --green-900:#14532d; --green-800:#166534; --green-700:#15803d;
+  --green-600:#16a34a; --green-500:#22c55e; --green-100:#dcfce7; --green-50:#f0fdf4;
+  --amber-700:#b45309; --amber-600:#d97706; --amber-100:#fef3c7; --amber-50:#fffbeb;
+  --rose-700:#be123c; --rose-600:#e11d48; --rose-100:#ffe4e6; --rose-50:#fff1f2;
+  --sky-700:#0369a1; --sky-100:#e0f2fe; --sky-50:#f0f9ff;
+  --violet-700:#6d28d9; --violet-100:#ede9fe;
+  --slate-900:#0f172a; --slate-700:#334155; --slate-600:#475569; --slate-500:#64748b; --slate-400:#94a3b8;
+  --border:#e2e8f0; --bg:#f5f8f3; --card:#ffffff;
+  --sidebar-w:272px; --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--slate-900);font-size:15px;line-height:1.75;
+}
+a{color:var(--green-700);text-decoration:none}
+a:hover{text-decoration:underline}
+/* ===== 顶部进度条 ===== */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green-600),var(--green-500));z-index:1000;transition:width .1s linear}
+/* ===== 顶栏 ===== */
+header.top{
+  position:sticky;top:0;z-index:900;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);padding:10px 20px;
+  display:flex;align-items:center;gap:16px;
+}
+header.top .logo{font-weight:900;font-size:18px;color:var(--green-900);white-space:nowrap}
+header.top .logo small{display:block;font-size:11px;font-weight:500;color:var(--slate-500);letter-spacing:.06em}
+#searchWrap{flex:1;max-width:480px;position:relative;margin-left:auto}
+#searchWrap input{
+  width:100%;padding:8px 14px 8px 38px;border:1.5px solid var(--border);border-radius:999px;
+  font-size:14px;font-family:inherit;background:var(--green-50);outline:none;transition:.2s;
+}
+#searchWrap input:focus{border-color:var(--green-500);background:#fff;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+#searchWrap .icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--slate-400)}
+#searchCount{font-size:12px;color:var(--slate-500);white-space:nowrap}
+#menuBtn{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--slate-700)}
+/* ===== 布局 ===== */
+.wrap{display:flex;align-items:flex-start;max-width:1440px;margin:0 auto}
+/* ===== 侧边栏 ===== */
+nav.sidebar{
+  position:sticky;top:57px;width:var(--sidebar-w);flex-shrink:0;height:calc(100vh - 57px);
+  overflow-y:auto;padding:16px 12px 40px;border-right:1px solid var(--border);background:#fbfdf9;
+}
+nav.sidebar::-webkit-scrollbar{width:6px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+nav.sidebar .group{margin-bottom:14px}
+nav.sidebar .group-title{
+  font-size:12px;font-weight:700;color:var(--green-800);letter-spacing:.08em;padding:6px 10px;
+  border-bottom:2px solid var(--green-100);margin-bottom:4px;display:flex;align-items:center;gap:6px;
+}
+nav.sidebar .group-title .badge{
+  font-size:10px;background:var(--green-600);color:#fff;border-radius:99px;padding:1px 7px;font-weight:700;
+}
+nav.sidebar a.item{
+  display:flex;gap:8px;align-items:baseline;padding:5px 10px;border-radius:8px;color:var(--slate-700);
+  font-size:13.5px;line-height:1.5;border-left:3px solid transparent;
+}
+nav.sidebar a.item .no{font-size:11px;color:var(--slate-400);flex-shrink:0;width:16px;text-align:right;font-weight:700}
+nav.sidebar a.item:hover{background:var(--green-50);text-decoration:none}
+nav.sidebar a.item.active{background:var(--green-100);color:var(--green-900);border-left-color:var(--green-600);font-weight:700}
+/* ===== 主内容 ===== */
+main{flex:1;min-width:0;padding:28px 36px 80px}
+section.book-block{margin-bottom:8px}
+h1.page-title{font-size:26px;font-weight:900;color:var(--green-950);line-height:1.4;margin-bottom:6px}
+.page-sub{color:var(--slate-500);font-size:14px;margin-bottom:24px}
+/* 册标题 */
+.book-head{
+  display:flex;align-items:center;gap:14px;margin:44px 0 6px;padding-bottom:10px;border-bottom:3px solid var(--green-600);
+}
+.book-head .bno{
+  flex-shrink:0;width:52px;height:52px;border-radius:14px;background:var(--green-900);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:15px;line-height:1.15;
+}
+.book-head .bno small{font-size:9px;font-weight:500;opacity:.75}
+.book-head h2{font-size:22px;font-weight:900;color:var(--green-950)}
+.book-head .sub{font-size:12.5px;color:var(--slate-500);font-weight:500}
+/* 章节 */
+.chapter{margin:26px 0 6px;scroll-margin-top:72px}
+.chapter>h3{
+  display:flex;align-items:center;gap:10px;font-size:18px;font-weight:900;color:#fff;background:var(--green-800);
+  padding:9px 16px;border-radius:10px;margin-bottom:14px;
+}
+.chapter>h3 .cn{background:rgba(255,255,255,.18);border-radius:8px;padding:1px 9px;font-size:13px}
+.chapter>h3 .kf{font-size:11.5px;font-weight:500;opacity:.85;margin-left:auto;text-align:right}
+/* 知识框架条 */
+.framework{
+  background:var(--green-50);border:1px dashed var(--green-500);border-radius:10px;padding:10px 14px;
+  font-size:13px;color:var(--green-900);margin-bottom:14px;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;
+}
+.framework b{font-weight:700}
+.framework .arrow{color:var(--green-600);font-weight:700}
+/* 卡片网格 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.card.full{grid-column:1/-1}
+.card h4{
+  font-size:14.5px;font-weight:900;color:var(--green-900);margin-bottom:10px;display:flex;align-items:center;gap:8px;
+  padding-bottom:8px;border-bottom:2px solid var(--green-100);
+}
+.card h4 .dot{width:8px;height:8px;border-radius:50%;background:var(--green-500);flex-shrink:0}
+.card p, .card li{font-size:13.8px;color:var(--slate-700)}
+.card ul{padding-left:0;list-style:none}
+.card ul li{padding:3px 0 3px 18px;position:relative}
+.card ul li::before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:2px;background:var(--green-400)}
+.card ul li b{color:var(--slate-900)}
+.card ul li i{font-style:normal;color:var(--green-700);font-weight:700}
+/* 表格 */
+.tbl-wrap{overflow-x:auto;margin:6px 0}
+table.tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+table.tbl th{
+  background:var(--green-900);color:#fff;font-weight:700;padding:7px 10px;text-align:left;white-space:nowrap;
+  font-size:12.5px;
+}
+table.tbl td{border-bottom:1px solid var(--border);padding:7px 10px;color:var(--slate-700);vertical-align:top}
+table.tbl tr:nth-child(even) td{background:var(--green-50)}
+table.tbl td b{color:var(--slate-900)}
+table.tbl .hl{color:var(--rose-700);font-weight:700}
+/* 提示框 */
+.box{border-radius:10px;padding:12px 16px;font-size:13.5px;margin:10px 0}
+.box .bt{display:flex;align-items:center;gap:7px;font-weight:900;font-size:13.5px;margin-bottom:5px}
+.box ul{padding-left:0;list-style:none}
+.box li{padding:2px 0 2px 18px;position:relative}
+.box li::before{content:"";position:absolute;left:1px;top:12px;width:6px;height:6px;border-radius:2px}
+.box.warn{background:var(--amber-50);border:1px solid #fde68a}
+.box.warn .bt{color:var(--amber-700)}
+.box.warn li::before{background:var(--amber-500)}
+.box.danger{background:var(--rose-50);border:1px solid #fecdd3}
+.box.danger .bt{color:var(--rose-700)}
+.box.danger li::before{background:var(--rose-400)}
+.box.tip{background:var(--sky-50);border:1px solid #bae6fd}
+.box.tip .bt{color:var(--sky-700)}
+.box.tip li::before{background:var(--sky-400)}
+.box.formula{background:var(--violet-100);border:1px solid #ddd6fe}
+.box.formula .bt{color:var(--violet-700)}
+.box.formula li::before{background:var(--violet-500)}
+.box.formula code{font-family:inherit;font-weight:700}
+/* 公式块 */
+.eq{
+  background:var(--green-900);color:#fff;border-radius:10px;padding:10px 16px;margin:10px 0;
+  font-size:14px;font-weight:700;letter-spacing:.01em;overflow-x:auto;white-space:nowrap;
+}
+.eq .desc{font-weight:400;font-size:12.5px;opacity:.8;display:block;margin-top:2px;white-space:normal}
+/* 考试标签 */
+.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:99px;padding:1px 9px;margin:0 4px 4px 0}
+.tag.freq{background:#fef9c3;color:#854d0e;border:1px solid #fde047}
+.tag.exp{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
+.tag.form{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+/* 图文区 */
+.diagram{text-align:center;padding:8px 4px}
+.diagram svg{max-width:100%;height:auto}
+.diagram .cap{font-size:12px;color:var(--slate-500);margin-top:6px}
+/* 总览 */
+.overview-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0 8px}
+.ov-card{border-radius:14px;padding:14px;color:#fff;position:relative;overflow:hidden;min-height:118px;display:flex;flex-direction:column;justify-content:flex-end}
+.ov-card .ov-no{font-size:11px;font-weight:700;opacity:.8}
+.ov-card .ov-name{font-size:16px;font-weight:900;line-height:1.35;margin-top:2px}
+.ov-card .ov-topics{font-size:11px;opacity:.85;margin-top:5px;line-height:1.5}
+.ov-card.b1{background:linear-gradient(160deg,#166534,#15803d)}
+.ov-card.b2{background:linear-gradient(160deg,#1e3a8a,#2563eb)}
+.ov-card.b3{background:linear-gradient(160deg,#7c2d12,#ea580c)}
+.ov-card.b4{background:linear-gradient(160deg,#14532d,#059669)}
+.ov-card.b5{background:linear-gradient(160deg,#4c1d95,#7c3aed)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13.5px}
+.kv dt{font-weight:900;color:var(--green-900);white-space:nowrap}
+.kv dd{color:var(--slate-700)}
+/* 返回顶部 */
+#toTop{
+  position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--green-800);color:#fff;font-size:18px;box-shadow:0 4px 14px rgba(20,83,45,.35);
+  opacity:0;pointer-events:none;transition:.25s;z-index:900;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--green-600)}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--border);color:var(--slate-500);font-size:12.5px;text-align:center}
+/* 搜索高亮 */
+mark{background:#fde047;color:#422006;border-radius:3px;padding:0 2px}
+.hidden-chapter{display:none !important}
+/* 移动端 */
+@media (max-width:1080px){
+  .overview-cards{grid-template-columns:repeat(3,1fr)}
+  .grid3{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  header.top{padding:8px 12px;flex-wrap:wrap}
+  #menuBtn{display:block}
+  #searchWrap{order:3;max-width:none;flex-basis:100%;margin-left:0}
+  #searchCount{display:none}
+  nav.sidebar{
+    position:fixed;top:0;left:0;height:100vh;width:280px;z-index:950;transform:translateX(-105%);
+    transition:transform .25s;padding-top:60px;box-shadow:0 0 40px rgba(0,0,0,.15);background:#fbfdf9;
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  #mask{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:940;display:none}
+  #mask.show{display:block}
+  main{padding:18px 14px 60px}
+  .grid2{grid-template-columns:1fr}
+  .overview-cards{grid-template-columns:repeat(2,1fr)}
+  h1.page-title{font-size:21px}
+  .book-head h2{font-size:18px}
+  .chapter>h3{font-size:15.5px;flex-wrap:wrap}
+  .chapter>h3 .kf{width:100%;text-align:left;margin-top:2px}
+}
+@media print{
+  nav.sidebar,header.top,#toTop,#mask,#progress{display:none !important}
+  main{padding:0}
+  body{background:#fff}
+  .chapter{page-break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+}
+ol.mistakes{list-style:none;counter-reset:mist;columns:2;column-gap:30px;font-size:13px}
+ol.mistakes li{counter-increment:mist;position:relative;padding:4px 0 4px 30px;color:var(--slate-700);break-inside:avoid}
+ol.mistakes li::before{content:counter(mist);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--green-100);color:var(--green-800);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center}
+ol.mistakes li b{color:var(--rose-700)}
+@media (max-width:860px){ol.mistakes{columns:1}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="mask"></div>
+<button id="toTop" title="返回顶部">↑</button>
+
+<header class="top">
+  <button id="menuBtn" aria-label="目录"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  <div class="logo">高中生物三年知识大全<small>新课标人教版 · 高考总复习速查手册</small></div>
+  <div id="searchWrap">
+    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="searchInput" type="text" placeholder="搜索知识点，如：光合作用 / 基因频率 / 生长素…">
+  </div>
+  <div id="searchCount"></div>
+</header>
+
+<div class="wrap">
+<nav class="sidebar" id="sidebar">
+  <div class="group">
+    <div class="group-title">全册导航</div>
+    <a class="item" href="#overview"><span class="no">✦</span>知识体系总览</a>
+  </div>
+  <div class="group">
+    <div class="group-title">必修一 · 分子与细胞 <span class="badge">1</span></div>
+    <a class="item" href="#b1c1"><span class="no">1</span>走近细胞</a>
+    <a class="item" href="#b1c2"><span class="no">2</span>组成细胞的分子</a>
+    <a class="item" href="#b1c3"><span class="no">3</span>细胞的基本结构</a>
+    <a class="item" href="#b1c4"><span class="no">4</span>物质跨膜运输</a>
+    <a class="item" href="#b1c5"><span class="no">5</span>酶与 ATP</a>
+    <a class="item" href="#b1c6"><span class="no">6</span>细胞呼吸</a>
+    <a class="item" href="#b1c7"><span class="no">7</span>光合作用</a>
+    <a class="item" href="#b1c8"><span class="no">8</span>细胞增殖与分化</a>
+  </div>
+  <div class="group">
+    <div class="group-title">必修二 · 遗传与进化 <span class="badge">2</span></div>
+    <a class="item" href="#b2c1"><span class="no">1</span>遗传因子的发现</a>
+    <a class="item" href="#b2c2"><span class="no">2</span>减数分裂与受精作用</a>
+    <a class="item" href="#b2c3"><span class="no">3</span>基因的本质与表达</a>
+    <a class="item" href="#b2c4"><span class="no">4</span>伴性遗传与人类遗传病</a>
+    <a class="item" href="#b2c5"><span class="no">5</span>变异与育种</a>
+    <a class="item" href="#b2c6"><span class="no">6</span>生物的进化</a>
+  </div>
+  <div class="group">
+    <div class="group-title">选择性必修一 · 稳态与调节 <span class="badge">3</span></div>
+    <a class="item" href="#b3c1"><span class="no">1</span>内环境与稳态</a>
+    <a class="item" href="#b3c2"><span class="no">2</span>神经调节</a>
+    <a class="item" href="#b3c3"><span class="no">3</span>体液调节</a>
+    <a class="item" href="#b3c4"><span class="no">4</span>免疫调节</a>
+    <a class="item" href="#b3c5"><span class="no">5</span>植物生命活动调节</a>
+  </div>
+  <div class="group">
+    <div class="group-title">选择性必修二 · 生物与环境 <span class="badge">4</span></div>
+    <a class="item" href="#b4c1"><span class="no">1</span>种群及其动态</a>
+    <a class="item" href="#b4c2"><span class="no">2</span>群落及其演替</a>
+    <a class="item" href="#b4c3"><span class="no">3</span>生态系统及其稳定性</a>
+    <a class="item" href="#b4c4"><span class="no">4</span>人与环境</a>
+  </div>
+  <div class="group">
+    <div class="group-title">选择性必修三 · 生物技术与工程 <span class="badge">5</span></div>
+    <a class="item" href="#b5c1"><span class="no">1</span>发酵工程</a>
+    <a class="item" href="#b5c2"><span class="no">2</span>细胞工程</a>
+    <a class="item" href="#b5c3"><span class="no">3</span>基因工程</a>
+    <a class="item" href="#b5c4"><span class="no">4</span>胚胎工程</a>
+    <a class="item" href="#b5c5"><span class="no">5</span>生物技术安全与伦理</a>
+  </div>
+  <div class="group">
+    <div class="group-title">附录 · 高考工具箱 <span class="badge">A</span></div>
+    <a class="item" href="#ap1"><span class="no">1</span>遗传计算与概率速算</a>
+    <a class="item" href="#ap2"><span class="no">2</span>实验设计答题模板</a>
+    <a class="item" href="#ap3"><span class="no">3</span>经典科学史实验汇总</a>
+    <a class="item" href="#ap4"><span class="no">4</span>易错易混 100 条</a>
+    <a class="item" href="#ap5"><span class="no">5</span>高频考点与答题规范</a>
+  </div>
+</nav>
+
+<main>
+<section class="book-block" id="overview">
+  <h1 class="page-title">高中生物三年知识大全</h1>
+  <p class="page-sub">依据新课标人教版教材（必修1·2 + 选择性必修1·2·3）整理，按"知识框架 → 核心概念 → 重点突破 → 公式计算 → 易错提醒 → 实验速记 → 高考高频考点"组织，适合一轮复习与考前速查。</p>
+
+  <div class="overview-cards">
+    <div class="ov-card b1"><div class="ov-no">必修一</div><div class="ov-name">分子与细胞</div><div class="ov-topics">细胞·分子·结构与功能·代谢·增殖</div></div>
+    <div class="ov-card b2"><div class="ov-no">必修二</div><div class="ov-name">遗传与进化</div><div class="ov-topics">遗传定律·DNA·变异·进化</div></div>
+    <div class="ov-card b3"><div class="ov-no">选必一</div><div class="ov-name">稳态与调节</div><div class="ov-topics">内环境·神经·体液·免疫·植物激素</div></div>
+    <div class="ov-card b4"><div class="ov-no">选必二</div><div class="ov-name">生物与环境</div><div class="ov-topics">种群·群落·生态系统·人与环境</div></div>
+    <div class="ov-card b5"><div class="ov-no">选必三</div><div class="ov-name">生物技术与工程</div><div class="ov-topics">发酵·细胞工程·基因工程·胚胎工程</div></div>
+  </div>
+
+  <div class="card full">
+    <h4><span class="dot"></span>生物学科核心素养与高考命题主线</h4>
+    <div class="grid3">
+      <div>
+        <ul>
+          <li><b>生命观念</b>：结构与功能观、物质与能量观、稳态与平衡观、进化与适应观</li>
+          <li><b>科学思维</b>：假说—演绎法、模型与建模、类比推理、归纳与演绎</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>科学探究</b>：对照实验、单一变量、重复与随机、设计并评价实验</li>
+          <li><b>社会责任</b>：健康生活、生态环保、生物技术伦理、疫苗与传染病防控</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>命题主线</b>：代谢（呼吸+光合）→ 遗传（定律+变异）→ 调节（神经-体液-免疫）→ 生态（种群-群落-生态系统）→ 生物技术（基因工程为压轴）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box tip" style="margin-top:10px">
+      <div class="bt">高考时间分配建议</div>
+      选择题约 15–18 分钟，非选择题按"遗传（约15min）→ 代谢（约12min）→ 调节/生态/生物技术（各约8min）"推进；生物占理综分值约 90 分（单科卷 100 分）。
+    </div>
+  </div>
+</section>
+<!-- ==================== 必修一 分子与细胞 ==================== -->
+<section class="book-block" id="b1">
+  <div class="book-head">
+    <div class="bno">必修<small>一</small></div>
+    <div><h2>分子与细胞</h2><div class="sub">细胞的分子组成 · 结构与功能 · 物质与能量代谢 · 增殖分化</div></div>
+  </div>
+
+  <div class="chapter" id="b1c1">
+    <h3><span class="cn">1</span>走近细胞<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>生命系统结构层次 <span class="arrow">→</span> 细胞学说 <span class="arrow">→</span> 原核细胞与真核细胞 <span class="arrow">→</span> 病毒</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>生命系统的结构层次</h4>
+        <ul>
+          <li><b>由小到大：</b>细胞 <i>→</i> 组织 <i>→</i> 器官 <i>→</i> 系统（植物无） <i>→</i> 个体 <i>→</i> 种群 <i>→</i> 群落 <i>→</i> 生态系统 <i>→</i> 生物圈</li>
+          <li><b>细胞是最基本的生命系统</b>；病毒、分子、原子不属于生命系统。</li>
+          <li>种群=同种生物全部个体；群落=一定区域<b>所有</b>种群；生态系统=群落+<b>非生物环境</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>细胞学说（施莱登、施旺）</h4>
+        <ul>
+          <li>① 细胞是一个有机体，一切<b>动植物</b>都由细胞发育而来，并由细胞和细胞产物构成；</li>
+          <li>② 细胞是一个<b>相对独立</b>的单位；</li>
+          <li>③ 新细胞由<b>老细胞分裂</b>产生。</li>
+          <li>意义：揭示了<b>细胞统一性</b>和<b>生物体结构统一性</b>，为进化论提供依据。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>原核细胞 vs 真核细胞</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>比较</th><th>原核细胞</th><th>真核细胞</th></tr>
+          <tr><td><b>典型代表</b></td><td>细菌（大肠杆菌、硝化细菌）、蓝细菌（蓝藻）、支原体、放线菌</td><td>动物、植物、真菌（酵母菌、霉菌、蘑菇）</td></tr>
+          <tr><td><b>细胞核</b></td><td>无成形细胞核，有<b>拟核</b>（无核膜、无核仁）</td><td>有成形细胞核（核膜+核仁+染色质）</td></tr>
+          <tr><td><b>细胞器</b></td><td>只有<b>核糖体</b></td><td>多种细胞器</td></tr>
+          <tr><td><b>细胞壁</b></td><td>肽聚糖（<span class="hl">支原体无细胞壁</span>）</td><td>植物：纤维素+果胶；动物无细胞壁</td></tr>
+          <tr><td><b>遗传物质</b></td><td>DNA（裸露、环状）</td><td>DNA（与蛋白质结合成染色体）</td></tr>
+          <tr><td><b>可遗传变异类型</b></td><td>基因突变（无减数分裂，不进行有性生殖）</td><td>基因突变、基因重组、染色体变异</td></tr>
+        </table></div>
+        <div class="box danger"><div class="bt">易错</div>
+          <ul>
+            <li>蓝细菌含叶绿素和藻蓝素，能进行光合作用，但<b>没有叶绿体</b>；硝化细菌能进行化能合成作用。</li>
+            <li>有细胞壁≠植物细胞；有核膜≠原核。判断关键看<b>有无以核膜为界限的细胞核</b>。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>病毒</h4>
+        <ul>
+          <li>无细胞结构，由<b>核酸（DNA 或 RNA）+ 蛋白质外壳</b>组成。</li>
+          <li>只能<b>寄生</b>在活细胞内，用宿主细胞原料和能量增殖（不能独立代谢、不能直接用培养基培养）。</li>
+          <li>HIV、流感病毒为 RNA 病毒；T2 噬菌体为 DNA 病毒。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>实验：使用高倍显微镜 <span class="tag exp">实验</span></h4>
+        <ul>
+          <li>步骤：低倍镜下<b>找→移</b>（把目标移到视野中央）<b>→转</b>（转动转换器换高倍）<b>→调</b>（调细准焦螺旋，不能动粗准焦）</li>
+          <li>放大倍数=目镜×物镜；<b>放大的是长度或宽度</b>，不是面积。</li>
+          <li>高倍镜下视野<b>变暗、细胞数少、细胞大</b>；物像移动方向与装片移动方向<b>相反</b>。</li>
+          <li>污点判断：移动装片/转动目镜/转动转换器逐一排除。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c2">
+    <h3><span class="cn">2</span>组成细胞的分子<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>元素 <span class="arrow">→</span> 无机物（水·无机盐）<span class="arrow">→</span> 有机物（糖类·脂质·蛋白质·核酸）</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>元素与无机物</h4>
+        <ul>
+          <li><b>大量元素</b>：C、H、O、N、P、S、K、Ca、Mg；<b>微量元素</b>：Fe、Mn、Zn、Cu、B、Mo（"铁锰锌铜硼钼"）。</li>
+          <li><b>基本元素 C</b>；鲜重含量最多<b>O</b>，干重最多<b>C</b>；Mg 参与叶绿素合成，Fe 参与血红蛋白。</li>
+          <li><b>水</b>：自由水（良好溶剂、运输、参与代谢）越多代谢越旺盛；结合水（结构成分）越多抗逆性越强。</li>
+          <li><b>无机盐</b>：构成化合物（如 P→核酸/ATP，I→甲状腺激素）；维持细胞渗透压、酸碱平衡（缓冲对 H₂CO₃/NaHCO₃）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>糖类</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>种类</th><th>实例</th><th>分布/功能</th></tr>
+          <tr><td>单糖</td><td>葡萄糖、果糖、半乳糖</td><td>不能水解；葡萄糖是主要能源物质</td></tr>
+          <tr><td>单糖</td><td>核糖 / 脱氧核糖</td><td>RNA / DNA 的组成成分</td></tr>
+          <tr><td>二糖</td><td>蔗糖、麦芽糖</td><td>植物（蔗糖水解→葡萄糖+果糖）</td></tr>
+          <tr><td>二糖</td><td>乳糖</td><td>动物乳汁</td></tr>
+          <tr><td>多糖</td><td>淀粉、纤维素</td><td>植物储能 / 细胞壁成分</td></tr>
+          <tr><td>多糖</td><td>糖原（肝糖原、肌糖原）</td><td>动物储能</td></tr>
+        </table></div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>脂质</h4>
+        <ul>
+          <li><b>脂肪</b>：储能（1g≈39kJ，同质量糖类约17kJ）、保温、缓冲；<b>等量糖类氧化分解耗 O₂ 多、放能多</b>。</li>
+          <li><b>磷脂</b>：构成生物膜（含 C H O N P）。</li>
+          <li><b>固醇</b>：胆固醇（构成动物细胞膜、参与脂质运输）、性激素（促进生殖器官发育）、维生素D（促进 Ca、P 吸收）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>蛋白质——生命活动的主要承担者</h4>
+        <ul>
+          <li>基本单位：<b>氨基酸</b>（至少含一个氨基和一个羧基，且连在<b>同一碳原子</b>上，约 21 种）。</li>
+          <li>结合方式：<b>脱水缩合</b>形成<b>肽键（-CO-NH-）</b>。</li>
+          <li>结构层次：氨基酸 <i>→</i> 肽链 <i>→</i> 盘曲折叠 <i>→</i> 蛋白质（空间结构）</li>
+          <li>多样性原因：氨基酸<b>种类、数目、排列顺序</b>不同 + 肽链的<b>空间结构</b>不同。</li>
+          <li>功能：结构蛋白、催化（酶）、运输（血红蛋白）、调节（激素）、免疫（抗体）、传递信息（受体）。</li>
+        </ul>
+        <div class="eq">脱水缩合计算：肽键数 = 脱去水分子数 = 氨基酸数 n − 肽链数 m<span class="desc">至少含氨基 m 个、羧基 m 个（在肽链两端）；蛋白质相对分子质量 = n×氨基酸平均相对分子质量 − 18×(n−m)</span></div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>核酸——遗传信息的携带者</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>比较</th><th>DNA</th><th>RNA</th></tr>
+          <tr><td>基本单位</td><td>脱氧核苷酸（4种）</td><td>核糖核苷酸（4种）</td></tr>
+          <tr><td>五碳糖</td><td>脱氧核糖</td><td>核糖</td></tr>
+          <tr><td>碱基</td><td>A、G、C、<b>T</b></td><td>A、G、C、<b>U</b></td></tr>
+          <tr><td>分布</td><td>细胞核（主要）、线粒体、叶绿体</td><td>细胞质（主要）</td></tr>
+          <tr><td>功能</td><td>主要遗传物质</td><td>传递信息、运输（tRNA）、催化（少数酶）</td></tr>
+        </table></div>
+        <p style="margin-top:6px">细胞中核酸 2 种，核苷酸 <b>8 种</b>，碱基 <b>5 种</b>；病毒核酸 1 种。</p>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>实验：检测生物组织中的有机物 <span class="tag exp">实验</span></h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>物质</th><th>试剂</th><th>现象</th><th>条件</th><th>材料</th></tr>
+          <tr><td>还原糖</td><td>斐林试剂（甲液+乙液<b>现配现用、等量混合</b>）</td><td>砖红色沉淀</td><td>50–65℃水浴加热</td><td>梨匀浆（不能用西瓜、甘蔗）</td></tr>
+          <tr><td>脂肪</td><td>苏丹Ⅲ / 苏丹Ⅳ</td><td>橘黄色 / 红色</td><td>显微镜观察（需制片）</td><td>花生种子</td></tr>
+          <tr><td>蛋白质</td><td>双缩脲试剂（先加 A 液 NaOH，后加 B 液 CuSO₄，<b>不需加热</b>）</td><td>紫色</td><td>常温</td><td>豆浆、蛋清</td></tr>
+          <tr><td>淀粉</td><td>碘液</td><td>蓝色</td><td>常温</td><td>马铃薯匀浆</td></tr>
+        </table></div>
+        <div class="box warn"><div class="bt">注意</div>
+          <ul>
+            <li>斐林试剂与双缩脲试剂<b>不可混用</b>：斐林=甲+乙混合后使用（现配现用）；双缩脲=先 A 后 B。</li>
+            <li>观察脂肪染色后需用<b>50%酒精洗去浮色</b>；选材要<b>无色或白色、富含该物质</b>。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c3">
+    <h3><span class="cn">3</span>细胞的基本结构<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>细胞膜 <span class="arrow">→</span> 细胞器分工协作 <span class="arrow">→</span> 细胞核 <span class="arrow">→</span> 分泌蛋白合成运输</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>细胞膜——系统的边界</h4>
+        <ul>
+          <li><b>组成</b>：磷脂双分子层（基本支架）+ 蛋白质（镶嵌/贯穿）+ 少量糖类（糖蛋白=受体，具识别作用）。</li>
+          <li><b>流动镶嵌模型</b>：磷脂分子和多数蛋白质可运动，膜具<b>流动性</b>（结构基础）；功能上具<b>选择透过性</b>。</li>
+          <li><b>三大功能</b>：将细胞与外界分隔开；控制物质进出；进行细胞间信息交流（信号分子—受体；胞间连丝）。</li>
+          <li>制备纯净细胞膜材料：<b>哺乳动物成熟红细胞</b>（无核、无众多细胞器，吸水涨破）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>细胞器——分工与合作</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>细胞器</th><th>分布</th><th>功能要点</th></tr>
+          <tr><td><b>线粒体</b></td><td>动植物</td><td>有氧呼吸主要场所（双层膜、内膜折叠成嵴）</td></tr>
+          <tr><td><b>叶绿体</b></td><td>绿色植物叶肉</td><td>光合作用场所（双层膜、基粒含色素）</td></tr>
+          <tr><td><b>内质网</b></td><td>动植物</td><td>蛋白质加工运输、脂质合成（粗面/滑面）</td></tr>
+          <tr><td><b>高尔基体</b></td><td>动植物</td><td>加工、分类、包装；植物中与细胞壁形成有关</td></tr>
+          <tr><td><b>核糖体</b></td><td>原核/真核都有</td><td>蛋白质合成场所（无膜）</td></tr>
+          <tr><td><b>溶酶体</b></td><td>动物</td><td>分解衰老损伤细胞器、吞噬异物（含多种水解酶）</td></tr>
+          <tr><td><b>液泡</b></td><td>植物</td><td>细胞液渗透压、充盈使细胞坚挺</td></tr>
+          <tr><td><b>中心体</b></td><td>动物、低等植物</td><td>与有丝分裂纺锤体形成有关（无膜）</td></tr>
+        </table></div>
+        <div class="box tip" style="margin-top:8px"><div class="bt">分类记忆</div>
+          <ul>
+            <li>双层膜：线粒体、叶绿体；单层膜：内质网、高尔基体、液泡、溶酶体；<b>无膜</b>：核糖体、中心体。</li>
+            <li>动植物<b>都有</b>：线粒体、内质网、高尔基体、核糖体；植物特有：叶绿体、液泡；动物和低等植物特有：中心体。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>细胞核——遗传信息库、代谢调控中心</h4>
+        <ul>
+          <li><b>核膜</b>（双层）、<b>核孔</b>（大分子进出，如 mRNA、蛋白质；<b>选择性</b>）、<b>染色质</b>（DNA+蛋白质，是遗传信息载体）、<b>核仁</b>（与核糖体形成有关）。</li>
+          <li>染色质与染色体是<b>同一种物质</b>在细胞不同时期的不同存在形式。</li>
+          <li>证明细胞核功能的实验：蝾螈受精卵横缢实验、伞藻嫁接与核移植实验。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>分泌蛋白的合成与运输（示踪法）</h4>
+        <div class="eq">核糖体合成肽链 → 内质网加工 → 高尔基体再加工 → 细胞膜胞吐 → 细胞外<span class="desc">用放射性同位素 <sup>3</sup>H 标记亮氨酸，放射性先后出现在：核糖体 → 内质网 → 高尔基体 → 细胞膜</span></div>
+        <p style="margin-top:6px">全过程需要<b>线粒体供能</b>；运输依赖囊泡（膜流动性的体现）。</p>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>细胞骨架与生物膜系统 <span class="tag freq">高频</span></h4>
+        <ul>
+          <li><b>细胞骨架</b>：蛋白质纤维（微管、微丝）构成，维持形态、支撑细胞器、与运动分裂有关。</li>
+          <li><b>生物膜系统</b>=细胞膜+细胞器膜+核膜；<b>原核细胞没有</b>（仅细胞膜）。</li>
+          <li>各种膜成分相似（磷脂+蛋白质），结构功能紧密联系，实现物质运输、能量转换、信息传递。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c4">
+    <h3><span class="cn">4</span>物质跨膜运输<span class="kf">高频 ★★★☆☆</span></h3>
+    <div class="framework"><b>知识框架：</b>渗透作用 <span class="arrow">→</span> 被动运输（自由扩散·协助扩散）<span class="arrow">→</span> 主动运输 <span class="arrow">→</span> 胞吞胞吐</div>
+    <div class="card full">
+      <h4><span class="dot"></span>四种运输方式对比</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>方式</th><th>方向</th><th>载体蛋白</th><th>能量</th><th>实例</th></tr>
+        <tr><td>自由扩散</td><td>高浓度→低浓度</td><td>无</td><td>不消耗</td><td>O₂、CO₂、水、甘油、乙醇、苯、脂肪酸</td></tr>
+        <tr><td>协助扩散</td><td>高→低</td><td><b>有</b>（通道蛋白/载体蛋白）</td><td>不消耗</td><td>葡萄糖进入红细胞、K⁺经通道外流</td></tr>
+        <tr><td>主动运输</td><td>低→高</td><td>有</td><td><b>消耗 ATP</b></td><td>葡萄糖/氨基酸进小肠上皮、离子逆浓度、Na⁺-K⁺泵</td></tr>
+        <tr><td>胞吞/胞吐</td><td>—</td><td>无</td><td>消耗 ATP（依赖膜流动性）</td><td>白细胞吞噬细菌、分泌蛋白/神经递质释放</td></tr>
+      </table></div>
+      <div class="box warn"><div class="bt">易错辨析</div>
+        <ul>
+          <li>协助扩散和主动运输都需要<b>载体蛋白</b>（具专一性，数量有限——存在<b>饱和效应</b>）；判断是否消耗能量是关键。</li>
+          <li>葡萄糖进红细胞=协助扩散；进小肠上皮细胞、肾小管重吸收=<b>主动运输</b>。</li>
+          <li>自由扩散与协助扩散合称<b>被动运输</b>，顺浓度梯度，不消耗能量。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>渗透作用与质壁分离</h4>
+        <ul>
+          <li>渗透作用条件：<b>半透膜</b> + 膜两侧有<b>浓度差</b>（水从低浓度溶液流向高浓度溶液）。</li>
+          <li>植物成熟细胞的原生质层（细胞膜+液泡膜+两膜之间细胞质）=半透膜。</li>
+          <li><b>质壁分离</b>：外界溶液浓度&gt;细胞液浓度时，细胞失水，液泡缩小、原生质层与细胞壁分离。</li>
+          <li>质壁分离<b>自动复原</b>：KNO₃、尿素等可被吸收的溶质，先分离后自动复原（先失水后吸水）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>实验：观察质壁分离与复原 <span class="tag exp">实验</span></h4>
+        <ul>
+          <li>材料：<b>紫色洋葱鳞片叶外表皮</b>（中央大液泡，紫色便于观察）。</li>
+          <li>试剂：0.3 g/mL 蔗糖溶液（分离）→ 清水（复原），自身对照。</li>
+          <li>低倍镜即可完成全程观察，<b>不能</b>选用死细胞、根尖分生区细胞（无大液泡）。</li>
+          <li>判断细胞死活、测定细胞液浓度范围也常用此实验原理。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c5">
+    <h3><span class="cn">5</span>酶与 ATP<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>酶的本质·特性·作用机理 <span class="arrow">→</span> 影响酶活性的因素 <span class="arrow">→</span> ATP 结构 <span class="arrow">→</span> ATP 与 ADP 相互转化</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>酶——生物催化剂</h4>
+        <ul>
+          <li>化学本质：<b>绝大多数是蛋白质，少数是 RNA</b>（具催化作用）。</li>
+          <li>作用机理：<b>显著降低化学反应的活化能</b>（不提供能量、不改变化学平衡）。</li>
+          <li><b>特性</b>：高效性（比无机催化剂效率高 10⁷–10¹³ 倍）、专一性（一种酶只催化一种或一类反应）、作用条件温和（需适宜温度与 pH）。</li>
+          <li>酶的活性受温度、pH 影响；<b>低温抑制活性（可恢复），高温/过酸/过碱使酶失活（不可逆，空间结构被破坏）</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>ATP——直接能源物质</h4>
+        <ul>
+          <li>结构简式：<b>A-P~P~P</b>（A=腺苷，P=磷酸基团，~=高能磷酸键）。</li>
+          <li>水解时末端高能磷酸键断裂，释放能量，变成 <b>ADP+Pi</b>。</li>
+          <li>合成与水解是<b>可逆反应吗？——不是</b>：物质可逆，但<b>条件、场所、能量来源均不同</b>（不是同一反应）。</li>
+          <li>ATP 是细胞的<b>直接</b>能源物质；糖类是主要能源，脂肪是主要储能物质，太阳能是最终能量来源。</li>
+          <li>细胞内 ATP 含量很少但<b>转化迅速</b>，维持动态平衡。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>实验：酶的专一性、高效性与条件探究 <span class="tag exp">实验</span></h4>
+        <ul>
+          <li><b>专一性</b>：淀粉酶分别处理淀粉+蔗糖，用斐林试剂检测（只淀粉组出现砖红色）。</li>
+          <li><b>高效性</b>：H₂O₂ + 过氧化氢酶 vs 无机催化剂 Fe³⁺，比较气泡产生速率。</li>
+          <li><b>温度影响</b>：淀粉酶+淀粉在不同温度保温后，用<b>碘液</b>检测（不能用斐林试剂，因需水浴加热干扰温度变量）。</li>
+          <li><b>pH 影响</b>：可用 H₂O₂ 酶+不同 pH 缓冲液（H₂O₂ 本身受温度影响，不宜研究温度）。</li>
+          <li>对照实验原则：<b>单一变量 + 对照 + 平行重复</b>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c6">
+    <h3><span class="cn">6</span>细胞呼吸<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>有氧呼吸（三阶段）<span class="arrow">→</span> 无氧呼吸（两类型）<span class="arrow">→</span> 影响因素与应用 <span class="arrow">→</span> 探究实验</div>
+    <div class="card full">
+      <h4><span class="dot"></span>有氧呼吸（总反应式）</h4>
+      <div class="eq">C₆H₁₂O₆ + 6O₂ + 6H₂O ──酶──→ 6CO₂ + 12H₂O + 能量（大量）<span class="desc">多数真核生物的主要呼吸方式；场所：细胞质基质 + 线粒体</span></div>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>阶段</th><th>场所</th><th>反应要点</th><th>产物</th><th>能量</th></tr>
+        <tr><td>第一阶段</td><td>细胞质基质</td><td>葡萄糖分解为丙酮酸</td><td>丙酮酸、[H](NADH)、少量 ATP</td><td>少量</td></tr>
+        <tr><td>第二阶段</td><td>线粒体基质</td><td>丙酮酸+水彻底分解</td><td>CO₂、[H]、少量 ATP</td><td>少量</td></tr>
+        <tr><td>第三阶段</td><td><b>线粒体内膜</b></td><td>[H] 与 O₂ 结合生成水</td><td>H₂O、<b>大量 ATP</b></td><td><b>大量</b></td></tr>
+      </table></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>无氧呼吸</h4>
+        <div class="eq">C₆H₁₂O₆ ──酶──→ 2C₂H₅OH + 2CO₂ + 少量能量<span class="desc">酒精发酵：酵母菌、大多数植物</span></div>
+        <div class="eq">C₆H₁₂O₆ ──酶──→ 2C₃H₆O₃ + 少量能量<span class="desc">乳酸发酵：动物、人、乳酸菌、马铃薯块茎、甜菜块根</span></div>
+        <ul>
+          <li>第一阶段与有氧呼吸<b>完全相同</b>（都在细胞质基质）；第二阶段的产物不同。</li>
+          <li>无氧呼吸有机物<b>氧化不彻底</b>，能量释放少，大部分能量仍留在产物中。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>影响因素与应用</h4>
+        <ul>
+          <li><b>温度</b>：影响酶活性。储存果蔬、粮食：<b>零上低温、低氧、干燥</b>。</li>
+          <li><b>O₂ 浓度</b>：零氧时只进行无氧呼吸；<b>储存以低氧（约5%）为最佳</b>，既抑制无氧呼吸又减弱有氧呼吸。</li>
+          <li><b>CO₂ 浓度</b>：CO₂ 浓度升高抑制呼吸作用（保鲜常用）。</li>
+          <li>松土、增施农家肥、稻田晒田→促进根的有氧呼吸；伤口包扎透气→抑制破伤风杆菌（厌氧菌）繁殖。</li>
+          <li>剧烈运动后肌肉酸痛=乳酸积累；慢跑（有氧）供能更持久。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>实验：探究酵母菌细胞呼吸的方式 <span class="tag exp">实验</span></h4>
+        <ul>
+          <li>装置：甲组通气（有氧），乙组密闭（无氧），设置<b>相互对照</b>。</li>
+          <li>CO₂ 检测：<b>澄清石灰水</b>变浑浊 / <b>溴麝香草酚蓝（BTB）</b>溶液由蓝变绿再变黄（CO₂ 越多变化越快）。</li>
+          <li>酒精检测：酸性条件下<b>橙色的重铬酸钾</b>变为<b>灰绿色</b>（需在<b>无氧</b>条件下取培养液）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c7">
+    <h3><span class="cn">7</span>光合作用<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>光合色素 <span class="arrow">→</span> 光反应 <span class="arrow">→</span> 暗反应 <span class="arrow">→</span> 影响因子 <span class="arrow">→</span> 与呼吸作用的关系</div>
+    <div class="card full">
+      <h4><span class="dot"></span>光反应与暗反应对比</h4>
+      <div class="eq">总反应式：6CO₂ + 12H₂O ──光能/叶绿体──→ C₆H₁₂O₆ + 6O₂ + 6H₂O</div>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>比较</th><th>光反应</th><th>暗反应</th></tr>
+        <tr><td>场所</td><td>叶绿体<b>类囊体薄膜</b></td><td>叶绿体<b>基质</b></td></tr>
+        <tr><td>条件</td><td>需要<b>光</b>、色素、酶</td><td>不需要光、需要酶（[H]、ATP）</td></tr>
+        <tr><td>物质变化</td><td>水的光解：2H₂O→O₂+4[H]；NADP⁺+[H]→NADPH；ADP+Pi→ATP</td><td>CO₂+C₅→2C₃（固定）；C₃+[H]+ATP→C₅+(CH₂O)（还原）</td></tr>
+        <tr><td>能量变化</td><td>光能→ATP、NADPH 中活跃化学能</td><td>活跃化学能→有机物中稳定化学能</td></tr>
+        <tr><td>产物</td><td>O₂、ATP、NADPH</td><td>(CH₂O)（糖类）、C₅、ADP、Pi、NADP⁺</td></tr>
+      </table></div>
+      <div class="box warn"><div class="bt">联动记忆（物质去向）</div>
+        <ul>
+          <li>光反应产生的<b>O₂ 全部来自水</b>（鲁宾和卡门用 <sup>18</sup>O 同位素标记证实）；有机物中碳来自 CO₂。</li>
+          <li>突然<b>停止光照</b>：ATP、NADPH 减少，C₃ <b>增多</b>、C₅ 减少；突然<b>降低 CO₂</b>：C₃ 减少、C₅ 增多。</li>
+          <li>ATP、NADPH 既是暗反应的能量来源，也是<b>还原剂</b>，在暗反应中被消耗。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>光合作用与细胞呼吸的联系</h4>
+        <div class="diagram">
+          <svg viewBox="0 0 620 190" role="img" aria-label="光合作用与细胞呼吸联系示意">
+            <defs>
+              <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#15803d"/></marker>
+            </defs>
+            <rect x="10" y="20" width="180" height="60" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+            <text x="100" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d">叶绿体（光合作用）</text>
+            <text x="100" y="64" text-anchor="middle" font-size="11" fill="#166534">CO₂+H₂O ─光能→ (CH₂O)+O₂</text>
+            <rect x="430" y="20" width="180" height="60" rx="10" fill="#fef3c7" stroke="#d97706"/>
+            <text x="520" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">线粒体（细胞呼吸）</text>
+            <text x="520" y="64" text-anchor="middle" font-size="11" fill="#92400e">(CH₂O)+O₂ → CO₂+H₂O+能量</text>
+            <path d="M190,38 H430" stroke="#15803d" stroke-width="2.4" marker-end="url(#arr)"/>
+            <text x="310" y="28" text-anchor="middle" font-size="11" fill="#15803d" font-weight="700">有机物+O₂</text>
+            <path d="M430,60 H190" stroke="#d97706" stroke-width="2.4" marker-end="url(#arr)"/>
+            <text x="310" y="80" text-anchor="middle" font-size="11" fill="#92400e" font-weight="700">CO₂+H₂O</text>
+            <path d="M520,120 C520,160 310,160 100,160 C100,135 100,120 100,84" stroke="#64748b" stroke-width="1.8" fill="none" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+            <text x="310" y="175" text-anchor="middle" font-size="11" fill="#64748b">能量通过 ATP 在代谢间传递 · 有机物中稳定化学能是生命活动能量之源</text>
+          </svg>
+          <div class="cap">代谢核心枢纽：光合作用制造有机物并储存能量，细胞呼吸分解有机物释放能量</div>
+        </div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>影响光合作用强度的因素</h4>
+        <ul>
+          <li><b>光照强度</b>：低于<b>光补偿点</b>（光合=呼吸）净积累为负；<b>光饱和点</b>后光合不再增强。阴生植物光补偿点低。</li>
+          <li><b>CO₂ 浓度</b>：CO₂ 饱和点前呈正相关；施用有机肥、通风可增产。</li>
+          <li><b>温度</b>：影响酶活性，白天适当升温、夜间降温（降低呼吸消耗）利于增产。</li>
+          <li><b>矿质元素</b>：N、Mg（叶绿素）、P（ATP、膜）、K 等。</li>
+          <li>净光合速率 = 总光合速率 − 呼吸速率；叶片 O₂ 释放/CO₂ 吸收表示<b>净</b>光合。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>实验：绿叶中色素的提取和分离 <span class="tag exp">实验</span></h4>
+        <ul>
+          <li>提取：<b>无水乙醇</b>（溶解色素）+ 二氧化硅（研磨充分）+ 碳酸钙（防止色素被破坏）。</li>
+          <li>分离：<b>纸层析法</b>，层析液（石油醚等）；滤纸条剪去两角（减小边缘效应）。</li>
+          <li>结果（自上而下）：<b>胡萝卜素（橙黄）→ 叶黄素（黄）→ 叶绿素 a（蓝绿，含量最多）→ 叶绿素 b（黄绿）</b>。</li>
+          <li>色素吸收可见光，叶绿素主要吸收<b>红光和蓝紫光</b>，类胡萝卜素主要吸收<b>蓝紫光</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>化能合成作用</h4>
+        <ul>
+          <li>硝化细菌利用无机物氧化（NH₃→HNO₂→HNO₃）释放的化学能，将 CO₂ 和 H₂O 合成有机物。</li>
+          <li>自养生物：光合型（绿色植物、蓝细菌）+ 化能合成型（硝化细菌）；异养生物：动物、真菌、多数细菌。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b1c8">
+    <h3><span class="cn">8</span>细胞增殖与细胞的生命历程<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>细胞周期 <span class="arrow">→</span> 有丝分裂 <span class="arrow">→</span> 分化·衰老·凋亡·癌变</div>
+    <div class="card full">
+      <h4><span class="dot"></span>有丝分裂各时期特征（体细胞染色体数 2n）</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>时期</th><th>主要特征</th><th>染色体</th><th>染色单体</th><th>DNA</th></tr>
+        <tr><td>间期</td><td>DNA 复制、蛋白质合成</td><td>2n</td><td>0→4n</td><td>2n→4n</td></tr>
+        <tr><td>前期</td><td>染色质→染色体；核膜核仁消失；纺锤体形成</td><td>2n</td><td>4n</td><td>4n</td></tr>
+        <tr><td>中期</td><td>着丝粒排列在<b>赤道板</b>，形态数目最清晰</td><td>2n</td><td>4n</td><td>4n</td></tr>
+        <tr><td>后期</td><td><b>着丝粒分裂</b>，姐妹染色单体分开，染色体数加倍</td><td><b>4n</b></td><td><b>0</b></td><td>4n</td></tr>
+        <tr><td>末期</td><td>核膜核仁重现；染色体→染色质；细胞分裂</td><td>2n</td><td>0</td><td>2n</td></tr>
+      </table></div>
+      <div class="box warn"><div class="bt">动物细胞与植物细胞有丝分裂的区别</div>
+        <ul>
+          <li>前期纺锤体形成方式：植物靠两极发出纺锤丝；动物靠<b>中心体</b>发出星射线。</li>
+          <li>末期细胞质分裂：植物在赤道板位置形成<b>细胞板→细胞壁</b>；动物细胞膜从中部<b>缢裂</b>。</li>
+          <li>体细胞有丝分裂保持亲代子代细胞遗传性状的稳定性。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>细胞周期与实验观察</h4>
+        <ul>
+          <li>细胞周期 = 分裂间期（占 90%–95%）+ 分裂期（M 期）。<b>连续分裂</b>的细胞才有周期。</li>
+          <li>实验：洋葱根尖分生区，解离（盐酸+酒精，使细胞分离）→ 漂洗 → 染色（<b>龙胆紫/醋酸洋红</b>）→ 制片。</li>
+          <li>显微镜下绝大多数细胞处于<b>间期</b>（时间最长）；解离后细胞已<b>死亡</b>，不能观察动态过程。</li>
+          <li>无丝分裂：蛙的红细胞，核膜核仁不消失、无纺锤丝。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>细胞分化、衰老、凋亡、癌变</h4>
+        <ul>
+          <li><b>分化</b>：细胞在形态结构功能上发生稳定性差异；实质是<b>基因的选择性表达</b>（遗传物质不变）。分化程度越高，全能性越<b>低</b>。</li>
+          <li><b>全能性</b>：已分化细胞具有发育成完整有机体的潜能（细胞含全套遗传物质）。植物细胞全能性易表现（组织培养）；动物克隆（核移植）。</li>
+          <li><b>衰老特征</b>：水分减少（体积变小）、酶活性降低、色素积累、细胞核增大染色加深、物质运输功能降低。</li>
+          <li><b>凋亡</b>：基因控制的<b>程序性死亡</b>（对生物体有利，如蝌蚪尾消失、手指形成）。</li>
+          <li><b>癌变</b>：特征——无限增殖、形态结构改变、表面<b>糖蛋白减少（易扩散转移）</b>；原因——<b>原癌基因</b>（调控细胞周期）与<b>抑癌基因</b>（抑制增殖）突变。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== 必修二 遗传与进化 ==================== -->
+<section class="book-block" id="b2">
+  <div class="book-head">
+    <div class="bno">必修<small>二</small></div>
+    <div><h2>遗传与进化</h2><div class="sub">遗传定律 · 减数分裂 · DNA · 变异育种 · 进化</div></div>
+  </div>
+
+  <div class="chapter" id="b2c1">
+    <h3><span class="cn">1</span>遗传因子的发现<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>豌豆杂交实验 <span class="arrow">→</span> 分离定律 <span class="arrow">→</span> 自由组合定律 <span class="arrow">→</span> 亲子代推断与概率计算</div>
+    <div class="card full">
+      <h4><span class="dot"></span>孟德尔实验成功的原因与基本概念</h4>
+      <ul>
+        <li>选材：豌豆<b>自花传粉、闭花受粉</b>（自然状态下纯种），有易于区分的<b>相对性状</b>。</li>
+        <li>方法：<b>假说—演绎法</b>（观察现象→提出假说→演绎推理→实验验证：测交）。</li>
+        <li>核心概念：<b>等位基因</b>（同源染色体同一位置控制相对性状的基因，如 A/a）；基因型、表现型、纯合子、杂合子；显性、隐性；杂交（×）、自交（⊗）、测交（Aa×aa）。</li>
+      </ul>
+      <div class="grid2" style="margin-top:10px">
+        <div class="box formula"><div class="bt">分离定律（一对相对性状）</div>
+          <ul>
+            <li>实质：减Ⅰ后期<b>等位基因随同源染色体分开</b>而分离，分别进入不同配子。</li>
+            <li>自交后代：基因型 <b>1:2:1</b>；表现型 <b>3:1</b>（显:隐）。</li>
+            <li>测交后代：1:1（Aa:aa），可检测 F₁ 基因型及产生配子的种类比例。</li>
+          </ul>
+        </div>
+        <div class="box formula"><div class="bt">自由组合定律（两对及以上）</div>
+          <ul>
+            <li>实质：减Ⅰ后期<b>非同源染色体上的非等位基因自由组合</b>。</li>
+            <li>YyRr 自交：配子 4 种（YR:Yr:yR:yr=1:1:1:1），后代表现型 <b>9:3:3:1</b>。</li>
+            <li>YyRr 测交：表现型 <b>1:1:1:1</b>。</li>
+            <li>n 对独立遗传杂合子自交：配子 2ⁿ 种，表现型 2ⁿ 种（完全显性），基因型 3ⁿ 种。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>显隐性判断与亲子代推断</h4>
+        <ul>
+          <li>方法一：<b>性状分离</b>——亲代相同性状杂交，后代出现新性状→新性状为<b>隐性</b>（如 Aa×Aa→aa）。</li>
+          <li>方法二：<b>纯合×杂合</b>或<b>不同性状亲本杂交</b>后代只出现一种性状→该性状为显性。</li>
+          <li>正推：按分离/自由组合配子棋盘法或分枝法。</li>
+          <li>逆推：根据后代分离比反推亲本基因型（3:1→Aa×Aa；1:1→Aa×aa；9:3:3:1→AaBb×AaBb）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>多对性状组合概率速算</h4>
+        <div class="eq">患病概率组合（独立事件）<span class="desc">患甲病=m，患乙病=n → 只患甲=m(1−n)；两病兼患=mn；只患一种=m+n−2mn；至少患一种=m+n−mn；不患病=(1−m)(1−n)</span></div>
+        <ul>
+          <li>多对基因分解为<b>单个分离定律</b>分别计算，再相乘（乘法原理）。</li>
+          <li>Aa×Aa 后代杂合子概率 1/2、纯合子 1/2；AaBb×AaBb 后代纯合子 (1/2)×(1/2)=1/4。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b2c2">
+    <h3><span class="cn">2</span>减数分裂与受精作用<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>减数分裂过程 <span class="arrow">→</span> 染色体行为 <span class="arrow">→</span> 图像判断 <span class="arrow">→</span> 受精作用</div>
+    <div class="card full">
+      <h4><span class="dot"></span>减数分裂过程（染色体 2n）</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>时期</th><th>关键事件</th><th>染色体/DNA</th></tr>
+        <tr><td>间期</td><td>DNA 复制</td><td>2n / 4n</td></tr>
+        <tr><td>减Ⅰ前期</td><td><b>同源染色体联会成四分体</b>，可发生<b>交叉互换</b>（非姐妹染色单体）</td><td>2n / 4n</td></tr>
+        <tr><td>减Ⅰ中期</td><td>四分体排列在赤道板</td><td>2n / 4n</td></tr>
+        <tr><td>减Ⅰ后期</td><td><b>同源染色体分离</b>，非同源染色体自由组合</td><td>2n / 4n</td></tr>
+        <tr><td>减Ⅱ前期/中期</td><td>染色体着丝粒排列赤道板</td><td>n / 2n</td></tr>
+        <tr><td>减Ⅱ后期</td><td><b>着丝粒分裂</b>，姐妹染色单体分开</td><td>2n / 2n</td></tr>
+        <tr><td>减Ⅱ末期</td><td>细胞一分为二</td><td>n / n</td></tr>
+      </table></div>
+      <ul style="margin-top:8px">
+        <li>结果：一个精原细胞→<b>4 个精子</b>（2 种类型）；一个卵原细胞→<b>1 个卵细胞 + 3 个极体</b>。</li>
+        <li>染色体数目减半发生在<b>减Ⅰ</b>（同源染色体分离）；减Ⅱ类似有丝分裂（着丝粒分裂）。</li>
+        <li><b>同源染色体</b>：大小形态一般相同、一条来自父方一条来自母方、减Ⅰ联会的两条染色体。</li>
+      </ul>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>图像判断三步法</h4>
+        <ul>
+          <li>① 看有无<b>同源染色体</b>：无→减Ⅱ（或有丝分裂后期）；</li>
+          <li>② 看<b>联会/四分体</b>：有→减Ⅰ前期/中期；</li>
+          <li>③ 看<b>着丝粒是否分裂</b>：分裂→有丝分裂后期（有同源）或减Ⅱ后期（无同源）；不分裂→减Ⅰ后期（同源分离）。</li>
+          <li>细胞名称判断：减Ⅰ分裂→初级精母/卵母细胞；减Ⅱ均等分裂→次级精母/第一极体，不均等→次级卵母细胞。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>受精作用与减数分裂的意义</h4>
+        <ul>
+          <li>受精作用：精卵结合，染色体恢复 <b>2n</b>；精子的头部（细胞核）进入卵细胞。</li>
+          <li>意义：减数分裂产生<b>配子多样性</b>（自由组合+交叉互换）+ 受精作用随机结合→后代多样性，利于生物进化。</li>
+          <li>细胞核遗传物质：父方、母方各提供一半；<b>细胞质遗传物质几乎全部来自母方</b>（线粒体）。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>有丝分裂 vs 减数分裂辨析 <span class="tag freq">高频</span></h4>
+        <ul>
+          <li>有丝分裂全程有同源染色体、无联会；减Ⅰ有联会与交叉互换。</li>
+          <li>曲线判断：DNA 减半一次（有丝）或两次（减数，染色体先减半再减半）。“斜线”（DNA 复制）出现一次为有丝分裂，出现两次为减数分裂。</li>
+          <li>同一细胞中染色体与 DNA 数量关系：染色单体存在时 DNA=2×染色体数。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b2c3">
+    <h3><span class="cn">3</span>基因的本质与表达<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>DNA 是遗传物质的证据 <span class="arrow">→</span> DNA 结构 <span class="arrow">→</span> 复制 <span class="arrow">→</span> 转录翻译 <span class="arrow">→</span> 中心法则</div>
+    <div class="card full">
+      <h4><span class="dot"></span>DNA 是遗传物质的证据（经典实验）</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>实验</th><th>思路与现象</th><th>结论</th></tr>
+        <tr><td>格里菲思（肺炎链球菌体内转化）</td><td>加热杀死的 S 型 + 活 R 型→小鼠死亡，分离出 S 型</td><td>存在"转化因子"（未证明是什么）</td></tr>
+        <tr><td>艾弗里（体外转化）</td><td>分别用蛋白酶、RNA酶、酯酶、<b>DNA酶</b>处理 S 型提取物，只有 DNA 酶组不转化</td><td><b>DNA 是转化因子</b>，即遗传物质</td></tr>
+        <tr><td>赫尔希、蔡斯（T₂噬菌体侵染细菌）</td><td><sup>32</sup>P 标记 DNA、<sup>35</sup>S 标记蛋白质；搅拌离心后，<sup>32</sup>P 主要出现在沉淀物（细菌）</td><td><b>DNA 是遗传物质</b>（蛋白质未进入细胞）</td></tr>
+      </table></div>
+      <div class="box danger"><div class="bt">易错</div>
+        <ul>
+          <li>噬菌体侵染实验<b>不能</b>证明蛋白质不是遗传物质（未直接研究蛋白质）；只证明 DNA 是遗传物质。</li>
+          <li>该实验需先用<b>含标记的培养基培养大肠杆菌</b>，再让噬菌体侵染标记的大肠杆菌，才能得到标记的噬菌体。</li>
+          <li>生物界遗传物质是 DNA（绝大多数）或 RNA（少数病毒）；<b>DNA 是主要遗传物质</b>。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>DNA 双螺旋结构（沃森、克里克）</h4>
+        <ul>
+          <li>两条链<b>反向平行</b>；外侧：磷酸—脱氧核糖交替连接构成基本骨架；内侧：碱基配对。</li>
+          <li>配对原则：<b>A—T、G—C</b>（氢键连接，G-C 含 3 个氢键更稳定）。</li>
+          <li><b>碱基计算</b>：A=T，G=C；A+G=T+C=总碱基的 50%；任意两不互补碱基之和=50%。</li>
+          <li>一条链 (A+T)/(G+C)=另一条链及整个 DNA 的该比值；一条链 A/G 与互补链 T/C 相同。</li>
+        </ul>
+        <div class="eq">复制 n 次需游离核苷酸 = 模板链碱基数 × (2ⁿ − 1)<span class="desc">半保留复制：子代 DNA 中 2 条含母链；复制 n 次产生 2ⁿ 个 DNA，其中含母链的恒为 2 个</span></div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>DNA 复制</h4>
+        <ul>
+          <li>时间：<b>有丝分裂间期、减Ⅰ前的间期</b>。</li>
+          <li>条件：模板（解开的 2 条链）、原料（4 种脱氧核苷酸）、能量（ATP）、酶（<b>解旋酶+DNA 聚合酶</b>）。</li>
+          <li>特点：<b>半保留复制 + 边解旋边复制</b>；场所主要在细胞核（线粒体、叶绿体也可）。</li>
+          <li>意义：将遗传信息从亲代传给子代，保持遗传的连续性。</li>
+          <li><b>基因</b>：有遗传效应的 DNA 片段（原核基因位于拟核/质粒；真核基因位于染色体、线粒体、叶绿体）。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>基因的表达：转录与翻译</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>比较</th><th>转录</th><th>翻译</th></tr>
+          <tr><td>场所</td><td>细胞核（主要）</td><td>细胞质中的<b>核糖体</b></td></tr>
+          <tr><td>模板</td><td>DNA 一条链</td><td>mRNA</td></tr>
+          <tr><td>原料</td><td>4 种核糖核苷酸</td><td>21 种氨基酸</td></tr>
+          <tr><td>产物</td><td>mRNA（tRNA、rRNA）</td><td>多肽链（蛋白质）</td></tr>
+          <tr><td>酶</td><td>RNA 聚合酶</td><td>—</td></tr>
+          <tr><td>碱基配对</td><td>A-U、T-A、G-C、C-G</td><td>mRNA 密码子—tRNA 反密码子互补</td></tr>
+        </table></div>
+        <ul style="margin-top:8px">
+          <li><b>密码子</b>：mRNA 上决定一个氨基酸的 3 个相邻碱基，共 <b>64</b> 种，其中 61 种编码氨基酸；<b>起始密码子 AUG</b>；终止密码子 UAA、UAG、UGA。</li>
+          <li>一种密码子只决定一种氨基酸；一种氨基酸可由<b>多种</b>密码子决定（简并性）。</li>
+          <li>一条 mRNA 可相继结合多个核糖体，同时合成多条<b>相同</b>肽链（提高效率）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>中心法则与基因对性状的控制</h4>
+        <div class="diagram">
+          <svg viewBox="0 0 560 120" role="img" aria-label="中心法则示意">
+            <defs><marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#15803d"/></marker></defs>
+            <rect x="8" y="35" width="96" height="44" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+            <text x="56" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d">DNA</text>
+            <text x="56" y="71" text-anchor="middle" font-size="10" fill="#166534">复制</text>
+            <rect x="232" y="35" width="96" height="44" rx="9" fill="#e0f2fe" stroke="#0284c7"/>
+            <text x="280" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#0c4a6e">RNA</text>
+            <text x="280" y="71" text-anchor="middle" font-size="10" fill="#0369a1">转录 / 逆转录</text>
+            <rect x="456" y="35" width="96" height="44" rx="9" fill="#fef3c7" stroke="#d97706"/>
+            <text x="504" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">蛋白质</text>
+            <text x="504" y="71" text-anchor="middle" font-size="10" fill="#92400e">翻译</text>
+            <path d="M104,52 H232" stroke="#15803d" stroke-width="2.4" marker-end="url(#arr2)"/>
+            <path d="M232,70 H104" stroke="#0284c7" stroke-width="2" marker-end="url(#arr2)"/>
+            <path d="M328,52 H456" stroke="#15803d" stroke-width="2.4" marker-end="url(#arr2)"/>
+            <path d="M504,84 C504,106 280,106 56,84" stroke="#94a3b8" stroke-width="1.6" fill="none" stroke-dasharray="5 4"/>
+            <text x="56" y="100" font-size="10" fill="#64748b">RNA 自我复制（RNA 病毒）</text>
+            <text x="280" y="114" text-anchor="middle" font-size="10" fill="#64748b">中心法则：遗传信息流向 DNA→RNA→蛋白质</text>
+          </svg>
+          <div class="cap">中心法则（逆转录、RNA 复制见于 RNA 病毒）</div>
+        </div>
+        <ul>
+          <li>基因控制性状两条途径：① 控制<b>蛋白质结构</b>直接控制性状（镰刀型细胞贫血症）；② 控制<b>酶的合成</b>间接控制（白化病）。</li>
+          <li>生物体性状是<b>基因与环境共同作用</b>的结果。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>翻译数量计算速记</h4>
+        <div class="eq">氨基酸数 : mRNA 碱基数 : DNA 碱基数 = 1 : 3 : 6<span class="desc">mRNA 上每 3 个碱基编码 1 个氨基酸；DNA 为双链故为 6（忽略终止密码子与内含子）</span></div>
+        <ul>
+          <li>tRNA 有 <b>61 种</b>反密码子（对应 61 种编码密码子），一种 tRNA 只能转运一种氨基酸。</li>
+          <li>蛋白质分子中肽键数 = 氨基酸数 − 肽链数（与前章脱水缩合一致）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b2c4">
+    <h3><span class="cn">4</span>伴性遗传与人类遗传病<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>基因在染色体上（萨顿·摩尔根）<span class="arrow">→</span> 伴性遗传 <span class="arrow">→</span> 系谱图分析 <span class="arrow">→</span> 人类遗传病与预防</div>
+    <div class="card full">
+      <h4><span class="dot"></span>伴性遗传三种类型</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>类型</th><th>代表病</th><th>基因位置</th><th>遗传特点</th></tr>
+        <tr><td>伴 X 隐性</td><td>红绿色盲、血友病</td><td>X 染色体</td><td><b>男性患者多于女性</b>；交叉遗传（外祖父→母亲→外孙）；女患其父必患</td></tr>
+        <tr><td>伴 X 显性</td><td>抗维生素 D 佝偻病</td><td>X 染色体</td><td><b>女性患者多于男性</b>；男患其母、其女必患</td></tr>
+        <tr><td>伴 Y 遗传</td><td>外耳道多毛症</td><td>Y 染色体</td><td>只传男不传女（父→子→孙）</td></tr>
+      </table></div>
+      <div class="box warn"><div class="bt">遗传方式判断口诀</div>
+        <ul>
+          <li>无中生有→<b>隐性</b>；有中生无→<b>显性</b>；</li>
+          <li>隐性看女患：女患父或子正常→<b>常染色体</b>隐性；女患父和子都患病→可能伴 X 隐性；</li>
+          <li>显性看男患：男患母或女正常→<b>常染色体</b>显性；男患母和女都患病→可能伴 X 显性。</li>
+          <li>细胞质遗传（母系遗传）：母亲患病子女全患病（线粒体）。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>萨顿假说与摩尔根实验</h4>
+        <ul>
+          <li>萨顿：<b>类比推理</b>提出"基因在染色体上"（假说，需实验验证）。</li>
+          <li>摩尔根：<b>假说—演绎法</b>，用<b>果蝇白眼突变体</b>实验证明基因在染色体上（白眼基因在 X 染色体上）。</li>
+          <li>果蝇优点：易饲养、繁殖快、后代多、相对性状明显、染色体少（4 对）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>人类遗传病与预防</h4>
+        <ul>
+          <li>类型：<b>单基因遗传病</b>（如白化病、色盲）、<b>多基因遗传病</b>（冠心病、青少年型糖尿病，群体发病率高）、<b>染色体异常遗传病</b>（21 三体综合征）。</li>
+          <li>监测预防：<b>遗传咨询 + 产前诊断</b>（羊水检查、B 超、基因检测）。</li>
+          <li>21 三体：多一条 21 号染色体（减数分裂异常，染色体数目变异）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b2c5">
+    <h3><span class="cn">5</span>基因突变及其他变异、育种<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>基因突变 <span class="arrow">→</span> 基因重组 <span class="arrow">→</span> 染色体变异 <span class="arrow">→</span> 育种方法对比</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>基因突变</h4>
+        <ul>
+          <li>概念：DNA 分子中发生碱基的<b>替换、增添或缺失</b>，引起基因碱基序列改变。</li>
+          <li>实例：镰刀型细胞贫血症（血红蛋白 β 链第 6 位谷氨酸→缬氨酸，碱基 A→T）。</li>
+          <li>特点：<b>普遍性、随机性、不定向性、低频性、多害少利性</b>。</li>
+          <li>时期：主要在<b>分裂间期</b>（DNA 复制时）；体细胞突变一般不遗传，<b>生殖细胞突变可遗传</b>。</li>
+          <li>意义：<b>产生新基因</b>的途径，生物变异的根本来源，进化的原材料。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>基因重组</h4>
+        <ul>
+          <li>来源：① 减Ⅰ后期<b>非同源染色体自由组合</b>；② 减Ⅰ前期<b>交叉互换</b>；③ 基因工程（人为）。</li>
+          <li>结果：产生<b>新的基因型</b>（不产生新基因）。</li>
+          <li>意义：生物变异的<b>重要来源</b>之一，形成生物多样性。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>染色体变异</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>类型</th><th>具体内容</th><th>实例</th></tr>
+          <tr><td rowspan="2">结构变异</td><td>缺失、重复、倒位、易位</td><td>猫叫综合征（5 号染色体缺失）</td></tr>
+          <tr><td colspan="2"><b>易位</b>发生在非同源染色体之间（区别于交叉互换的同源非姐妹染色单体）</td></tr>
+          <tr><td rowspan="3">数目变异</td><td>个别染色体增减</td><td>21 三体综合征</td></tr>
+          <tr><td>以<b>染色体组</b>成倍增减</td><td>多倍体（四倍体西瓜）</td></tr>
+          <tr><td colspan="2"><b>染色体组</b>：非同源染色体集合，携带本物种全套遗传信息（判断：看形态大小各不相同的染色体是否各含一套）</td></tr>
+        </table></div>
+        <ul>
+          <li><b>单倍体</b>：由<b>配子</b>直接发育而来，体细胞含本物种配子的染色体数（<b>不一定只有一个染色体组</b>）。</li>
+          <li><b>多倍体</b>成因：秋水仙素/低温<b>抑制纺锤体形成</b>，染色体不能移向两极。</li>
+          <li>二倍体→单倍体育种：花药离体培养→单倍体幼苗→秋水仙素→纯合子（<b>明显缩短育种年限</b>）。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>五种育种方法对比 <span class="tag freq">高频</span></h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>方法</th><th>原理</th><th>过程要点</th><th>优点</th><th>缺点</th></tr>
+          <tr><td>杂交育种</td><td>基因重组</td><td>杂交→自交→选纯合子</td><td>方法简便，集中优良性状</td><td>育种年限长</td></tr>
+          <tr><td>诱变育种</td><td>基因突变</td><td>物理（射线）/化学（秋水仙素等）诱变→筛选</td><td>提高突变率，产生<b>新基因</b></td><td>不定向、工作量大</td></tr>
+          <tr><td>单倍体育种</td><td>染色体变异</td><td>花药离体培养+秋水仙素</td><td><b>明显缩短年限</b>，后代均为纯合子</td><td>技术要求高</td></tr>
+          <tr><td>多倍体育种</td><td>染色体变异</td><td>秋水仙素处理萌发种子/幼苗</td><td>器官大、营养物质多</td><td>结实率低，成熟晚</td></tr>
+          <tr><td>基因工程育种</td><td>基因重组</td><td>目的基因导入受体细胞</td><td><b>定向</b>改变性状、跨物种</td><td>技术复杂，安全性讨论</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b2c6">
+    <h3><span class="cn">6</span>生物的进化<span class="kf">高频 ★★★☆☆</span></h3>
+    <div class="framework"><b>知识框架：</b>达尔文自然选择 <span class="arrow">→</span> 现代生物进化理论 <span class="arrow">→</span> 基因频率计算 <span class="arrow">→</span> 物种形成 <span class="arrow">→</span> 共同进化</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>现代生物进化理论要点</h4>
+        <ul>
+          <li><b>种群是生物进化的基本单位</b>；基因库=种群全部个体所含全部基因。</li>
+          <li>进化的实质：<b>种群基因频率的改变</b>。</li>
+          <li><b>突变（基因突变+染色体变异）和基因重组</b>提供进化的原材料（不定向）。</li>
+          <li><b>自然选择决定进化方向</b>（定向选择）；变异是<b>不定向</b>的，选择是<b>定向</b>的。</li>
+          <li><b>隔离</b>（地理隔离→生殖隔离）是新物种形成的必要条件；物种形成的<b>标志</b>：产生<b>生殖隔离</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>基因频率计算</h4>
+        <div class="eq">基因频率 = 某基因数 ÷ 全部等位基因数 × 100%<span class="desc">基因型频率：AA+Aa+aa=1；A 频率 = AA + Aa/2</span></div>
+        <ul>
+          <li><b>遗传平衡（哈代-温伯格）</b>：种群极大、随机交配、无突变迁移选择时，p²+2pq+q²=1（p=A、q=a 频率）。</li>
+          <li>伴 X 基因频率：按 X 染色体数计算（女性 2 条、男性 1 条）。</li>
+          <li>自然选择、突变、迁移、非随机交配都会改变基因频率。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>共同进化与生物多样性</h4>
+        <ul>
+          <li>共同进化：<b>不同物种之间</b>、<b>生物与无机环境之间</b>在相互影响中不断进化和发展。</li>
+          <li>生物多样性 = <b>基因多样性 + 物种多样性 + 生态系统多样性</b>。</li>
+          <li>生物多样性是<b>共同进化</b>的结果。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>达尔文自然选择学说</h4>
+        <ul>
+          <li>要点：<b>过度繁殖、生存斗争、遗传变异、适者生存</b>。</li>
+          <li>贡献：解释了进化原因与生物多样性形成；局限：未阐明遗传变异本质、未从种群水平解释。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== 选择性必修一 稳态与调节 ==================== -->
+<section class="book-block" id="b3">
+  <div class="book-head">
+    <div class="bno">选必<small>一</small></div>
+    <div><h2>稳态与调节</h2><div class="sub">内环境稳态 · 神经调节 · 体液调节 · 免疫调节 · 植物激素</div></div>
+  </div>
+
+  <div class="chapter" id="b3c1">
+    <h3><span class="cn">1</span>人体的内环境与稳态<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>体液与内环境 <span class="arrow">→</span> 内环境成分与理化性质 <span class="arrow">→</span> 稳态调节机制</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>体液与内环境组成</h4>
+        <ul>
+          <li>体液 = <b>细胞内液</b>（约 2/3）+ 细胞外液（约 1/3，即内环境）。</li>
+          <li>内环境 = <b>血浆 + 组织液 + 淋巴（淋巴液）</b>；是细胞生活的<b>液体环境</b>。</li>
+          <li>组成关系：血浆 ⇌ 组织液 ⇄ 淋巴（组织液→淋巴→左右锁骨下静脉→血浆）。</li>
+          <li>内环境中<b>不存在</b>：血红蛋白（红细胞内）、呼吸酶（细胞内）、DNA 聚合酶、ATP 合成酶等胞内酶；存在：葡萄糖、氨基酸、激素、抗体、神经递质、O₂、CO₂、血浆蛋白等。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>内环境的理化性质与稳态</h4>
+        <ul>
+          <li><b>渗透压</b>：主要由<b>血浆中蛋白质和无机盐</b>决定，细胞外液渗透压 90% 以上来自 Na⁺、Cl⁻。</li>
+          <li><b>酸碱度</b>：pH 7.35–7.45，靠缓冲对 <b>HCO₃⁻/H₂CO₃</b>、HPO₄²⁻/H₂PO₄⁻ 调节。</li>
+          <li><b>温度</b>：37℃ 左右（体温调节中枢在下丘脑）。</li>
+          <li>稳态实质：内环境<b>各种化学成分和理化性质保持相对稳定</b>。</li>
+          <li>调节机制：<b>神经—体液—免疫调节网络</b>是机体维持稳态的主要调节机制；调节能力<b>有限度</b>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b3c2">
+    <h3><span class="cn">2</span>神经调节<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>反射弧 <span class="arrow">→</span> 兴奋在神经纤维上传导 <span class="arrow">→</span> 突触传递 <span class="arrow">→</span> 神经系统的分级调节</div>
+    <div class="card full">
+      <h4><span class="dot"></span>反射与反射弧</h4>
+      <ul>
+        <li>神经调节的基本方式是<b>反射</b>，结构基础是<b>反射弧</b>：感受器→传入神经→神经中枢→传出神经→效应器。</li>
+        <li>反射弧<b>任一环节受损</b>反射都不能完成；只有感受器受损→既无感觉也无运动；传出神经受损→有感觉无运动。</li>
+        <li>效应器 = 运动神经末梢 + 它所支配的<b>肌肉或腺体</b>；兴奋传导方向与神经冲动方向相反（在反射弧内单向）。</li>
+      </ul>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>兴奋在神经纤维上的传导</h4>
+        <ul>
+          <li><b>静息电位</b>：外正内负（约 −70mV），成因：<b>K⁺ 外流</b>（协助扩散）。</li>
+          <li><b>动作电位</b>：外负内正，成因：<b>Na⁺ 内流</b>（协助扩散，顺浓度梯度）。</li>
+          <li>传导方式：局部电流；离体神经纤维上<b>双向传导</b>，反射弧内<b>单向</b>。</li>
+          <li>膜电位曲线速记：上坡=Na⁺ 内流，下坡=K⁺ 外流恢复静息。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>兴奋在神经元之间的传递（突触）</h4>
+        <ul>
+          <li>突触 = <b>突触前膜 + 突触间隙 + 突触后膜</b>（后膜上有特异性受体）。</li>
+          <li>过程：突触前膜释放<b>神经递质</b>（胞吐，需耗能）→ 与后膜受体结合 → 引发后膜电位变化 → 递质被<b>降解或回收</b>。</li>
+          <li>传递特点：<b>单向传递</b>（只能由突触前膜→后膜）；比神经纤维传导<b>慢</b>（有突触延搁）。</li>
+          <li>神经递质分兴奋性（乙酰胆碱）与抑制性（γ-氨基丁酸、甘氨酸）两类。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>神经系统的分级调节与大脑皮层 <span class="tag freq">高频</span></h4>
+        <ul>
+          <li>躯体运动中枢在大脑皮层（对侧支配）；<b>低级中枢</b>（脊髓、脑干）受<b>高级中枢</b>（大脑皮层）调控（如排尿）。</li>
+          <li>脑干：呼吸、心跳中枢；下丘脑：体温、水盐、血糖调节中枢；小脑：维持身体平衡；脊髓：低级反射中枢。</li>
+          <li>人脑高级功能：语言、学习记忆、思维；<b>S 区</b>（运动性语言中枢，受损不会说）、<b>H 区</b>（听觉性，听不懂）、<b>V 区</b>（视觉性，看不懂）、<b>W 区</b>（书写性，不会写）。</li>
+          <li>条件反射建立在非条件反射基础上，需大脑皮层参与（如望梅止渴、铃声喂食）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b3c3">
+    <h3><span class="cn">3</span>体液调节<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>激素种类与功能 <span class="arrow">→</span> 血糖调节 <span class="arrow">→</span> 分级调节与反馈 <span class="arrow">→</span> 水盐·体温调节</div>
+    <div class="card full">
+      <h4><span class="dot"></span>主要激素及功能</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>激素</th><th>分泌腺体/细胞</th><th>化学本质</th><th>主要功能</th><th>异常</th></tr>
+        <tr><td>生长激素</td><td>垂体</td><td>蛋白质</td><td>促进生长</td><td>幼年过多→巨人症；不足→侏儒症</td></tr>
+        <tr><td>甲状腺激素</td><td>甲状腺</td><td>氨基酸衍生物</td><td>促进代谢与生长发育，提高神经兴奋性</td><td>过多→甲亢；幼年不足→呆小症</td></tr>
+        <tr><td>胰岛素</td><td>胰岛 B 细胞</td><td>蛋白质</td><td><b>降低血糖</b>（促进氧化分解、合成糖原、转化）</td><td>不足→糖尿病</td></tr>
+        <tr><td>胰高血糖素</td><td>胰岛 A 细胞</td><td>多肽</td><td><b>升高血糖</b>（促进肝糖原分解、非糖物质转化）</td><td>—</td></tr>
+        <tr><td>肾上腺素</td><td>肾上腺髓质</td><td>氨基酸衍生物</td><td>升高血糖、心跳加快、代谢加强</td><td>—</td></tr>
+        <tr><td>抗利尿激素</td><td>下丘脑合成、<b>垂体释放</b></td><td>多肽</td><td>促进肾小管、集合管<b>重吸收水</b>，减少尿量</td><td>分泌不足→尿崩症</td></tr>
+        <tr><td>性激素</td><td>性腺（卵巢/睾丸）</td><td><b>固醇</b></td><td>促进生殖器官发育和第二性征</td><td>—</td></tr>
+      </table></div>
+      <div class="box warn"><div class="bt">注意</div>
+        <ul>
+          <li>激素的化学本质：<b>固醇类可口服</b>（性激素、醛固酮），蛋白质/多肽类<b>只能注射</b>（胰岛素、生长激素，口服被消化）。</li>
+          <li>激素是信息分子，<b>不直接参与代谢、不提供能量、不起催化作用</b>，只起调节作用，微量高效、随体液运输、作用于靶器官靶细胞。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card full">
+        <h4><span class="dot"></span>血糖平衡调节</h4>
+        <div class="diagram">
+          <svg viewBox="0 0 640 210" role="img" aria-label="血糖调节示意">
+            <defs><marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#15803d"/></marker></defs>
+            <rect x="250" y="8" width="140" height="40" rx="9" fill="#dcfce7" stroke="#16a34a"/>
+            <text x="320" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d">血糖升高</text>
+            <rect x="250" y="160" width="140" height="40" rx="9" fill="#fef3c7" stroke="#d97706"/>
+            <text x="320" y="184" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">血糖降低</text>
+            <rect x="40" y="80" width="130" height="46" rx="9" fill="#e0f2fe" stroke="#0284c7"/>
+            <text x="105" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#0c4a6e">胰岛 B 细胞</text>
+            <text x="105" y="116" text-anchor="middle" font-size="11" fill="#0369a1">分泌胰岛素</text>
+            <rect x="470" y="80" width="130" height="46" rx="9" fill="#e0f2fe" stroke="#0284c7"/>
+            <text x="535" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#0c4a6e">胰岛 A 细胞</text>
+            <text x="535" y="116" text-anchor="middle" font-size="11" fill="#0369a1">分泌胰高血糖素</text>
+            <rect x="210" y="96" width="220" height="40" rx="9" fill="#f0fdf4" stroke="#22c55e"/>
+            <text x="320" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">血糖浓度恢复平稳（约 3.9–6.1 mmol/L）</text>
+            <path d="M320,48 L180,80" stroke="#15803d" stroke-width="2" marker-end="url(#arr3)"/>
+            <path d="M320,48 L460,80" stroke="#15803d" stroke-width="2"/>
+            <path d="M320,200 L180,126" stroke="#d97706" stroke-width="2" marker-end="url(#arr3)"/>
+            <path d="M320,200 L460,126" stroke="#d97706" stroke-width="2"/>
+            <path d="M105,126 L105,180 C105,196 300,196 310,178" stroke="#94a3b8" stroke-width="1.6" fill="none" stroke-dasharray="5 4" marker-end="url(#arr3)"/>
+            <text x="300" y="152" text-anchor="middle" font-size="10.5" fill="#64748b">胰岛素是唯一降血糖的激素 · 负反馈调节维持稳态</text>
+          </svg>
+          <div class="cap">血糖调节（神经—体液共同调节，以体液调节为主）</div>
+        </div>
+        <ul>
+          <li>血糖来源：食物消化吸收、肝糖原分解、非糖物质转化；去路：氧化分解、合成肝/肌糖原、转化为脂肪等。</li>
+          <li>胰岛素与胰高血糖素<b>拮抗</b>；肾上腺素与胰高血糖素<b>协同</b>（均升血糖）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>分级调节与反馈调节</h4>
+        <ul>
+          <li>甲状腺激素分泌轴：<b>下丘脑 →（促甲状腺激素释放激素）→ 垂体 →（促甲状腺激素）→ 甲状腺 → 甲状腺激素</b>。</li>
+          <li><b>分级调节</b>：下丘脑-垂体-腺体轴，放大调节效应、精细调控。</li>
+          <li><b>反馈调节</b>：甲状腺激素增多<b>抑制</b>下丘脑和垂体分泌（负反馈）——维持激素含量相对稳定。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>水盐与体温调节</h4>
+        <ul>
+          <li>水盐：饮水不足/失水过多→细胞外液渗透压升高→下丘脑渗透压感受器→① 大脑皮层产生渴觉；② 垂体释放<b>抗利尿激素</b>↑→肾小管重吸收水↑→尿量减少。</li>
+          <li>体温：寒冷时，<b>下丘脑体温调节中枢</b>→骨骼肌战栗、皮肤血管收缩、立毛肌收缩、甲状腺/肾上腺素分泌增加；炎热时血管舒张、汗腺分泌。</li>
+          <li>体温与水盐调节均有<b>神经调节和体液调节</b>参与（神经—体液调节）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b3c4">
+    <h3><span class="cn">4</span>免疫调节<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>三道防线 <span class="arrow">→</span> 体液免疫 <span class="arrow">→</span> 细胞免疫 <span class="arrow">→</span> 免疫异常与应用</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>免疫系统的组成与三道防线</h4>
+        <ul>
+          <li>组成：免疫器官（胸腺、骨髓、脾、淋巴结等）+ 免疫细胞（吞噬细胞、T/B 淋巴细胞）+ 免疫活性物质（抗体、淋巴因子、溶菌酶）。</li>
+          <li>第一道防线：<b>皮肤、黏膜</b>（非特异性）；第二道：<b>体液中的杀菌物质（溶菌酶）和吞噬细胞</b>；第三道：<b>特异性免疫</b>（体液免疫+细胞免疫）。</li>
+          <li>免疫系统三大功能：<b>免疫防御、免疫监视、免疫自稳</b>。</li>
+          <li>T 细胞在<b>胸腺</b>成熟，B 细胞在<b>骨髓</b>成熟。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>体液免疫与细胞免疫</h4>
+        <ul>
+          <li><b>体液免疫</b>（对付细胞外抗原）：抗原→B 细胞（多数需辅助性 T 细胞协助）→增殖分化→<b>浆细胞</b>（分泌抗体）+记忆 B 细胞；抗体+抗原结合形成沉淀/细胞集团，被吞噬细胞清除。</li>
+          <li><b>细胞免疫</b>（对付胞内病原体）：抗原→辅助性 T 细胞→细胞毒性 T 细胞→与靶细胞密切接触使其裂解；记忆 T 细胞。</li>
+          <li>吞噬细胞在两类免疫中都起<b>摄取处理呈递抗原</b>的作用；记忆细胞二次应答：<b>更快更强</b>（更短时间产生大量抗体）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>免疫异常疾病</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>类型</th><th>机理</th><th>实例</th></tr>
+          <tr><td>过敏反应</td><td>免疫防御<b>过强</b>（异常的体液免疫）</td><td>花粉过敏、青霉素过敏（发作快、消退快、不破坏细胞）</td></tr>
+          <tr><td>自身免疫病</td><td>免疫系统攻击<b>自身</b>组织</td><td>类风湿关节炎、系统性红斑狼疮、1 型糖尿病</td></tr>
+          <tr><td>免疫缺陷病</td><td>免疫功能<b>不足/缺失</b></td><td>先天性（重症联合免疫缺陷）；获得性（<b>艾滋病</b>：HIV 攻击辅助性 T 细胞，通过性接触、血液、母婴传播）</td></tr>
+        </table></div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>免疫学应用 <span class="tag freq">高频</span></h4>
+        <ul>
+          <li><b>疫苗</b>（灭活/减毒抗原）→ 诱发特异性免疫，产生记忆细胞——<b>免疫预防</b>。</li>
+          <li><b>抗血清（抗体）</b>、单克隆抗体 → 免疫治疗（被动免疫）。</li>
+          <li><b>器官移植</b>：供者与受者 HLA 差异→排斥反应；免疫抑制剂降低排斥。</li>
+          <li>过敏者避免接触过敏原；对青霉素过敏者不可注射青霉素（预先皮试）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b3c5">
+    <h3><span class="cn">5</span>植物生命活动的调节<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>生长素发现史 <span class="arrow">→</span> 生长素的运输与作用 <span class="arrow">→</span> 两重性 <span class="arrow">→</span> 其他植物激素</div>
+    <div class="card full">
+      <h4><span class="dot"></span>生长素的发现历程（经典实验）</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>科学家</th><th>实验</th><th>结论</th></tr>
+        <tr><td>达尔文</td><td>胚芽鞘向光性：切去尖端/遮光实验</td><td>尖端受单侧光刺激后，<b>背光一侧影响下部</b>，使下部弯曲</td></tr>
+        <tr><td>詹森</td><td>琼脂片隔开尖端与下部</td><td>尖端产生的刺激可以<b>透过琼脂片</b>向下传递</td></tr>
+        <tr><td>拜尔</td><td>黑暗中去尖端放一侧</td><td>弯曲与<b>尖端产生刺激分布不均</b>有关（背光侧多）</td></tr>
+        <tr><td>温特</td><td>去尖端放琼脂块</td><td>证明存在<b>化学物质</b>，命名为"生长素"</td></tr>
+      </table></div>
+      <div class="box warn"><div class="bt">运输与作用要点</div>
+        <ul>
+          <li>化学本质：<b>吲哚乙酸（IAA）</b>；产生部位：幼嫩的芽、叶、发育中的种子；主要在<b>幼嫩组织</b>。</li>
+          <li>运输：<b>极性运输</b>（形态学上端→下端，主动运输，需载体耗能）+ 横向运输（单侧光、重力）→ 分布不均。</li>
+          <li>作用方式：不直接参与代谢，给细胞传达信息，<b>促进细胞纵向伸长</b>（不是分裂）。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>两重性与顶端优势</h4>
+        <ul>
+          <li><b>两重性</b>：低浓度<b>促进</b>，高浓度<b>抑制</b>；不同器官敏感度不同：根 &gt; 芽 &gt; 茎。</li>
+          <li><b>顶端优势</b>：顶芽产生的生长素向下运输，侧芽处浓度<b>高→被抑制</b>；摘除顶芽→侧芽发育（解除抑制）。</li>
+          <li>应用：果树修剪、棉花打顶、用 2,4-D 作除草剂（双子叶杂草敏感）、无子番茄（花蕾期涂抹生长素，子房发育成果实）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>其他植物激素与协同作用</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>激素</th><th>主要作用</th></tr>
+          <tr><td>赤霉素</td><td>促进茎秆伸长、解除休眠、促进发芽（与生长素协同）</td></tr>
+          <tr><td>细胞分裂素</td><td>促进<b>细胞分裂</b>，延缓衰老（根尖合成）</td></tr>
+          <tr><td>乙烯</td><td>促进果实<b>成熟</b>（催熟）；促进脱落</td></tr>
+          <tr><td>脱落酸</td><td>抑制生长、促进<b>休眠与脱落</b>、气孔关闭（与赤霉素拮抗）</td></tr>
+        </table></div>
+        <ul>
+          <li>植物激素间协同/拮抗共同调节；<b>植物生长发育是基因表达、激素调节和环境因素共同作用</b>的结果。</li>
+          <li>环境信息（光、温度、重力）→激素合成与分布改变→调节生命活动。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== 选择性必修二 生物与环境 ==================== -->
+<section class="book-block" id="b4">
+  <div class="book-head">
+    <div class="bno">选必<small>二</small></div>
+    <div><h2>生物与环境</h2><div class="sub">种群动态 · 群落演替 · 生态系统能量物质信息 · 人与环境</div></div>
+  </div>
+
+  <div class="chapter" id="b4c1">
+    <h3><span class="cn">1</span>种群及其动态<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>种群特征 <span class="arrow">→</span> 调查方法 <span class="arrow">→</span> J 型 / S 型增长 <span class="arrow">→</span> K 值与应用</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>种群的数量特征</h4>
+        <ul>
+          <li><b>种群密度</b>（最基本特征）= 个体数 ÷ 面积/体积。</li>
+          <li>直接决定因素：<b>出生率、死亡率、迁入率、迁出率</b>。</li>
+          <li>预测趋势：<b>年龄结构</b>（增长型/稳定型/衰退型）；影响密度：<b>性别比例</b>。</li>
+          <li>种群密度≠总数量（要除以空间大小），取样要<b>随机</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>调查方法</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>方法</th><th>适用</th><th>要点/公式</th></tr>
+          <tr><td>样方法</td><td>植物、活动能力弱的动物（蚜虫、跳蝻）、虫卵</td><td>随机取样，常用<b>五点取样法、等距取样法</b>；密度 = 全部样方个体数 ÷ 样方面积和</td></tr>
+          <tr><td>标志重捕法</td><td>活动能力强、活动范围大的动物（鼠、鸟、鱼）</td><td>N = M×n÷m（M 标记数，n 重捕总数，m 重捕中带标记数）</td></tr>
+        </table></div>
+        <div class="box warn"><div class="bt">误差分析</div>
+          <ul>
+            <li>标志物脱落、标志后易被捕食→估算值<b>偏大</b>；初次捕获标志使动物更易被再捕→估算<b>偏小</b>。</li>
+            <li>样方边缘个体计数：<b>计上不计下、计左不计右</b>（只计相邻两边及其夹角）。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>种群数量增长的两种模型</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>模型</th><th>条件</th><th>曲线特征</th><th>公式/数量变化</th></tr>
+          <tr><td>J 型</td><td>食物空间充足、无天敌、气候适宜（<b>理想条件</b>）</td><td>指数增长，增长率<b>不变</b></td><td>N<sub>t</sub> = N₀λᵗ（λ&gt;1）</td></tr>
+          <tr><td>S 型</td><td>自然条件（资源有限）</td><td>先增后稳，K/2 时增长速率<b>最大</b></td><td>环境容纳量 <b>K 值</b>，在 K 值附近波动</td></tr>
+        </table></div>
+        <div class="box tip"><div class="bt">K 值应用（高频）</div>
+          <ul>
+            <li>渔业捕捞：捕捞后使种群数量保持在<b>K/2 左右</b>（增长速率最大，恢复最快）——但可持续获得最大日捕捞量应在 K/2 之后、接近 K 时捕捞。</li>
+            <li>害虫防治：尽早防（越早越易控制）；降低<b>环境容纳量</b>（清除孳生地）是治本措施。</li>
+            <li>λ 的辨析：λ&gt;1 种群增长、λ=1 稳定、λ&lt;1 下降；<b>λ 是倍数不是增长率</b>（增长率=λ−1）。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b4c2">
+    <h3><span class="cn">2</span>群落及其演替<span class="kf">高频 ★★★☆☆</span></h3>
+    <div class="framework"><b>知识框架：</b>群落结构 <span class="arrow">→</span> 种间关系 <span class="arrow">→</span> 群落演替</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>群落的结构</h4>
+        <ul>
+          <li><b>垂直结构</b>：分层现象（光照、温度等）——植物分层，动物随之分层；意义：充分利用空间资源。</li>
+          <li><b>水平结构</b>：镶嵌分布（地形、湿度、光照差异）。</li>
+          <li>群落中物种数目的多少称为<b>物种丰富度</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>种间关系（区分要点）</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>关系</th><th>要点</th><th>曲线特征</th></tr>
+          <tr><td>捕食</td><td>一种生物以另一种为食</td><td>数量<b>先增先减</b>，波动跟随（不同步）</td></tr>
+          <tr><td>竞争</td><td>争夺资源空间；可共存可淘汰</td><td>一种上升一种下降（你死我活）或均减少</td></tr>
+          <tr><td>寄生</td><td>寄主受害（一般不致死）</td><td>寄生者数量一般多于寄主</td></tr>
+          <tr><td>互利共生</td><td>彼此有利、相互依存</td><td>数量<b>同步同向</b>变化（同增同减）</td></tr>
+        </table></div>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>群落演替</h4>
+        <ul>
+          <li><b>初生演替</b>：从未有过植被的裸地（裸岩、沙丘、冰川泥）开始，速度慢、时间长：裸岩→地衣→苔藓→草本→灌木→森林。</li>
+          <li><b>次生演替</b>：原有植被破坏但<b>土壤条件保留</b>（弃耕农田、火烧地、砍伐地），速度快。</li>
+          <li>演替是<b>优势种更替</b>，最终达到与当地气候土壤相适应的<b>顶极群落</b>（并非总是森林，取决于环境）。</li>
+          <li>人类活动可改变演替的<b>方向和速度</b>（往往使其偏离自然演替方向）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b4c3">
+    <h3><span class="cn">3</span>生态系统及其稳定性<span class="kf">高频 ★★★★★</span></h3>
+    <div class="framework"><b>知识框架：</b>结构（组成成分+营养结构）<span class="arrow">→</span> 能量流动 <span class="arrow">→</span> 物质循环 <span class="arrow">→</span> 信息传递 <span class="arrow">→</span> 稳定性</div>
+    <div class="card full">
+      <h4><span class="dot"></span>生态系统的结构</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>组成成分</th><th>地位/作用</th><th>举例</th></tr>
+        <tr><td>非生物的物质和能量</td><td>基础</td><td>光、热、水、空气、无机盐</td></tr>
+        <tr><td>生产者</td><td><b>最主要成分</b>，基石，将无机物→有机物（自养）</td><td>绿色植物、蓝细菌、硝化细菌</td></tr>
+        <tr><td>消费者</td><td>加速物质循环、帮助传粉传播种子（异养）</td><td>动物、寄生细菌、菟丝子</td></tr>
+        <tr><td>分解者</td><td>把有机物分解为无机物，<b>不可缺少</b></td><td>腐生细菌真菌、蚯蚓、蜣螂、秃鹫</td></tr>
+      </table></div>
+      <ul style="margin-top:8px">
+        <li><b>营养结构</b> = 食物链 + 食物网；食物链起点是<b>生产者</b>，终点是<b>最高营养级消费者</b>，分解者<b>不进入</b>食物链。</li>
+        <li>营养级 = 食物链中的环节位置；一种生物可占<b>多个</b>营养级（食物网中）。</li>
+      </ul>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>能量流动</h4>
+        <ul>
+          <li>起点：生产者<b>固定太阳能</b>；渠道：食物链食物网。</li>
+          <li>特点：<b>单向流动、逐级递减</b>；传递效率 10%–20%（相邻营养级同化量之比）。</li>
+          <li>摄入量 = 同化量 + 粪便量（<b>粪便属上一营养级</b>）；同化量 = 呼吸散失 + 用于生长发育繁殖 = 呼吸 + 流向下一营养级 + 流向分解者 + 未利用。</li>
+          <li>金字塔：能量金字塔<b>不会倒置</b>（数量金字塔可倒置：树—虫—鸟）。</li>
+          <li>研究意义：科学规划食物链，使人获得更多能量（如草→牛→人）；实现能量的多级利用（桑基鱼塘）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>物质循环（碳循环）</h4>
+        <ul>
+          <li>碳进入生物群落：<b>光合作用、化能合成作用</b>（CO₂→有机物）；返回无机环境：<b>呼吸作用、分解者的分解、化石燃料燃烧</b>。</li>
+          <li>碳在无机环境与生物群落间以<b>CO₂</b>形式循环；在生物群落内部以<b>含碳有机物</b>形式沿食物链流动。</li>
+          <li>温室效应：化石燃料燃烧排放 CO₂ 过多→碳循环失衡。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>信息传递</h4>
+        <ul>
+          <li>类型：<b>物理信息</b>（光声温湿度磁）、<b>化学信息</b>（信息素、化学物质）、<b>行为信息</b>（蜜蜂跳舞、孔雀开屏）。</li>
+          <li>作用：生命活动正常进行、种群繁衍、调节种间关系维持生态系统稳定。</li>
+          <li>应用：信息素诱捕害虫（生物防治）、模拟动物信息吸引传粉。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>生态系统的稳定性</h4>
+        <ul>
+          <li>基础：<b>负反馈调节</b>（越多→抑制增多，维持稳态的核心机制）。</li>
+          <li><b>抵抗力稳定性</b>：抵抗干扰保持原状的能力（与营养结构复杂程度正相关）；</li>
+          <li><b>恢复力稳定性</b>：受破坏后恢复的能力（营养结构复杂则恢复慢）。</li>
+          <li>两者<b>负相关</b>；营养结构越复杂，自我调节能力越强（但有一定限度）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b4c4">
+    <h3><span class="cn">4</span>人与环境<span class="kf">高频 ★★★☆☆</span></h3>
+    <div class="framework"><b>知识框架：</b>人口与环境问题 <span class="arrow">→</span> 生物多样性及其保护 <span class="arrow">→</span> 生态工程基本原理</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>全球生态环境问题</h4>
+        <ul>
+          <li>温室效应（CO₂）、臭氧层破坏（氟利昂）、酸雨（SO₂ 等）、水体富营养化（N、P 过多→水华/赤潮）、土地荒漠化、生物多样性锐减。</li>
+          <li>可持续发展：<b>既满足当代人需求，又不损害后代人</b>满足其需求的能力。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>生物多样性及其价值与保护</h4>
+        <ul>
+          <li>层次：<b>基因（遗传）多样性、物种多样性、生态系统多样性</b>。</li>
+          <li>价值：<b>直接价值</b>（食用药用观赏）、<b>间接价值</b>（生态功能，如调节气候——大于直接价值）、<b>潜在价值</b>。</li>
+          <li>保护：<b>就地保护（建立自然保护区——最有效）</b>、易地保护（迁地）、建立基因库、立法、生物技术（人工繁殖）。</li>
+          <li>保护≠禁止开发利用，是<b>合理利用</b>。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>生态工程基本原理</h4>
+        <ul>
+          <li><b>自生</b>：通过生物组分自我组织、自我优化、自我调节维持系统功能（选择适合物种、协调比例）。</li>
+          <li><b>循环</b>：物质循环再生（桑基鱼塘、无废弃物农业）。</li>
+          <li><b>协调</b>：生物与环境、生物与生物协调平衡（不超过环境承载力）。</li>
+          <li><b>整体</b>：社会—经济—自然复合系统统一协调（整体性原理）。</li>
+          <li>生态工程遵循"<b>少消耗、多效益、可持续</b>"，但不能违背自然规律。生态农业原理：物质循环再生+能量多级利用。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== 选择性必修三 生物技术与工程 ==================== -->
+<section class="book-block" id="b5">
+  <div class="book-head">
+    <div class="bno">选必<small>三</small></div>
+    <div><h2>生物技术与工程</h2><div class="sub">发酵工程 · 细胞工程 · 基因工程 · 胚胎工程 · 安全伦理</div></div>
+  </div>
+
+  <div class="chapter" id="b5c1">
+    <h3><span class="cn">1</span>发酵工程<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>微生物培养（培养基·无菌技术）<span class="arrow">→</span> 传统发酵食品 <span class="arrow">→</span> 发酵工程流程与应用</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>微生物的实验室培养</h4>
+        <ul>
+          <li>培养基：按物理性质分<b>液体/固体</b>（加琼脂）；按成分分天然、合成；按用途分选择、鉴别。</li>
+          <li>灭菌与消毒区别：<b>灭菌</b>杀灭一切微生物（高压蒸汽、干热、灼烧、照射）；<b>消毒</b>仅杀死部分（煮沸、巴氏、酒精、氯气）。</li>
+          <li>无菌操作：接种环/涂布器<b>灼烧灭菌</b>，培养基、培养皿<b>高压蒸汽灭菌</b>，超净工作台紫外线+酒精擦拭。</li>
+          <li>接种方法：<b>平板划线法</b>（分离纯化）、<b>稀释涂布平板法</b>（计数，每个活菌长一个菌落）。</li>
+          <li>计数偏小原因：两个或多个细菌连在一起只形成一个菌落。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>传统发酵食品</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>产品</th><th>菌种</th><th>代谢类型</th><th>关键条件</th></tr>
+          <tr><td>果酒</td><td>酵母菌</td><td>兼性厌氧</td><td>前期通气繁殖，后期<b>无氧</b>发酵；18–25℃</td></tr>
+          <tr><td>果醋</td><td>醋酸菌</td><td>好氧</td><td><b>一直通气</b>；30–35℃；糖源不足时乙醇→醋酸</td></tr>
+          <tr><td>腐乳</td><td>毛霉等</td><td>好氧</td><td>蛋白酶、脂肪酶分解大分子</td></tr>
+          <tr><td>泡菜</td><td>乳酸菌</td><td>厌氧</td><td><b>密封</b>无氧发酵；亚硝酸盐含量先升后降</td></tr>
+        </table></div>
+        <div class="box warn"><div class="bt">易错</div>
+          <ul>
+            <li>果酒制作中<b>不需</b>严格灭菌（抑制杂菌：冲洗不消毒、发酵液酸性缺氧）；果醋发酵表面<b>菌膜</b>是醋酸菌。</li>
+            <li>泡菜坛要"泡菜水淹没菜料、密封"，防止乳酸菌厌氧环境被破坏。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>发酵工程的基本环节与应用</h4>
+        <div class="eq">选育菌种 → 扩大培养 → 配制培养基灭菌 → 接种发酵（控制温度 pH 溶氧）→ 分离提纯产物<span class="desc">发酵罐中需监测溶氧量、pH、温度；产物有菌体本身（单细胞蛋白）与代谢产物（抗生素、氨基酸、柠檬酸）</span></div>
+        <ul>
+          <li>应用：食品（味精、酱油、酸奶）、医药（青霉素、胰岛素、疫苗）、化工原料（酒精、乳酸）、环境保护（微生物降解）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b5c2">
+    <h3><span class="cn">2</span>细胞工程<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="framework"><b>知识框架：</b>植物细胞工程 <span class="arrow">→</span> 动物细胞工程 <span class="arrow">→</span> 干细胞与克隆</div>
+    <div class="card full">
+      <h4><span class="dot"></span>植物细胞工程</h4>
+      <ul>
+        <li><b>植物组织培养</b>（原理：细胞全能性）：外植体→脱分化→愈伤组织→再分化→完整植株；条件：<b>无菌 + 适宜激素（生长素/细胞分裂素比例）</b>。</li>
+        <li><b>植物体细胞杂交</b>：去除细胞壁（<b>纤维素酶、果胶酶</b>）→原生质体融合（物理：电激/离心；化学：PEG）→再生细胞壁→组织培养；克服<b>远缘杂交不亲和</b>障碍（如马铃薯-番茄）。</li>
+        <li>应用：快速繁殖、培育无病毒苗（<b>茎尖</b>培养）、突变体利用、细胞产物工厂化生产。</li>
+      </ul>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>动物细胞工程</h4>
+        <ul>
+          <li><b>动物细胞培养</b>（原理：细胞增殖）：材料取幼龄动物组织，<b>胰蛋白酶</b>分散成单个细胞；培养基含血清；气体环境 95% 空气+5% CO₂。</li>
+          <li><b>动物细胞融合</b>（原理：细胞膜流动性）：常用灭活病毒/仙台病毒或 PEG；杂交细胞含双亲遗传物质。</li>
+          <li>核移植（克隆）：去核卵母细胞 + 供体细胞核→重组细胞→胚胎→克隆动物（克隆羊"多莉"）。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>单克隆抗体 <span class="tag freq">高频</span></h4>
+        <ul>
+          <li>原理：B 淋巴细胞（产生特定抗体但<b>不能无限增殖</b>）+ 骨髓瘤细胞（能无限增殖）→<b>杂交瘤细胞</b>（兼有两亲本优点）。</li>
+          <li>筛选：第一次用<b>选择培养基</b>（HAT）淘汰未融合及自身融合细胞；第二次<b>克隆化培养+抗体检测</b>，选出能产生所需抗体的杂交瘤细胞。</li>
+          <li>应用：诊断（"生物导弹"靶向治疗）、治疗、研究。</li>
+        </ul>
+      </div>
+      <div class="card full">
+        <h4><span class="dot"></span>干细胞与应用</h4>
+        <ul>
+          <li>类型：<b>胚胎干细胞</b>（全能性最高，可发育成各种组织细胞）、成体干细胞（造血干细胞、神经干细胞，多能）。</li>
+          <li>应用：白血病骨髓移植（造血干细胞）、组织修复、iPS（诱导多能干细胞）避免伦理争议。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b5c3">
+    <h3><span class="cn">3</span>基因工程<span class="kf">高频 ★★★★★（压轴）</span></h3>
+    <div class="framework"><b>知识框架：</b>三大工具 <span class="arrow">→</span> 基本操作程序 <span class="arrow">→</span> PCR <span class="arrow">→</span> 应用与安全</div>
+    <div class="card full">
+      <h4><span class="dot"></span>基因工程三大工具</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>工具</th><th>作用</th><th>要点</th></tr>
+        <tr><td><b>限制性内切酶</b>（分子手术刀）</td><td>切割 DNA</td><td>识别<b>特定核苷酸序列</b>，在特定位点切断<b>磷酸二酯键</b>，产生黏性末端或平末端</td></tr>
+        <tr><td><b>DNA 连接酶</b>（分子缝合针）</td><td>连接 DNA 片段</td><td>缝合<b>磷酸二酯键</b>（不能连接单链、无识别特异性）</td></tr>
+        <tr><td><b>载体</b>（分子运输车）</td><td>携带目的基因进入受体细胞</td><td>常用<b>质粒</b>（还有噬菌体、动植物病毒）；含复制原点、<b>标记基因</b>（便于筛选）、一个至多个限制酶切割位点（多克隆位点）</td></tr>
+      </table></div>
+      <div class="box danger"><div class="bt">易错</div>
+        <ul>
+          <li>限制酶切的是<b>DNA</b>（脱氧核苷酸间的磷酸二酯键），不是蛋白质；DNA 聚合酶连接单个核苷酸，DNA 连接酶连接<b>两个片段</b>——二者不同。</li>
+          <li>目的基因与载体<b>用同一种限制酶</b>切割→相同黏性末端→才能正确连接（也要防止自身环化，常双酶切）。</li>
+          <li>标记基因作用：<b>检测筛选</b>含目的基因的受体细胞（如氨苄青霉素抗性基因、荧光蛋白基因）。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card full">
+        <h4><span class="dot"></span>基本操作程序（四步）</h4>
+        <div class="eq">① 目的基因的筛选与获取 → ② 基因表达载体的<b>构建（核心）</b> → ③ 将目的基因导入受体细胞 → ④ 目的基因的检测与鉴定</div>
+        <ul>
+          <li><b>表达载体组成</b>：目的基因 + 启动子（RNA 聚合酶识别结合位点）+ 终止子 + 标记基因 + 复制原点。</li>
+          <li>导入：植物常用<b>农杆菌转化法</b>（Ti 质粒 T-DNA 可转移）、基因枪、花粉管通道；动物常用<b>显微注射</b>（受精卵）；微生物常用 Ca²⁺ 处理（<b>感受态细胞</b>）。</li>
+          <li>检测：① 分子水平——DNA 分子杂交（是否导入）、分子杂交（是否转录）、抗原-抗体杂交（是否翻译）；② 个体水平——抗虫接种实验。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>PCR——多聚酶链式反应</h4>
+        <ul>
+          <li>原理：DNA 半保留复制（体外）；需要<b>引物</b>（DNA 合成起始需引物，Taq 酶从 3′端延伸）。</li>
+          <li>循环：<b>变性（90℃以上解旋）→ 复性（55℃左右引物结合）→ 延伸（72℃ Taq 酶合成）</b>。</li>
+          <li>特点：Taq 酶（耐高温 DNA 聚合酶）；指数扩增 2ⁿ；需两种引物。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>应用</h4>
+        <ul>
+          <li>转基因作物（抗虫棉：Bt 毒蛋白基因）、转基因动物（乳腺生物反应器生产药物蛋白）、基因治疗、基因诊断（DNA 探针）、蛋白质工程（改造蛋白质结构→改造基因）。</li>
+          <li>蛋白质工程流程：预期功能→设计蛋白质结构→推测氨基酸序列→<b>找到对应脱氧核苷酸序列（基因）</b>→改造基因。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b5c4">
+    <h3><span class="cn">4</span>胚胎工程<span class="kf">高频 ★★★☆☆</span></h3>
+    <div class="framework"><b>知识框架：</b>体外受精 <span class="arrow">→</span> 早期胚胎培养 <span class="arrow">→</span> 胚胎移植 <span class="arrow">→</span> 胚胎分割</div>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>体外受精与早期胚胎培养</h4>
+        <ul>
+          <li>卵母细胞需培养至<b>减Ⅱ中期</b>（成熟）才可受精；精子需<b>获能处理</b>。</li>
+          <li>受精在体外培养液中进行；受精卵发育：桑葚胚→囊胚（内细胞团→胚胎干细胞来源；滋养层→胎盘胎膜）→原肠胚。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>胚胎移植与胚胎分割</h4>
+        <ul>
+          <li>胚胎移植：供体（良种）与受体母畜<b>同期发情</b>处理；受体的<b>生理状态</b>与供体相同（不需同一遗传性状）。</li>
+          <li>胚胎分割：用分割针/刀将<b>桑葚胚或囊胚</b>均等分割→遗传物质相同（无性繁殖）；<b>滋养层细胞</b>可用于性别鉴定。</li>
+          <li>"试管婴儿"= 体外受精+胚胎移植（有性生殖）；"设计试管婴儿"需植入前遗传学诊断。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="b5c5">
+    <h3><span class="cn">5</span>生物技术的安全性与伦理问题<span class="kf">高频 ★★☆☆☆</span></h3>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>转基因生物的安全性</h4>
+        <ul>
+          <li>争论焦点：食物安全（致敏性、营养成分改变）、生物安全（基因扩散、破坏生物多样性）、环境安全。</li>
+          <li>理性态度：趋利避害，加强<b>风险评估与监测</b>，不盲目反对也不放任。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>伦理问题与相关政策</h4>
+        <ul>
+          <li>禁止<b>生殖性克隆人</b>；治疗性克隆（干细胞研究）有严格限制。</li>
+          <li>中国政府态度：不赞成、不允许、不支持、不接受任何生殖性克隆人实验；设计试管婴儿须符合伦理。</li>
+          <li>基因身份证、基因歧视需法律规范；HIV 携带者应获公平对待。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== 附录 高考工具箱 ==================== -->
+<section class="book-block" id="ap">
+  <div class="book-head">
+    <div class="bno">附录<small>A</small></div>
+    <div><h2>高考工具箱</h2><div class="sub">计算速算 · 实验设计模板 · 科学史 · 易错100条 · 答题规范</div></div>
+  </div>
+
+  <div class="chapter" id="ap1">
+    <h3><span class="cn">A1</span>遗传计算与概率速算<span class="kf">高频 ★★★★★</span></h3>
+    <div class="grid2">
+      <div class="card full">
+        <h4><span class="dot"></span>基础公式汇总</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <tr><th>情境</th><th>公式</th></tr>
+          <tr><td>n 对独立遗传的杂合基因</td><td>配子种类 2ⁿ；自交基因型 3ⁿ；表现型 2ⁿ（完全显性）；F₂ 重组型比例 3/8（两对）</td></tr>
+          <tr><td>杂合子 Aa 连续自交 n 代</td><td>纯合子比例 1−1/2ⁿ；杂合子 1/2ⁿ</td></tr>
+          <tr><td>两病概率组合</td><td>只患甲=m(1−n)；只患一种=m+n−2mn；至少患一种=m+n−mn；全不患=(1−m)(1−n)</td></tr>
+          <tr><td>自由组合分离比变式</td><td>9:7（互补）、15:1（累加）、9:3:4（抑制显性）、9:6:1（叠加）、12:3:1（显性抑制）、1:4:6:4:1（数量性状）</td></tr>
+          <tr><td>基因频率（常染色体）</td><td>A = AA + Aa/2；a = aa + Aa/2</td></tr>
+          <tr><td>遗传平衡</td><td>p²+2pq+q²=1（p=A，q=a，随机交配稳定）</td></tr>
+          <tr><td>DNA 复制 n 次</td><td>需游离碱基 = 一条链的该碱基数 × (2ⁿ−1)</td></tr>
+          <tr><td>翻译</td><td>氨基酸数 = 密码子数 = 反密码子数；DNA 碱基数 : mRNA 碱基数 : 氨基酸数 = 6:3:1</td></tr>
+        </table></div>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>分离比速判法</h4>
+        <ul>
+          <li>后代 3:1 → 杂合×杂合（Aa×Aa）；1:1 → 测交（Aa×aa）；全显 → AA×__；全隐 → aa×aa。</li>
+          <li>9:3:3:1 → 双杂自交；1:1:1:1 → 双杂测交；3:1:3:1 → 一杂自交一杂测交。</li>
+          <li>多基因时<b>逐对分析再相乘</b>，避免一次考虑多对。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>系谱图解题流程</h4>
+        <ul>
+          <li>① 判断显隐性（无中生有→隐；有中生无→显）；</li>
+          <li>② 判断是否伴性（口诀见必修二第4章）；</li>
+          <li>③ 写出已知个体的<b>表现型基因型（含部分未知）</b>；</li>
+          <li>④ 计算目标概率，注意"性别已知/未知"（如"生一男孩患病"与"生一个患病男孩"概率不同，后者需乘1/2）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ap2">
+    <h3><span class="cn">A2</span>实验设计答题模板<span class="kf">高考必考</span></h3>
+    <div class="card full">
+      <h4><span class="dot"></span>实验设计四要素与对照类型</h4>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>要素</th><th>说明</th><th>举例（探究光照对种子萌发的影响）</th></tr>
+        <tr><td>自变量</td><td>人为改变的量，<b>只能有一个</b></td><td>光照条件（有光/无光）</td></tr>
+        <tr><td>因变量</td><td>随自变量变化的可观测指标</td><td>萌发率、发芽时间</td></tr>
+        <tr><td>无关变量</td><td>需<b>保持相同且适宜</b></td><td>温度、水分、氧气、种子数量、种类</td></tr>
+        <tr><td>对照</td><td>提供比较基准</td><td>有光组为实验组，无光组为对照组</td></tr>
+      </table></div>
+      <div class="grid2" style="margin-top:10px">
+        <div class="box tip"><div class="bt">对照类型</div>
+          <ul>
+            <li>空白对照：不加处理（如清水组）。</li>
+            <li>自身对照：前后自身比较（质壁分离复原）。</li>
+            <li>相互对照：多个实验组互相对比（不同温度组）。</li>
+            <li>条件对照：施加非研究因素（如浇蒸馏水对照浇清水组）。</li>
+          </ul>
+        </div>
+        <div class="box formula"><div class="bt">答题万能句式</div>
+          <ul>
+            <li>目的：探究/验证<b>"自变量"</b>对<b>"因变量"</b>的影响。</li>
+            <li>思路：取<b>若干组</b>生长状况相同（且数量相等）的材料，分别置于<b>不同自变量的条件</b>下，其他条件<b>相同且适宜</b>，培养一段时间后，观察并记录<b>因变量指标</b>。</li>
+            <li>预期：若实验组结果<b>明显高于/低于</b>对照组，则说明……；若无明显差异，则说明……。</li>
+            <li>结论：<b>先写事实再写因果</b>，语言表述完整，不写"可能"。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ap3">
+    <h3><span class="cn">A3</span>经典科学史实验汇总<span class="kf">高频 ★★★★☆</span></h3>
+    <div class="card full">
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th>科学家</th><th>实验/成就</th><th>结论或意义</th></tr>
+        <tr><td>施莱登、施旺</td><td>观察动植物的结构</td><td>创立细胞学说</td></tr>
+        <tr><td>鲁宾、卡门</td><td><sup>18</sup>O 同位素标记 H₂O 和 CO₂</td><td>光合作用释放的 O₂ 全部来自<b>水</b></td></tr>
+        <tr><td>恩格尔曼</td><td>水绵+好氧细菌光照实验</td><td>叶绿体是光合作用的场所（好氧菌聚集在红光、蓝紫光区）</td></tr>
+        <tr><td>萨克斯</td><td>绿叶暗处饥饿后曝光，碘蒸气检测</td><td>光合作用产生<b>淀粉</b>，需光</td></tr>
+        <tr><td>普利斯特利</td><td>蜡烛/小鼠与植物共置密封钟罩</td><td>植物可以<b>更新空气</b>（产生 O₂）</td></tr>
+        <tr><td>格里菲思 / 艾弗里</td><td>肺炎链球菌转化实验</td><td>转化因子存在 / <b>DNA 是遗传物质</b></td></tr>
+        <tr><td>赫尔希、蔡斯</td><td>噬菌体侵染细菌（<sup>32</sup>P、<sup>35</sup>S）</td><td>DNA 是 T₂ 噬菌体的遗传物质</td></tr>
+        <tr><td>沃森、克里克</td><td>DNA 衍射数据+模型构建</td><td>提出 DNA<b>双螺旋结构</b>模型</td></tr>
+        <tr><td>梅塞尔森、斯塔尔</td><td><sup>15</sup>N 标记+密度梯度离心</td><td>证明 DNA <b>半保留复制</b></td></tr>
+        <tr><td>孟德尔</td><td>豌豆杂交实验</td><td>分离定律、自由组合定律（假说-演绎法）</td></tr>
+        <tr><td>摩尔根</td><td>果蝇白眼遗传实验</td><td>证明<b>基因在染色体上</b>（线性排列）</td></tr>
+        <tr><td>达尔文 / 温特</td><td>胚芽鞘向光性系列实验</td><td>尖端产生"影响" / 命名<b>生长素</b></td></tr>
+        <tr><td>巴甫洛夫</td><td>狗唾液分泌实验</td><td>条件反射（高级神经活动）</td></tr>
+        <tr><td>坎农</td><td>内环境稳态研究</td><td>提出稳态概念（神经-体液调节）</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ap4">
+    <h3><span class="cn">A4</span>易错易混 100 条<span class="kf">考前必过一遍</span></h3>
+    <div class="card full">
+      <ol class="mistakes">
+        <li>病毒不属于生命系统，也不属于原核生物，只能寄生在活细胞中。</li>
+        <li>蓝细菌是原核生物，有叶绿素和藻蓝素但<b>无叶绿体</b>。</li>
+        <li>支原体无细胞壁，是最小的原核生物。</li>
+        <li>细胞是生命系统最基本的层次，病毒不是。</li>
+        <li>蛋白质基本单位是氨基酸（21种），不是核苷酸。</li>
+        <li>氨基酸至少含一个氨基和一个羧基，且连在同一碳原子上。</li>
+        <li>高温使蛋白质变性是破坏空间结构，肽键不断裂。</li>
+        <li>肽键数=氨基酸数−肽链数；环状多肽肽键数=氨基酸数。</li>
+        <li>细胞中有 8 种核苷酸，病毒只有 4 种。</li>
+        <li>DNA 特有碱基 T、五碳糖为脱氧核糖；RNA 特有 U、核糖。</li>
+        <li>斐林试剂现配现用、等量混合、水浴加热；双缩脲先加 A 后加 B、不加热。</li>
+        <li>脂肪鉴定用苏丹Ⅲ（橘黄）/Ⅳ（红），50% 酒精洗浮色，需显微观察。</li>
+        <li>自由水比例高则代谢旺盛，结合水比例高则抗逆性强。</li>
+        <li>无机盐不提供能量，主要维持渗透压和酸碱平衡。</li>
+        <li>淀粉、纤维素、糖原的基本单位都是葡萄糖。</li>
+        <li>脂肪是主要储能物质，糖类是主要能源物质，ATP 是直接能源。</li>
+        <li>磷脂含 C、H、O、N、P，构成生物膜的基本支架。</li>
+        <li>性激素是固醇（脂质），化学本质不是蛋白质。</li>
+        <li>细胞膜结构为流动镶嵌模型，具流动性和选择透过性。</li>
+        <li>糖蛋白分布在膜外侧，与识别、保护、信息交流有关。</li>
+        <li>哺乳动物成熟红细胞无细胞核和众多细胞器，是制膜材料。</li>
+        <li>无膜细胞器：核糖体、中心体；双层膜：线粒体、叶绿体。</li>
+        <li>原核细胞唯一细胞器是核糖体。</li>
+        <li>分泌蛋白途径：核糖体→内质网→高尔基体→细胞膜（线粒体供能）。</li>
+        <li>细胞骨架是蛋白质纤维，与运动、分裂有关。</li>
+        <li>核孔具有选择性，DNA 不能通过核孔出细胞核。</li>
+        <li>染色质与染色体是同种物质在不同时期的不同形态。</li>
+        <li>协助扩散顺浓度梯度、需载体、不耗能。</li>
+        <li>主动运输可逆浓度梯度，需载体和能量（ATP）。</li>
+        <li>葡萄糖进红细胞是协助扩散；进小肠上皮细胞是主动运输。</li>
+        <li>自由扩散实例：O₂、CO₂、水、甘油、乙醇、苯、脂肪酸。</li>
+        <li>质壁分离需：活细胞、大液泡、外界溶液浓度高于细胞液。</li>
+        <li>KNO₃、尿素、甘油溶液中质壁分离可自动复原。</li>
+        <li>酶只降低活化能，不提供能量、不改变平衡点。</li>
+        <li>酶绝大多数是蛋白质，少数是 RNA。</li>
+        <li>高温、过酸、过碱使酶失活（不可逆）；低温抑制活性（可恢复）。</li>
+        <li>ATP 水解与合成不是可逆反应：条件、场所、能量来源均不同。</li>
+        <li>光合作用释放的 O₂ 全部来自水（鲁宾、卡门证实）。</li>
+        <li>光反应产物 ATP、NADPH 供暗反应利用，暗反应消耗 ATP。</li>
+        <li>停止光照：C₃ 增多、C₅ 减少；降低 CO₂：C₃ 减少、C₅ 增多。</li>
+        <li>滤纸条自上而下：胡萝卜素、叶黄素、叶绿素 a、叶绿素 b。</li>
+        <li>提取色素：无水乙醇+SiO₂+CaCO₃；分离用层析液（纸层析法）。</li>
+        <li>有氧呼吸第三阶段在线粒体内膜，[H]与O₂结合生成水并释放大量能量。</li>
+        <li>人体无氧呼吸只产生乳酸，不产生 CO₂。</li>
+        <li>有氧呼吸与无氧呼吸第一阶段完全相同，都在细胞质基质。</li>
+        <li>有丝分裂后期染色体数加倍、染色单体数为 0。</li>
+        <li>减数分裂染色体数目减半发生在减Ⅰ（同源染色体分离）。</li>
+        <li>交叉互换发生在减Ⅰ前期同源染色体的<b>非姐妹染色单体</b>之间。</li>
+        <li>精子形成过程均等分裂；卵细胞形成过程不均等分裂。</li>
+        <li>受精作用使染色体恢复 2n，细胞质遗传物质几乎全来自母方。</li>
+        <li>豌豆自花传粉、闭花受粉，自然状态下为纯种。</li>
+        <li>测交是与隐性纯合子杂交，可检测 F₁ 的基因型及配子比例。</li>
+        <li>分离定律的实质：等位基因随同源染色体分开而分离。</li>
+        <li>自由组合定律实质：非同源染色体上的非等位基因自由组合。</li>
+        <li>9:3:3:1 是两对独立遗传完全显性双杂自交的结果。</li>
+        <li>萨顿用类比推理提出基因在染色体上，摩尔根用假说-演绎法证明。</li>
+        <li>噬菌体侵染实验证明 DNA 是遗传物质，但不能证明蛋白质不是。</li>
+        <li><sup>32</sup>P 标记的 DNA 进入细菌（沉淀物）；<sup>35</sup>S 标记的蛋白质留外壳（上清液）。</li>
+        <li>DNA 双链中 A=T、G=C，任意两不互补碱基之和占 50%。</li>
+        <li>DNA 复制为半保留复制、边解旋边复制，发生在分裂间期。</li>
+        <li>复制 n 次共形成 2ⁿ 个 DNA，其中含母链的恒为 2 个。</li>
+        <li>转录产物是 mRNA、tRNA、rRNA。</li>
+        <li>密码子 64 种、61 种编码氨基酸；终止密码子 UAA、UAG、UGA。</li>
+        <li>一种 tRNA 只能转运一种氨基酸，tRNA 反密码子 61 种。</li>
+        <li>细胞分化的实质是基因的选择性表达，遗传物质不变。</li>
+        <li>基因突变产生新基因（根本来源），基因重组产生新基因型。</li>
+        <li>基因突变特点：普遍性、随机性、不定向性、低频性、多害少利性。</li>
+        <li>染色体结构变异：缺失、重复、倒位、易位（易位发生于非同源染色体间）。</li>
+        <li>单倍体由配子直接发育而来，不一定只有一个染色体组。</li>
+        <li>秋水仙素抑制纺锤体形成，使染色体数目加倍。</li>
+        <li>单倍体育种明显缩短育种年限，后代均为纯合子。</li>
+        <li>21 三体综合征属于染色体数目变异。</li>
+        <li>伴 X 隐性遗传：男性患者多于女性，具交叉遗传特点。</li>
+        <li>抗维生素 D 佝偻病是伴 X 显性遗传，女性患者多于男性。</li>
+        <li>系谱判断：无中生有为隐性，有中生无为显性。</li>
+        <li>种群是生物进化的基本单位，进化的实质是基因频率的改变。</li>
+        <li>突变和基因重组为进化提供原材料，自然选择决定进化方向。</li>
+        <li>隔离是物种形成的必要条件，生殖隔离是新物种形成的标志。</li>
+        <li>内环境即细胞外液：血浆、组织液、淋巴。</li>
+        <li>血浆蛋白在内环境中，血红蛋白在红细胞内、不属于内环境。</li>
+        <li>细胞外液渗透压 90% 以上来自 Na⁺ 和 Cl⁻。</li>
+        <li>稳态调节机制是神经—体液—免疫调节网络。</li>
+        <li>静息电位成因 K⁺ 外流，动作电位成因 Na⁺ 内流（均顺浓度梯度）。</li>
+        <li>兴奋在神经纤维上双向传导，经突触单向传递。</li>
+        <li>突触处信号转变：电信号→化学信号→电信号。</li>
+        <li>神经递质经胞吐释放，作用后被降解或回收。</li>
+        <li>胰岛素是唯一能降低血糖的激素；与胰高血糖素相互拮抗。</li>
+        <li>抗利尿激素由下丘脑合成、垂体释放，促进肾小管重吸收水。</li>
+        <li>甲状腺激素分泌受下丘脑-垂体分级调节和负反馈调节。</li>
+        <li>体液免疫靠抗体中和抗原；细胞免疫靠细胞毒性 T 细胞裂解靶细胞。</li>
+        <li>过敏反应是免疫防御功能过强；艾滋病（HIV 攻击辅助性 T 细胞）是免疫缺陷。</li>
+        <li>生长素化学本质是吲哚乙酸，极性运输（形态学上端→下端）是主动运输。</li>
+        <li>生长素作用具有两重性：低浓度促进、高浓度抑制；根比芽比茎敏感。</li>
+        <li>顶端优势原理：侧芽处生长素浓度过高被抑制。</li>
+        <li>J 型增长增长率不变；S 型在 K/2 时增长速率最大。</li>
+        <li>能量流动单向流动、逐级递减，传递效率 10%–20%，能量金字塔不倒置。</li>
+        <li>碳在无机环境与生物群落间以 CO₂ 循环，在群落内部以有机物传递。</li>
+        <li>生态系统的基石是生产者，分解者是必不可少的成分。</li>
+        <li>初生演替序列：裸岩→地衣→苔藓→草本→灌木→森林。</li>
+        <li>标志重捕法 N=M×n/m，标志物脱落会使估算值偏大。</li>
+        <li>基因工程三大工具：限制酶、DNA 连接酶、载体。</li>
+        <li>限制酶切割磷酸二酯键，识别特定核苷酸序列；DNA 连接酶缝合磷酸二酯键。</li>
+        <li>表达载体含目的基因、启动子、终止子、标记基因。</li>
+        <li>PCR 循环：变性→复性→延伸，需要引物和耐高温的 Taq 酶。</li>
+        <li>单克隆抗体由杂交瘤细胞（B 细胞+骨髓瘤细胞）产生，需两次筛选。</li>
+        <li>果酒制作需无氧（酵母菌兼性厌氧）；果醋制作需持续有氧（醋酸菌）。</li>
+        <li>植物组织培养原理是细胞全能性；去细胞壁用纤维素酶和果胶酶。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter" id="ap5">
+    <h3><span class="cn">A5</span>高频考点与答题规范<span class="kf">考前 30 分钟</span></h3>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot"></span>高频考点清单</h4>
+        <ul>
+          <li>① 光合作用与细胞呼吸的综合（曲线图、实验）；</li>
+          <li>② 遗传定律与伴性遗传的计算、系谱图；</li>
+          <li>③ 减数分裂与有丝分裂图像/曲线判断；</li>
+          <li>④ 神经—体液—免疫调节实例分析；</li>
+          <li>⑤ 种群、群落、生态系统能量流动；</li>
+          <li>⑥ 基因工程操作流程（选必三压轴）；</li>
+          <li>⑦ 实验设计（对照、变量、结论）；</li>
+          <li>⑧ 教材实验的原理、步骤与现象。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot"></span>长句表述答题模板</h4>
+        <div class="box formula" style="margin-top:0"><div class="bt">原因类</div>
+          <ul><li>"因为……（生理过程），导致……（直接结果），从而……（最终结果）"——由因到果、逻辑完整。</li></ul>
+        </div>
+        <div class="box tip"><div class="bt">依据类</div>
+          <ul><li>"由实验数据可知……，说明……"——先摆证据再下结论，不写空洞套话。</li></ul>
+        </div>
+        <div class="box warn"><div class="bt">规范提醒</div>
+          <ul>
+            <li>遗传图解要写基因型、表现型、比例；</li>
+            <li>曲线题先看<b>横纵轴、起点、拐点、交点</b>（如光补偿点）；</li>
+            <li>填空作答与题意对应，注意"逐渐/相对稳定"等程度词；</li>
+            <li>实验结论与假设对应，分清"探究"（可能/如果）与"验证"（是/不是）。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>高中生物三年知识大全 · 依据新课标人教版教材整理 · 仅供学习复习使用</p>
+  <p style="margin-top:4px">建议：先通读框架，再逐章精读，考前对照"易错易混100条"自查</p>
+</footer>
+<script>
+(function(){
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  var sidebar = document.getElementById('sidebar');
+  var menuBtn = document.getElementById('menuBtn');
+  var mask = document.getElementById('mask');
+  var toTop = document.getElementById('toTop');
+  var progress = document.getElementById('progress');
+  var searchInput = document.getElementById('searchInput');
+  var searchCount = document.getElementById('searchCount');
+  var navMap = {};
+  Array.prototype.forEach.call(sidebar.querySelectorAll('a.item'), function(a){
+    var href = a.getAttribute('href');
+    if(href && href.charAt(0)==='#') navMap[href.slice(1)] = a;
+  });
+
+  function closeMenu(){ sidebar.classList.remove('open'); mask.classList.remove('show'); }
+  menuBtn.addEventListener('click', function(){ sidebar.classList.add('open'); mask.classList.add('show'); });
+  mask.addEventListener('click', closeMenu);
+  sidebar.addEventListener('click', function(e){ if(e.target.closest('a')) closeMenu(); });
+
+  function onScroll(){
+    var sc = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max>0 ? (sc/max*100) : 0) + '%';
+    toTop.classList.toggle('show', sc>400);
+    var current = null;
+    var secs = document.querySelectorAll('.chapter, #overview');
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top <= 150) current = secs[i].id;
+    }
+    Object.keys(navMap).forEach(function(k){ navMap[k].classList.toggle('active', k===current); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  function escapeReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+  function highlight(root, q){
+    var re = new RegExp('('+escapeReg(q)+')','gi');
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while(walker.nextNode()){
+      re.lastIndex = 0;
+      if(re.test(walker.currentNode.nodeValue)) nodes.push(walker.currentNode);
+    }
+    nodes.forEach(function(n){
+      var span = document.createElement('span');
+      span.innerHTML = n.nodeValue.replace(re, '<mark>$1</mark>');
+      n.parentNode.replaceChild(span, n);
+    });
+  }
+  function clearMarks(){
+    document.querySelectorAll('mark').forEach(function(m){
+      var t = document.createTextNode(m.textContent);
+      m.parentNode.replaceChild(t, m);
+    });
+  }
+  var timer = null;
+  searchInput.addEventListener('input', function(){
+    clearTimeout(timer);
+    var q = this.value.trim();
+    timer = setTimeout(function(){
+      clearMarks();
+      if(!q){
+        chapters.forEach(function(c){ c.classList.remove('hidden-chapter'); });
+        searchCount.textContent = '';
+        return;
+      }
+      var n = 0;
+      chapters.forEach(function(c){
+        var hit = c.textContent.toLowerCase().indexOf(q.toLowerCase()) > -1;
+        c.classList.toggle('hidden-chapter', !hit);
+        if(hit){ n++; highlight(c, q); }
+      });
+      searchCount.textContent = n>0 ? ('匹配 '+n+' 个章节') : '未找到，换个关键词试试';
+    }, 150);
+  });
+})();
+</script>
+
+
+
+
+
+
+
+</main>
+</div>
+</body>
+</html>
